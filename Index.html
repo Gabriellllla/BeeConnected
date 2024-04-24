@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,15 +8,20 @@
 </head>
 <body>
     <div class="login-container">
-        <img src="bee_logo.png" alt="BeeConnected Logo" class="logo">
-        <h2>Bun venit la BeeConnected</h2>
+        <img src="imagini/bee_logo.png" alt="BeeConnected Logo" class="logo">
+        <h2>Bun venit la BeeConnected!</h2>
         <form action="autentificare.php" method="POST">
-            <input type="text" name="username" placeholder="Nume de utilizator" required>
-            <input type="password" name="password" placeholder="Parolă" required>
-            <button type="submit">Autentificare</button>
+            <input type="text" id="input-field" placeholder="Nume de utilizator" >
+            <input type="password" name="password" placeholder="Parolă" required> 
+            <button id="add-button">Autentificare</button>
         </form>
         <a href="recuperare_parola.html">Ai uitat parola?</a>
         <a href="Inregistrare.html">Creează un cont nou</a>
     </div>
+
+    <script src="functions.js" type="module" ></script>
+    <script src="index.js" type="module" ></script>
 </body>
-</html>
+</html> 
+
+
