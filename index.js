@@ -17,20 +17,23 @@
 
 
 import { initializeApp } from "firebase/app";
+import { getDatabase, ref, push } from "firebase/database";
 
 const appSettings = {
   databaseURL: "https://bee-connected-2a01a-default-rtdb.europe-west1.firebasedatabase.app/"
 }
 
 const app = initializeApp(appSettings);
-
-console.log(app);
+const database = getDatabase(app);
+const utilizatoriInDB = ref(database, "utilizatori");
 
 const inputFieldEl = document.getElementById("input-field");
 const addButtonEl =  document.getElementById("add-button");
 
 addButtonEl.addEventListener("click", function(){
   let inputValue = inputFieldEl.value;
+
+  push(utilizatoriInDB, inputValue);
 
   console.log(`${inputValue} added to database`);
   
