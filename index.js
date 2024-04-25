@@ -101,7 +101,7 @@ loginButtonEl.addEventListener("click", function() {
             // Autentificare reușită
             const user = userCredential.user;
             console.log("Autentificare reușită pentru:", user.email);
-            window.location.href = "pagina-utilizator.html";
+            window.location.href = "succes.html";
             // Redirecționează utilizatorul către altă pagină sau efectuează alte acțiuni necesare
         })
         .catch((error) => {
