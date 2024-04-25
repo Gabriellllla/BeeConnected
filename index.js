@@ -12,7 +12,7 @@ const firebaseConfig = {
   measurementId: "G-00SQH47GGE"
 };
 
-firebase.initializeApp(firebaseConfig);
+const app = firebase.initializeApp(firebaseConfig);
 
 // Obțineți referința către serviciul de autentificare
 const auth = firebase.auth();
@@ -27,7 +27,7 @@ const appSettings = {
   databaseURL: "https://bee-connected-2a01a-default-rtdb.europe-west1.firebasedatabase.app/"
 }
 
-const app = initializeApp(appSettings);
+//const app = initializeApp(appSettings);
 const database = getDatabase(app);
 const utilizatoriInDB = ref(database, "utilizatori");
 
