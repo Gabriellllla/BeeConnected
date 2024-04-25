@@ -18,6 +18,8 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
 import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+
 
 const appSettings = {
   databaseURL: "https://bee-connected-2a01a-default-rtdb.europe-west1.firebasedatabase.app/"
