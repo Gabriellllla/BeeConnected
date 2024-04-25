@@ -89,14 +89,14 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 const emailInputEl = document.getElementById("email");
-const passwordInputEl = document.getElementById("password");
+const parolaInputEl = document.getElementById("parola");
 const loginButtonEl = document.getElementById("login-button");
 
 loginButtonEl.addEventListener("click", function() {
     const email = emailInputEl.value;
-    const password = passwordInputEl.value;
+    const parola = parolaInputEl.value;
 
-    signInWithEmailAndPassword(auth, email, password)
+    signInWithEmailAndPassword(auth, email, parola)
         .then((userCredential) => {
             // Autentificare reușită
             const user = userCredential.user;
