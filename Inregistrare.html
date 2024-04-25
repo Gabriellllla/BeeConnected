@@ -29,65 +29,6 @@
             <button type="submit">Inregistrare</button>
         </form>
     </div>
-
-
-
- <!-- Includeți SDK-ul Firebase -->
- <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"></script>
- <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js"></script>
- <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"></script>
-
- <!-- Configurați Firebase -->
- <script>
-     const firebaseConfig = {
-         apiKey: "AIzaSyDY4OQCbazOZQ9EIFZR5iY1tfV5yQ2IJ4g",
-         authDomain: "bee-connected-2a01a.firebaseapp.com",
-         projectId: "bee-connected-2a01a",
-         storageBucket: "bee-connected-2a01a.appspot.com",
-         messagingSenderId: "1037546953098",
-         appId: "1:1037546953098:web:66810ebfba86ff36111073"
-     };
-
-
-
-     // Inițializați Firebase
-     firebase.initializeApp(firebaseConfig);
- </script>
-
- <!-- Script JavaScript pentru înregistrare -->
- <script>
-     function register() {
-         const nume = document.getElementById("nume").value;
-         const prenume = document.getElementById("prenume").value;
-         const email = document.getElementById("email").value;
-         const parola = document.getElementById("parola").value;
-
-         // Trimiteți cererea de înregistrare către Firebase Authentication
-         firebase.auth().createUserWithEmailAndPassword(email, parola)
-             .then((userCredential) => {
-                 // Salvare date suplimentare în Firestore sau Realtime Database
-                 const userData = {
-                     nume: nume,
-                     prenume: prenume,
-                     email: email
-                 };
-
-                 // Exemplu de salvare în Realtime Database
-                 firebase.database().ref('utilizatori/' + userCredential.user.uid).set(userData)
-                     .then(() => {
-                         console.log("Utilizator înregistrat și datele salvate în Firebase.");
-                         // Redirecționați utilizatorul către altă pagină sau efectuați alte acțiuni necesare
-                     })
-                     .catch((error) => {
-                         console.error("Eroare la salvarea datelor în Firebase: ", error);
-                     });
-             })
-             .catch((error) => {
-                 console.error("Eroare la înregistrare în Firebase: ", error);
-             });
-     }
- </script>
-
-
+    <script src="register.js"></script>
 </body>
 </html>
