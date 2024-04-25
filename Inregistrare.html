@@ -29,12 +29,16 @@
             <button id="register-button" type="submit">Inregistrare</button>
         </form>
     </div>
-    <script> 
-    import { initializeApp } from 'firebase/app';
- import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+     
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"></script>
+<!-- Firebase Authentication (pentru autentificare) -->
+<script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js"></script>
+<!-- Alte module Firebase (dacă sunt necesare) -->
 
-const firebaseConfig = {
-  apiKey: "AIzaSyDY4OQCbazOZQ9EIFZR5iY1tfV5yQ2IJ4g",
+<!-- Inițializarea Firebase -->
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyDY4OQCbazOZQ9EIFZR5iY1tfV5yQ2IJ4g",
   authDomain: "bee-connected-2a01a.firebaseapp.com",
   databaseURL: "https://bee-connected-2a01a-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "bee-connected-2a01a",
@@ -42,8 +46,9 @@ const firebaseConfig = {
   messagingSenderId: "1037546953098",
   appId: "1:1037546953098:web:66810ebfba86ff36111073",
   measurementId: "G-00SQH47GGE"
-};
-const app = firebase.initializeApp(firebaseConfig);
+  };
+  firebase.initializeApp(firebaseConfig);
+</script>
     </script>
     <script src="index.js" type="module"></script>
 </body>
