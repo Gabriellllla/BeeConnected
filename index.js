@@ -39,7 +39,7 @@ registerButtonEl.addEventListener("click", function(){
     const email = emailInputEl.value;
     const parola = parolaInputEl.value;
     // Înregistrare utilizator cu adresa de email și parola
-    createUserWithEmailAndPassword(app.auth(), email, parola)
+    createUserWithEmailAndPassword(app, email, parola)
         .then((userCredential) => {
             // Salvare date suplimentare în baza de date
             const userData = {
