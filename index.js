@@ -20,7 +20,7 @@ const auth = firebase.auth();
 //import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
 //import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+//import { getAuth } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 
 
 const appSettings = {
