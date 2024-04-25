@@ -1,6 +1,6 @@
-import { initializeApp } from 'firebase/app';
- import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-
+import { initializeApp } from './node_modules/firebase/app';
+ import { getAuth, createUserWithEmailAndPassword } from "./node_modules/firebase/auth";
+ import { getDatabase, ref, push } from "./node_modules/firebase/database";
 const firebaseConfig = {
   apiKey: "AIzaSyDY4OQCbazOZQ9EIFZR5iY1tfV5yQ2IJ4g",
   authDomain: "bee-connected-2a01a.firebaseapp.com",
