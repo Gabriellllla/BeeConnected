@@ -8,13 +8,20 @@
 </head>
 <body>
     <div class="login-container">
+        
         <img src="imagini/bee_logo.png" alt="BeeConnected Logo" class="logo">
-        <h2>Bun venit la BeeConnected!</h2>
-            <input type="text" id="input-field" placeholder="Nume de utilizator" >
-            <button id="add-button">Autentificare</button>
+        <h2>Welcome to BeeConnected</h2>
+        <div class="input-group">
+
+            <input type="email" id="email" name="email" placeholder="Email" required>
+        </div>
+        <div class="input-group">
+            <input type="password" id="parola" name="password" placeholder="Parola" required>
+            <button id="login-button">Autentificare</button>
         </form>
-        <a href="recuperare_parola.html">Ai uitat parola?</a>
+        <!-- <a href="recuperare_parola.html">Ai uitat parola?</a> -->
         <a href="Inregistrare.html">Creează un cont nou</a>
+   
     </div>
 
     <script src="functions.js" type="module" ></script>

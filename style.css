@@ -7,8 +7,29 @@ body {
     align-items: center;
     height: 100vh;
     /* Adăugare imagine de fundal */
-    background-image: url('imagini/fall.jpg');
+    background-image: url('imagini/image2.jpeg');
     background-size: cover;
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        max-width: 90%; /* Ajustează lățimea containerului */
+        margin: 20px auto; /* Ajustează marginile */
+        padding: 10px; /* Ajustează padding-ul */
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    button {
+        width: 90%; /* Ajustează lățimea elementelor de intrare */
+    }
+}
+
+/* Media query pentru ecrane mai mari */
+@media only screen and (min-width: 1200px) {
+    .container {
+        max-width: 1200px; /* Ajustează lățimea maximă a containerului */
+    }
 }
 
 .login-container {
@@ -17,10 +38,15 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
 }
 
 .logo {
-    width: 100px;
+    width: 250px;
     height: auto;
 }
 
@@ -38,12 +64,39 @@ button {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    
 }
 
 button {
     background-color: #ffc107;
     color: #fff;
     cursor: pointer;
+}
+
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 300px;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    justify-content: center;
+}
+input[type="email"]{
+    width: 280px;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
 }
 
 button:hover {
@@ -55,4 +108,24 @@ a {
     margin-top: 10px;
     text-decoration: none;
     color: #007bff;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 0;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
 }
