@@ -1,79 +1,8 @@
-// import { initializeApp } from './node_modules/firebase/app';
-// import { getAuth, createUserWithEmailAndPassword } from "./node_modules/firebase/auth";
-//  import { getDatabase, ref, push } from "./node_modules/firebase/database";
-// const firebaseConfig = {
-//   apiKey: "AIzaSyDY4OQCbazOZQ9EIFZR5iY1tfV5yQ2IJ4g",
-//   authDomain: "bee-connected-2a01a.firebaseapp.com",
-//   databaseURL: "https://bee-connected-2a01a-default-rtdb.europe-west1.firebasedatabase.app",
-//   projectId: "bee-connected-2a01a",
-//   storageBucket: "bee-connected-2a01a.appspot.com",
-//   messagingSenderId: "1037546953098",
-//   appId: "1:1037546953098:web:66810ebfba86ff36111073",
-//   measurementId: "G-00SQH47GGE"
-// };
-// const app = firebase.initializeApp(firebaseConfig);
-// // Obțineți referința către serviciul de autentificare
-// const auth = firebase.auth();
-
-// import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-// import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
-// import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
-// import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
-// //import { getAuth } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
-
-
-// const appSettings = {
-//   databaseURL: "https://bee-connected-2a01a-default-rtdb.europe-west1.firebasedatabase.app/"
-// }
-// const app = initializeApp(appSettings);
-// const database = getDatabase(app);
-// const utilizatoriInDB = ref(database, "utilizatori");
-// const numeInputEl = document.getElementById("nume");
-// const prenumeInputEl = document.getElementById("prenume");
-// const emailInputEl = document.getElementById("email");
-// const parolaInputEl = document.getElementById("parola");
-// const registerButtonEl = document.getElementById("register-button");
-// registerButtonEl.addEventListener("click", function(){
-//     const nume = numeInputEl.value;
-//     const prenume = prenumeInputEl.value;
-//     const email = emailInputEl.value;
-//     const parola = parolaInputEl.value;
-//     // Înregistrare utilizator cu adresa de email și parola
-//     createUserWithEmailAndPassword(app.auth(), email, parola)
-//         .then((userCredential) => {
-//             // Salvare date suplimentare în baza de date
-//             const userData = {
-//                 nume: nume,
-//                 prenume: prenume,
-//                 email: email
-//             };
-//             // Salvare în baza de date
-//             push(utilizatoriInDB, userData)
-//                 .then(() => {
-//                     console.log("Utilizator înregistrat și datele salvate în Firebase.");
-//                     // Redirecționați utilizatorul către altă pagină sau efectuați alte acțiuni necesare
-//                 })
-//                 .catch((error) => {
-//                     console.error("Eroare la salvarea datelor în Firebase: ", error);
-//                 });
-//         })
-//         .catch((error) => {
-//             console.error("Eroare la înregistrare în Firebase: ", error);
-//         });
-// });
-// const inputFieldEl = document.getElementById("input-field");
-// const addButtonEl =  document.getElementById("add-button");
-// addButtonEl.addEventListener("click", function(){
-//   let inputValue = inputFieldEl.value;
-//   push(utilizatoriInDB, inputValue);
-//   console.log(`${inputValue} added to database`);
-  
-// });
-
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 
+// Configurarea Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyDY4OQCbazOZQ9EIFZR5iY1tfV5yQ2IJ4g",
   authDomain: "bee-connected-2a01a.firebaseapp.com",
@@ -85,17 +14,25 @@ const firebaseConfig = {
   measurementId: "G-00SQH47GGE"
 };
 
+// Inițializarea aplicației Firebase
 const app = initializeApp(firebaseConfig);
+
+// Obținerea serviciului de autentificare
 const auth = getAuth(app);
 
+
+// Referințele către elementele HTML
 const emailInputEl = document.getElementById("email");
 const parolaInputEl = document.getElementById("parola");
 const loginButtonEl = document.getElementById("login-button");
 
+// Adăugarea unui listener pentru butonul de înregistrare
 loginButtonEl.addEventListener("click", function() {
+    // Obținerea valorilor introduse de utilizator
     const email = emailInputEl.value;
     const parola = parolaInputEl.value;
 
+     // Încercarea de a autentifica userul in cont cu adresa de email și parola
     signInWithEmailAndPassword(auth, email, parola)
         .then((userCredential) => {
             // Autentificare reușită

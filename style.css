@@ -11,12 +11,38 @@ body {
     background-size: cover;
 }
 
+@media only screen and (max-width: 768px) {
+    .container {
+        max-width: 90%; /* Ajustează lățimea containerului */
+        margin: 20px auto; /* Ajustează marginile */
+        padding: 10px; /* Ajustează padding-ul */
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    button {
+        width: 90%; /* Ajustează lățimea elementelor de intrare */
+    }
+}
+
+/* Media query pentru ecrane mai mari */
+@media only screen and (min-width: 1200px) {
+    .container {
+        max-width: 1200px; /* Ajustează lățimea maximă a containerului */
+    }
+}
+
 .login-container {
     text-align: center;
     background-color: #ffffff; /* Schimbarea culorii de fundal la alb */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
 }
 
 .logo {
@@ -38,6 +64,7 @@ button {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    
 }
 
 button {
@@ -56,9 +83,16 @@ button {
 }
 
 input[type="text"],
-input[type="email"],
 input[type="password"] {
-    width: 100%;
+    width: 300px;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    justify-content: center;
+}
+input[type="email"]{
+    width: 280px;
     padding: 10px;
     margin: 5px 0;
     border: 1px solid #ccc;
