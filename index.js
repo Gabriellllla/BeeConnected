@@ -21,10 +21,12 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 
+
 // Referințele către elementele HTML
 const emailInputEl = document.getElementById("email");
 const parolaInputEl = document.getElementById("parola");
 const loginButtonEl = document.getElementById("login-button");
+
 
 // Adăugarea unui listener pentru butonul de înregistrare
 loginButtonEl.addEventListener("click", function() {
