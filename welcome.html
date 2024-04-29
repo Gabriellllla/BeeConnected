@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bun venit!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="welcome">
+    <div class="welcome-container">
+        <div class="gallery">
+            <div class="slide">
+                
+                <img src="imagini/getstarted1.png" alt="Get Started 1">
+                <h2>    Bun venit în familia noastră BeeConnected!</h2>
+                <p>Gestionează-ți albinele mai ușor, fii conectat cu ele și urmărește-le starea în timp real.</p>
+                <button class="next" onclick="nextSlide()">&#10095;</button>
+            </div>
+            <div class="slide">
+                <button class="prev" onclick="prevSlide()">&#10094;</button>
+                <img src="imagini/getstarted2.png" alt="Get Started 2">
+                <p>Păstrează-ți albinele sănătoase și puternice prin înregistrarea inspecțiilor regulate.</p>
+                <button class="next" onclick="nextSlide()">&#10095;</button>
+            </div>
+            <div class="slide">
+                <button class="prev" onclick="prevSlide()">&#10094;</button>
+                <img src="imagini/getstarted3.png" alt="Get Started 3">
+                <p>Atașează fotografii și urmărește progresul stupilor. </p>
+                <button class="next" onclick="nextSlide()">&#10095;</button>
+            </div>
+            <div class="slide">
+                <button class="prev" onclick="prevSlide()">&#10094;</button>
+                <img src="imagini/getstarted4.png" alt="Get Started 4">
+                <p>BeeConnected va păstra toate înregistrările sincronizate în siguranță și disponibile oriunde v-ați afla.  </p>
+                <button class="next" onclick="nextSlide()">&#10095;</button>
+            </div>
+            <div class="slide">
+                <button class="prev" onclick="prevSlide()">&#10094;</button>
+                <img src="imagini/getstarted5.png" alt="Get Started 5">
+                <p>Pentru a configura aplicația, trebuie să adaugi prima ta stupină, iar mai apoi primul stup. </p>
+                <button id="startBtn" onclick="redirectToRegistration()">Începeți acum!</button>
+                
+            </div>
+        </div>
+    </div>
+        
+    <script src="welcome.js"></script>
+</body>
+</html>
+
+

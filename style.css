@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
     background-color: #f9f9f9;
     margin: 0;
     display: flex;
@@ -119,6 +119,8 @@ h2 {
     text-align: center;
 }
 
+
+
 button {
     width: 100%;
     padding: 10px;
@@ -128,4 +130,134 @@ button {
     border: none;
     border-radius: 3px;
     cursor: pointer;
+}
+p {
+    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
+}
+
+
+/* ************ Welcome ****************** */
+
+/* Stilizare container pentru bun venit */
+body.welcome {
+  
+    background-image: url('imagini/image1_1.jpeg');
+    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-size: cover;
+}
+
+.welcome-container {
+    width: 1000px; /* Dimensiunea fixă a slide-ului */
+    height: 450px; /* Dimensiunea fixă a slide-ului */
+    overflow: hidden; /* Ascunde textul care depășește slide-ul */
+    background-color: #ffffff; /* Culorează slide-ul */
+    border: 1px solid #ccc; /* Adaugă un contur slide-ului */
+    border-radius: 8px; /* Rotunjeste marginile slide-ului */
+    margin: 0 auto; /* Centrează slide-ul */
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Stilizare galerie de imagini */
+.gallery {
+    display: flex;
+    overflow-x: auto; /* Permite defilarea orizontală a imaginilor */
+    scroll-snap-type: x mandatory; /* Asigură defilarea lină între imagini */
+    position: relative; /* Asigură poziționarea relativă pentru a poziționa butoanele în cadrul acestui container */
+    padding: 50px; /* Adaugă spațiu între text și marginile slide-ului */
+    word-wrap: break-word; /* Permite textului să se împartă pe mai multe linii */
+    text-align: center; 
+}
+
+.slide {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    margin: 0 20px; /* Spațiere mai mare între slide-uri */
+    text-align: center;
+    width: 80%; /* Lățime mai mare a slide-urilor */
+    max-width: 900px; /* Lățime maximă a slide-urilor */
+    margin: 0 auto; /* Centrare a slide-urilor în cadrul containerului */
+}
+
+.slide img {
+    max-width: 95%; /* Redimensionează imaginea la lățimea maximă a slide-ului */
+    max-height: 180px; /* Limitează înălțimea maximă a imaginii */
+    height: auto; /* Asigură proporțiile corecte ale imaginii */
+    margin: 0 auto; /* Centrează imaginea în cadrul slide-ului */
+}
+
+/* Stilizare buton */
+button {
+    margin-top: 30px;
+    padding: 20px 25px;
+    font-size: 15x;
+    background-color: #ffc107;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    
+}
+
+button:hover {
+    background-color: #ffcd38;
+}
+
+
+/* Stilizare butoane de navigare */
+.prev, .next {
+    position: absolute; /* Poziționează butoanele absolut în cadrul containerului */
+    top: 50%; /* Aliniază butoanele la jumătatea înălțimii containerului */
+    transform: translateY(-50%); /* Centrează vertical butoanele în cadrul containerului */
+    width: 70px; /* Ajustează lățimea butoanelor la nevoie */
+    height: 70px; /* Ajustează înălțimea butoanelor la nevoie */
+    background-color: rgba(255, 94, 1, 0.979); /* Adaugă fundal butoanelor */
+    color: #fff; /* Culorează textul butoanelor */
+    border: none;
+    border-radius: 50%; /* Rotunjeste marginile butoanelor pentru a crea un aspect mai plăcut */
+    cursor: pointer;
+    text-align: center;
+    font-size: 24px; /* Ajustați dimensiunea fontului săgeții */
+   
+}
+
+.prev {
+    left: 30px;
+}
+
+.next {
+    right: 30px;
+}
+
+.slide p {
+    font-size: 22px; /* Ajustați dimensiunea fontului pentru paragrafe */
+}
+
+/* Stilizare buton "Începeți acum" */
+#startBtn {
+    display: block;
+    width: 200px;
+    margin-top: 330px;
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute; /* Setează poziția absolută pentru buton */
+    bottom: 0.1px; /* Poziționează butonul la 10px distanță de partea de jos a containerului */
+    left: 50%; /* Poziționează butonul la mijlocul containerului */
+    transform: translateX(-50%); /* Corectează poziția butonului pentru a fi în mijloc */
+    z-index: 1; 
+    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
 }
