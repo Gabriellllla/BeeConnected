@@ -2,7 +2,7 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
 import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
-import L from "https://unpkg.com/leaflet@1.7.1/dist/leaflet.js";
+import * as L from "https://unpkg.com/leaflet@1.7.1/dist/leaflet.js";
 
 document.addEventListener("DOMContentLoaded", function() {
     // Crearea hărții cu Leaflet
