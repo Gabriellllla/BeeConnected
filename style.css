@@ -281,3 +281,13 @@ body.location {
     height: 100vh;
     background-size: cover;
 }
+
+#map {
+    height: 400px;
+    margin-bottom: 20px;
+}
+
+
+
+
+

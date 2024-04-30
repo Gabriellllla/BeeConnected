@@ -3,26 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Location Page</title>
-    <!-- Includerea Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
-    <!-- Includerea stilurilor tale CSS -->
+    <title>Location</title>
+    <!-- Link către stilul CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Formularul pentru introducerea locației -->
+    <h1>Introducere Locație Stupină</h1>
+    <!-- Formular pentru introducerea numelui stupinei -->
     <form id="location-form">
-        <label for="nume-stupina">Numele stupinei:</label>
-        <input type="text" id="nume-stupina" name="nume-stupina" required>
-        <!-- Div-ul pentru harta -->
-        <div id="map" style="height: 400px;"></div>
-        <!-- Butonul de submit pentru trimiterea formularului -->
-        <button type="submit">Salvează locația</button>
+        <label for="nume-stupina">Nume Stupină:</label>
+        <input type="text" id="nume-stupina" required>
+        <!-- Div pentru afișarea hărții -->
+        <div id="map"></div>
+        <button type="submit">Salvează Locația</button>
     </form>
 
-    <!-- Includerea scriptului JavaScript -->
-    <script src="location.js"></script>
-    <!-- Includerea Leaflet.js -->
+    <!-- Script pentru importarea bibliotecilor Leaflet și Firebase -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js"></script>
+    <!-- Scriptul nostru personalizat -->
+    <script src="location.js"></script>
 </body>
 </html>

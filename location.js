@@ -1,9 +1,11 @@
-// Configurarea Firebase
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
-import * as L from "https://unpkg.com/leaflet@1.7.1/dist/leaflet.js";
-
 document.addEventListener("DOMContentLoaded", function() {
+    // Configurare Firebase
+    const firebaseConfig = {
+        // Configurațiile Firebase
+    };
+    const app = firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore(app);
+
     // Crearea hărții cu Leaflet
     const map = L.map("map").setView([45.7597, 21.2300], 7);
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -37,25 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
             latitudine,
             longitudine
         };
-
-        // Configurare Firebase
-        const firebaseConfig = {
-            apiKey: "AIzaSyDY4OQCbazOZQ9EIFZR5iY1tfV5yQ2IJ4g",
-  authDomain: "bee-connected-2a01a.firebaseapp.com",
-  databaseURL: "https://bee-connected-2a01a-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "bee-connected-2a01a",
-  storageBucket: "bee-connected-2a01a.appspot.com",
-  messagingSenderId: "1037546953098",
-  appId: "1:1037546953098:web:66810ebfba86ff36111073",
-  measurementId: "G-00SQH47GGE"
-        };
-
-        // Inițializarea aplicației Firebase
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-
-        // Salvarea datelor în Firestore
-        setDoc(doc(db, "stupine"), locationData)
+        db.collection("stupine").add(locationData)
             .then(() => {
                 console.log("Locație salvată cu succes în Firestore!");
                 window.location.href = "AddHive.html";
