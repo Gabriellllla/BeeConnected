@@ -54,7 +54,7 @@ registerButtonEl.addEventListener("click", function() {
                 // Alte date pe care dorești să le salvezi
             }).then(() => {
                 console.log("Datele utilizatorului salvate în Firestore cu succes");
-                window.location.href = "welcome.html";
+                window.location.href = "index.html";
                 // Redirecționarea utilizatorului către altă pagină sau alte acțiuni necesare
             }).catch((error) => {
                 console.error("Eroare la salvarea datelor utilizatorului:", error);
