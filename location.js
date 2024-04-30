@@ -18,6 +18,7 @@ const db = getFirestore(app);
 
 // Crează harta Google
 let map;
+let marker; 
 
 function initMap() {
     map = new google.maps.Map(document.getElementById("map"), {
