@@ -36,45 +36,43 @@ loginButtonEl.addEventListener("click", function() {
     const email = emailInputEl.value;
     const parola = parolaInputEl.value;
 
-     // Încercarea de a autentifica userul in cont cu adresa de email și parola
+    // Încercarea de a autentifica userul în cont cu adresa de email și parola
     signInWithEmailAndPassword(auth, email, parola)
-        .then(async(userCredential) => {
-            // Autentificare reușită
+        .then((userCredential) => {
             const user = userCredential.user;
             console.log("Autentificare reușită pentru:", user.email);
 
+            // Obțineți referința către documentul utilizatorului în Firestore
+            const userDocRef = doc(db, "users", user.uid);
 
-// Verificăm dacă utilizatorul este nou sau existent
-const userDocRef = doc(db, "users", user.uid);
-const userDocSnap = await getDoc(userDocRef);
-const userData = userDocSnap.data();
-if (!userData || !userData.firstLogin) {
-    // Utilizatorul este nou sau nu a mai vizitat pagina de bun venit
+            // Obțineți datele utilizatorului din Firestore
+            getDoc(userDocRef)
+                .then((doc) => {
+                    if (doc.exists()) {
+                        const userData = doc.data();
 
-    // Actualizăm profilul utilizatorului
-    await updateProfile(user, { displayName: email.split("@")[0] });
+                        // Verificați dacă utilizatorul a mai vizitat pagina de bun venit
+                        if (!userData.visitedWelcomePage) {
+                            // Redirecționați utilizatorul către pagina de bun venit
+                            window.location.href = "welcome.html";
 
-    // Actualizăm starea de "firstLogin" în baza de date a utilizatorului
-    if (!userData) {
-        // Dacă utilizatorul este nou, creăm un document nou în colecția "users"
-        await setDoc(userDocRef, { firstLogin: true });
-    } else {
-        // Dacă utilizatorul există deja, actualizăm documentul existent
-        await updateDoc(userDocRef, { firstLogin: true });
-    }
-
-
-            window.location.href = "welcome.html";
-            // Redirecționează utilizatorul către altă pagină sau efectuează alte acțiuni necesare
-}
-else {
-    // Utilizatorul a mai vizitat deja pagina de bun venit
-                // Redirecționăm utilizatorul către pagina principală sau altă pagină relevantă
-                window.location.href = "succes.html";
-}
+                            // Actualizați valoarea câmpului visitedWelcomePage pentru a indica că utilizatorul a vizitat pagina de bun venit
+                            // De exemplu, actualizați documentul utilizatorului în Firestore
+                            updateDoc(userDocRef, {
+                                visitedWelcomePage: true
+                            });
+                        } else {
+                            // Utilizatorul a mai vizitat deja pagina de bun venit
+                            // Poate fi redirecționat către altă pagină sau puteți lua alte acțiuni necesare
+                        }
+                    }
+                })
+                .catch((error) => {
+                    console.error("Eroare la obținerea datelor utilizatorului:", error);
+                    // Poți afișa un mesaj de eroare către utilizator sau să iei alte măsuri necesare
+                });
         })
         .catch((error) => {
-            // Autentificare eșuată
             const errorCode = error.code;
             const errorMessage = error.message;
             console.error("Eroare la autentificare:", errorMessage);
