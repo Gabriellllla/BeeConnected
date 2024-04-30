@@ -3,26 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Location</title>
-    <!-- Link către stilul CSS -->
+    <title>Location Page</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Google Maps JavaScript API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDw8bM8XWikDP6Xlhd2LauO7GHAxtBdllQ"></script>
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-    <h1>Introducere Locație Stupină</h1>
-    <!-- Formular pentru introducerea numelui stupinei -->
+    <h1>Introduceți locația stupinei</h1>
     <form id="location-form">
-        <label for="nume-stupina">Nume Stupină:</label>
-        <input type="text" id="nume-stupina" required>
-        <!-- Div pentru afișarea hărții -->
+        <label for="nume-stupina">Numele stupinei:</label>
+        <input type="text" id="nume-stupina" name="nume-stupina" required>
         <div id="map"></div>
-        <button type="submit">Salvează Locația</button>
+        <button type="submit">Salvează locația</button>
     </form>
 
-    <!-- Script pentru importarea bibliotecilor Leaflet și Firebase -->
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js"></script>
-    <!-- Scriptul nostru personalizat -->
-    <script src="location.js"></script>
+    
+    <script src="location.js" type="module"></script>
 </body>
 </html>
