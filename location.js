@@ -27,7 +27,7 @@ function initMap() {
     });
 
     // Adaugă un marker la clic pe hartă
-    let marker;
+    //let marker;
     google.maps.event.addListener(map, "click", function(event) {
         if (marker) {
             marker.setPosition(event.latLng);
