@@ -1,7 +1,7 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
-import { getFirestore, doc, updateDoc, setDoc } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+import { getFirestore, doc, updateDoc, getDoc } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 
 // Configurarea Firebase
 const firebaseConfig = {
@@ -63,12 +63,14 @@ loginButtonEl.addEventListener("click", function() {
                             });
                         } else {
                             // Utilizatorul a mai vizitat deja pagina de bun venit
+                            window.location.href = "succes.html";
                             // Poate fi redirecționat către altă pagină sau puteți lua alte acțiuni necesare
                         }
                     }
                 })
                 .catch((error) => {
                     console.error("Eroare la obținerea datelor utilizatorului:", error);
+                   
                     // Poți afișa un mesaj de eroare către utilizator sau să iei alte măsuri necesare
                 });
         })
