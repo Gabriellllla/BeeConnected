@@ -1,6 +1,7 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+import { getFirestore, doc, updateDoc, getDoc } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 
 // Configurarea Firebase
 const firebaseConfig = {
@@ -19,6 +20,7 @@ const app = initializeApp(firebaseConfig);
 
 // Obținerea serviciului de autentificare
 const auth = getAuth(app);
+const db = getFirestore(app);
 
 
 
@@ -34,17 +36,45 @@ loginButtonEl.addEventListener("click", function() {
     const email = emailInputEl.value;
     const parola = parolaInputEl.value;
 
-     // Încercarea de a autentifica userul in cont cu adresa de email și parola
+    // Încercarea de a autentifica userul în cont cu adresa de email și parola
     signInWithEmailAndPassword(auth, email, parola)
         .then((userCredential) => {
-            // Autentificare reușită
             const user = userCredential.user;
             console.log("Autentificare reușită pentru:", user.email);
-            window.location.href = "welcome.html";
-            // Redirecționează utilizatorul către altă pagină sau efectuează alte acțiuni necesare
+
+            // Obțineți referința către documentul utilizatorului în Firestore
+            const userDocRef = doc(db, "users", user.uid);
+
+            // Obțineți datele utilizatorului din Firestore
+            getDoc(userDocRef)
+                .then((doc) => {
+                    if (doc.exists()) {
+                        const userData = doc.data();
+
+                        // Verificați dacă utilizatorul a mai vizitat pagina de bun venit
+                        if (!userData.visitedWelcomePage) {
+                            // Redirecționați utilizatorul către pagina de bun venit
+                            window.location.href = "welcome.html";
+
+                            // Actualizați valoarea câmpului visitedWelcomePage pentru a indica că utilizatorul a vizitat pagina de bun venit
+                            // De exemplu, actualizați documentul utilizatorului în Firestore
+                            updateDoc(userDocRef, {
+                                visitedWelcomePage: true
+                            });
+                        } else {
+                            // Utilizatorul a mai vizitat deja pagina de bun venit
+                            window.location.href = "succes.html";
+                            // Poate fi redirecționat către altă pagină sau puteți lua alte acțiuni necesare
+                        }
+                    }
+                })
+                .catch((error) => {
+                    console.error("Eroare la obținerea datelor utilizatorului:", error);
+                   
+                    // Poți afișa un mesaj de eroare către utilizator sau să iei alte măsuri necesare
+                });
         })
         .catch((error) => {
-            // Autentificare eșuată
             const errorCode = error.code;
             const errorMessage = error.message;
             console.error("Eroare la autentificare:", errorMessage);
