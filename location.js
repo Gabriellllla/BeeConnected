@@ -60,7 +60,7 @@ locationForm.addEventListener("submit", function(event) {
         longitudine
     };
 
-    setDoc(doc(db, "stupine"), locationData)
+    setDoc(doc(db, "stupine", "idDocument"), locationData)
         .then(() => {
             console.log("Locație salvată cu succes în Firestore!");
             window.location.href = "AddHive.html";
