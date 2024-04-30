@@ -1,30 +1,28 @@
-<!-- location.html -->
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Introducere Locație</title>
-
+    <title>Location Page</title>
+    <!-- Includerea Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+    <!-- Includerea stilurilor tale CSS -->
     <link rel="stylesheet" href="style.css">
-    <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
-    
-
-    
-    <!-- Leaflet JavaScript -->
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" ></script>
 </head>
 <body>
-    <h1>Introducere Locație Stupină</h1>
+    <!-- Formularul pentru introducerea locației -->
     <form id="location-form">
-        <label for="nume-stupina">Numele Stupinei:</label>
+        <label for="nume-stupina">Numele stupinei:</label>
         <input type="text" id="nume-stupina" name="nume-stupina" required>
-        <!-- Elementul pentru afișarea hărții -->
-        <div id="mapid" style="height: 400px;"></div>
-        <button type="submit">Salvează Locația</button>
+        <!-- Div-ul pentru harta -->
+        <div id="map" style="height: 400px;"></div>
+        <!-- Butonul de submit pentru trimiterea formularului -->
+        <button type="submit">Salvează locația</button>
     </form>
 
-    <script src="location.js" type="module"></script>
+    <!-- Includerea scriptului JavaScript -->
+    <script src="location.js"></script>
+    <!-- Includerea Leaflet.js -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 </body>
 </html>

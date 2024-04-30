@@ -1,5 +1,4 @@
-// location.js
-
+// Configurarea Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
 import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 import * as L from "https://unpkg.com/leaflet@1.7.1/dist/leaflet.js";
@@ -41,14 +40,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Configurare Firebase
         const firebaseConfig = {
-            apiKey: "YOUR_API_KEY",
-            authDomain: "bee-connected-2a01a.firebaseapp.com",
-            databaseURL: "https://bee-connected-2a01a-default-rtdb.europe-west1.firebasedatabase.app",
-            projectId: "bee-connected-2a01a",
-            storageBucket: "bee-connected-2a01a.appspot.com",
-            messagingSenderId: "1037546953098",
-            appId: "1:1037546953098:web:66810ebfba86ff36111073",
-            measurementId: "G-00SQH47GGE"
+            apiKey: "AIzaSyDY4OQCbazOZQ9EIFZR5iY1tfV5yQ2IJ4g",
+  authDomain: "bee-connected-2a01a.firebaseapp.com",
+  databaseURL: "https://bee-connected-2a01a-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "bee-connected-2a01a",
+  storageBucket: "bee-connected-2a01a.appspot.com",
+  messagingSenderId: "1037546953098",
+  appId: "1:1037546953098:web:66810ebfba86ff36111073",
+  measurementId: "G-00SQH47GGE"
         };
 
         // Inițializarea aplicației Firebase
