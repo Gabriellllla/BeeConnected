@@ -1,6 +1,8 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+
 
 // Configurarea Firebase
 const firebaseConfig = {
@@ -19,6 +21,8 @@ const app = initializeApp(firebaseConfig);
 
 // Obținerea serviciului de autentificare
 const auth = getAuth(app);
+
+const db = getFirestore(app);
 
 // Referințele către elementele HTML
 const numeInputEl = document.getElementById("nume");
@@ -41,8 +45,23 @@ registerButtonEl.addEventListener("click", function() {
             // Crearea contului a reușit
             const user = userCredential.user;
             console.log("Cont creat cu succes pentru:", user.email);
-            window.location.href = "succes.html";
-            // Redirecționarea utilizatorului către altă pagină sau alte acțiuni necesare
+
+            const userDocRef = doc(db, "users", user.uid);
+            setDoc(userDocRef, {
+                nume: nume,
+                prenume: prenume,
+                email: email
+                // Alte date pe care dorești să le salvezi
+            }).then(() => {
+                console.log("Datele utilizatorului salvate în Firestore cu succes");
+                window.location.href = "index.html";
+                // Redirecționarea utilizatorului către altă pagină sau alte acțiuni necesare
+            }).catch((error) => {
+                console.error("Eroare la salvarea datelor utilizatorului:", error);
+                // Poți afișa un mesaj de eroare către utilizator sau să iei alte măsuri necesare
+            });
+
+           
         })
         .catch((error) => {
             // Crearea contului a eșuat
