@@ -281,6 +281,8 @@ body.location {
 .container {
     display: flex;
     flex-direction: column;
+    width: 1000px; /* Dimensiunea fixă a slide-ului */
+    height: 450px;
 }
 
 .left, .right {
