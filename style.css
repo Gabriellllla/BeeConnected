@@ -268,7 +268,7 @@ button:hover {
 
 /* ****************** LOCATION ************************ */
 body.location {
-    background-image: url('imagini/image1_1.jpeg');
+    background-image: url('imagini/image3_1.jpeg');
     font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
     background-color: #f9f9f9;
     margin: 0;
@@ -281,6 +281,7 @@ body.location {
 .container {
     display: flex;
     flex-direction: column;
+    width: 80%;
 }
 
 .left, .right {
@@ -309,6 +310,7 @@ body.location {
     justify-content: space-between;
     align-items: flex-start;
     padding: 20px;
+    width: 80%;
 }
 
 /* Stilurile pentru containerul hărții */
