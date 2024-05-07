@@ -281,93 +281,62 @@ body.location {
 .container {
     display: flex;
     flex-direction: column;
+    width: 1000px; /* Dimensiunea fixă a slide-ului */
+    height: 450px;
 }
 
 .left, .right {
     width: 100%;
     padding: 20px; /* Adaugă un spațiu intern de 20px */
     box-sizing: border-box; /* Asigură că padding-ul nu mărește lățimea totală */
-
 }
-
 .left{
     margin-bottom: 20px; /* Adaugă un spațiu de 20px între partea stângă și partea dreaptă */
 }
-
 @media screen and (min-width: 768px) {
     .container {
         flex-direction: row;
     }
-
     .left {
         width: 40%;
         margin-right: 20px; /* Adaugă un spațiu de 20px între partea stângă și partea dreaptă */
         margin-bottom: 0; /* Anulează spațiul de jos adăugat pe ecrane mai mici */
     }
-
     .right {
         width: 60%;
     }
 }
-
 /* Restul stilurilor */
-
  /* Stilurile pentru containerul principal */
  #container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-start;
     padding: 20px;
-    width: 80%;
 }
-
 /* Stilurile pentru containerul hărții */
 #map-container {
-    width: 60%; /* Ajustează lățimea după preferințe */
+    width: 50%; /* Ajustează lățimea după preferințe */
 }
-
 /* Stilurile pentru containerul conținutului */
 #content-container {
     width: 40%; /* Ajustează lățimea după preferințe */
 }
-
 /* Stilurile pentru harta */
 #map {
     height: 400px;
     width: 100%;
 }
-
-
 form {
     display: flex;
     flex-direction: column;
     max-width: 300px;
     margin: 0 auto;
 }
-
 label {
     margin-bottom: 5px;
 }
-
 input {
     margin-bottom: 10px;
     padding: 5px;
 }
-
-/* button {
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-} */
-
-
-
-
-
-
