@@ -267,15 +267,66 @@ button:hover {
 
 
 /* ****************** LOCATION ************************ */
-body {
-    font-family: Arial, sans-serif;
+body.location {
+    background-image: url('imagini/image1_1.jpeg');
+    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-size: cover;
+}
+.container {
+    display: flex;
+    flex-direction: column;
 }
 
+.left, .right {
+    width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        flex-direction: row;
+    }
+
+    .left {
+        width: 40%;
+    }
+
+    .right {
+        width: 60%;
+    }
+}
+
+/* Restul stilurilor */
+
+ /* Stilurile pentru containerul principal */
+ #container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+/* Stilurile pentru containerul hărții */
+#map-container {
+    width: 50%; /* Ajustează lățimea după preferințe */
+}
+
+/* Stilurile pentru containerul conținutului */
+#content-container {
+    width: 40%; /* Ajustează lățimea după preferințe */
+}
+
+/* Stilurile pentru harta */
 #map {
     height: 400px;
     width: 100%;
-    margin-bottom: 20px;
 }
+
 
 form {
     display: flex;
@@ -293,7 +344,7 @@ input {
     padding: 5px;
 }
 
-button {
+/* button {
     padding: 10px;
     background-color: #007bff;
     color: #fff;
@@ -303,7 +354,7 @@ button {
 
 button:hover {
     background-color: #0056b3;
-}
+} */
 
 
 
