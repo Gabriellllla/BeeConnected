@@ -279,6 +279,12 @@ body.location {
     background-size: cover;
 }
 .location-container {
+    /* width: 1000px;  Dimensiunea fixă a slide-ului 
+    height: 450px;  Dimensiunea fixă a slide-ului */ 
+    overflow: hidden; /* Ascunde textul care depășește slide-ul */
+    background-color: #ffffff; /* Culorează slide-ul */
+    border: 1px solid #ccc; /* Adaugă un contur slide-ului */
+    border-radius: 8px; /* Rotunjeste marginile slide-ului */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
