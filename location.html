@@ -5,25 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Location Page</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet">
+
    
-    <style>
-        #map {
-            height: 400px;
-            width: 100%;
-        }
-    </style>
 </head>
 <body>
     <h1>Introduceți locația stupinei</h1>
+    <div id="map"></div>
     <form id="location-form">
         <label for="nume-stupina">Numele stupinei:</label>
         <input type="text" id="nume-stupina" name="nume-stupina" required>
-        <div id="map"></div>
         <button type="submit">Salvează locația</button>
     </form>
-     <!-- Google Maps JavaScript API -->
-     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDw8bM8XWikDP6Xlhd2LauO7GHAxtBdllQ" async defer></script>
-     
-    <script src="location.js" type="module"></script>
+
+    <script src="location.js" defer></script>
 </body>
 </html>

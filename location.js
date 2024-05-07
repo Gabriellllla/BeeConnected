@@ -16,44 +16,31 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Crează harta Google
-let map;
-let marker; 
 
-function initMap() {
-    map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: 45.7597, lng: 21.2300 },
-        zoom: 7,
-    });
+// Inițializare hartă Mapbox
+mapboxgl.accessToken = 'pk.eyJ1IjoiZ2FicmllbGFtMDIiLCJhIjoiY2x2dzRxeXQyMjJweDJxcXpjNmQxeWF6dSJ9.54PMrpaTZ3yq6eTRQQ7d9w';
+const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [21.2300, 45.7597],
+    zoom: 7
+});
 
-    // Adaugă un marker la clic pe hartă
-    //let marker;
-    google.maps.event.addListener(map, "click", function(event) {
-        if (marker) {
-            marker.setPosition(event.latLng);
-        } else {
-            marker = new google.maps.Marker({
-                position: event.latLng,
-                map: map,
-            });
-        }
-    });
-}
+let marker = new mapboxgl.Marker(); // Inițializare marker
 
-// Referințe către elementele HTML
+// Adăugare listener pentru trimiterea formularului
 const locationForm = document.getElementById("location-form");
 const numeStupinaInput = document.getElementById("nume-stupina");
 
-// Adăugare listener pentru trimiterea formularului
 locationForm.addEventListener("submit", function(event) {
     event.preventDefault(); // Oprirea acțiunii implicite a formularului
 
-    // Obține valorile introduse de utilizator
+    // Obținerea valorilor introduse de utilizator
     const numeStupina = numeStupinaInput.value;
-    const latitudine = marker ? marker.getPosition().lat() : null;
-    const longitudine = marker ? marker.getPosition().lng() : null;
+    const latitudine = marker.getLngLat().lat;
+    const longitudine = marker.getLngLat().lng;
 
-    // Salvează datele în Firestore
+    // Salvarea datelor în Firestore
     const locationData = {
         numeStupina,
         latitudine,
@@ -68,4 +55,9 @@ locationForm.addEventListener("submit", function(event) {
         .catch((error) => {
             console.error("Eroare la salvarea locației:", error);
         });
+});
+
+// Adăugare marker la clic pe hartă
+map.on('click', function(e) {
+    marker.setLngLat(e.lngLat).addTo(map);
 });
