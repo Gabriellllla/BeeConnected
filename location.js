@@ -39,12 +39,16 @@ locationForm.addEventListener("submit", function(event) {
     const numeStupina = numeStupinaInput.value;
     const latitudine = marker.getLngLat().lat;
     const longitudine = marker.getLngLat().lng;
+    const locality = location.context.find(context => context.id.includes('place'));
+    const county = location.context.find(context => context.id.includes('region'));
 
     // Salvarea datelor în Firestore
     const locationData = {
         numeStupina,
         latitudine,
-        longitudine
+        longitudine,
+        localitate: locality ? locality.text : null,
+        judet: county ? county.text : null
     };
 
     setDoc(doc(db, "stupine", "idDocument"), locationData)
