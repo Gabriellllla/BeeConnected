@@ -17,8 +17,9 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-
-
+const auth = getAuth();
+auth.onAuthStateChanged((user) => {
+    if (user) {
 // Inițializare hartă Mapbox
 mapboxgl.accessToken = 'pk.eyJ1IjoiZ2FicmllbGFtMDIiLCJhIjoiY2x2dzRxeXQyMjJweDJxcXpjNmQxeWF6dSJ9.54PMrpaTZ3yq6eTRQQ7d9w';
 const map = new mapboxgl.Map({
@@ -98,3 +99,8 @@ function getCurrentUserId() {
         console.error("Utilizatorul nu este autentificat.");
     }
 }
+} else {
+    // Utilizatorul nu este autentificat, poți gestiona acest caz aici
+    console.log("Utilizatorul nu este autentificat.");
+}
+});
