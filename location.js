@@ -42,15 +42,20 @@ locationForm.addEventListener("submit", async function(event) {
     const numeStupina = numeStupinaInput.value;
     const latitudine = marker.getLngLat().lat;
     const longitudine = marker.getLngLat().lng;
-   
+   // Obținerea localității și județului
+   const locality = await reverseGeocode(marker.getLngLat());
+   const county = getAdminArea(locality);
+   const locationData = {
+    numeStupina,
+    latitudine,
+    longitudine,
+    localitate: locality ? locality.place_name : null,
+    judet: county ? county : null
+};
+
     try {
         const userId = getCurrentUserId(); 
         const userStupineRef = collection(db, "stupine", userId, "stupine");
-        const locationData = {
-            numeStupina,
-            latitudine,
-            longitudine
-        };
         await setDoc(doc(userStupineRef), locationData);
         console.log("Locație salvată cu succes în Firestore!");
         window.location.href = "AddHive.html";
