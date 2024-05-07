@@ -315,14 +315,15 @@ body.location {
  /* Stilurile pentru containerul principal */
  #container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-start;
     padding: 20px;
+    width: 80%;
 }
 
 /* Stilurile pentru containerul hărții */
 #map-container {
-    width: 50%; /* Ajustează lățimea după preferințe */
+    width: 60%; /* Ajustează lățimea după preferințe */
 }
 
 /* Stilurile pentru containerul conținutului */
@@ -364,6 +365,8 @@ input {
 button:hover {
     background-color: #0056b3;
 } */
+
+
 
 
 
