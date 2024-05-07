@@ -39,16 +39,12 @@ locationForm.addEventListener("submit", function(event) {
     const numeStupina = numeStupinaInput.value;
     const latitudine = marker.getLngLat().lat;
     const longitudine = marker.getLngLat().lng;
-    const locality = location.context.find(context => context.id.includes('place'));
-    const county = location.context.find(context => context.id.includes('region'));
-
+   
     // Salvarea datelor în Firestore
     const locationData = {
         numeStupina,
         latitudine,
-        longitudine,
-        localitate: locality ? locality.text : null,
-        judet: county ? county.text : null
+        longitudine
     };
 
     setDoc(doc(db, "stupine", "idDocument"), locationData)
@@ -61,7 +57,27 @@ locationForm.addEventListener("submit", function(event) {
         });
 });
 
-// Adăugare marker la clic pe hartă
-map.on('click', function(e) {
+map.on('click', async function(e) {
     marker.setLngLat(e.lngLat).addTo(map);
+
+    // Obținerea informațiilor despre localitate și județ utilizând geocodificarea inversă cu Mapbox
+    const locality = await reverseGeocode(e.lngLat);
+    const county = getAdminArea(locality);
+
+    // Adăugarea informațiilor despre localitate și județ în câmpurile de formular ascunse
+    document.getElementById("locality").value = locality ? locality.place_name : '';
+    document.getElementById("county").value = county ? county : '';
 });
+
+// Funcție pentru geocodificarea inversă a locației (obținerea informațiilor despre localitate)
+async function reverseGeocode(lngLat) {
+    const response = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${lngLat.lng},${lngLat.lat}.json?access_token=${mapboxgl.accessToken}`);
+    const data = await response.json();
+    return data.features[0];
+}
+
+// Funcție pentru obținerea județului din contextul geografic returnat de Mapbox
+function getAdminArea(context) {
+    const adminArea = context.context.find((item) => item.id.startsWith('region'));
+    return adminArea ? adminArea.text : null;
+}
