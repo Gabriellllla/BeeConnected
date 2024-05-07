@@ -95,6 +95,6 @@ function getCurrentUserId() {
         return auth.currentUser.uid;
     } else {
         // Dacă utilizatorul nu este autentificat, ar trebui să implementezi o logică de gestionare a acestui caz
-        throw new Error("Utilizatorul nu este autentificat.");
+        console.error("Utilizatorul nu este autentificat.");
     }
 }

@@ -1,6 +1,6 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, setPersistence, browserSessionPersistence  } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 
 
@@ -21,6 +21,15 @@ const app = initializeApp(firebaseConfig);
 
 // Obținerea serviciului de autentificare
 const auth = getAuth(app);
+setPersistence(auth, browserSessionPersistence)
+  .then(() => {
+    // Autentificarea persistentă a fost activată cu succes
+    // Utilizatorul va rămâne autentificat între sesiuni
+  })
+  .catch((error) => {
+    // Tratează eventualele erori survenite în timpul configurării autentificării persistente
+    console.error("Eroare la configurarea autentificării persistente:", error);
+  });
 
 const db = getFirestore(app);
 
