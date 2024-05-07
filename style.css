@@ -278,7 +278,7 @@ body.location {
     height: 100vh;
     background-size: cover;
 }
-.container {
+.containerul {
     display: flex;
     flex-direction: column;
     width: 80%;
@@ -305,7 +305,7 @@ body.location {
 /* Restul stilurilor */
 
  /* Stilurile pentru containerul principal */
- #container {
+ #containerul {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -315,13 +315,13 @@ body.location {
 }
 
 /* Stilurile pentru containerul hărții */
-#map-container {
-    width: 50%; /* Ajustează lățimea după preferințe */
+#map-containerul {
+    width: 60%; /* Ajustează lățimea după preferințe */
 }
 
 /* Stilurile pentru containerul conținutului */
-#content-container {
-    width: 40%; /* Ajustează lățimea după preferințe */
+#content-containerul {
+    width: 35%; /* Ajustează lățimea după preferințe */
 }
 /* Stilurile pentru harta */
 #map {
