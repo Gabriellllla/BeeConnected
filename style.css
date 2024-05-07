@@ -337,6 +337,7 @@ body.location {
 #map {
     height: 400px;
     width: 100%;
+     margin-top: 20px;
 }
 
 h1{
@@ -350,18 +351,24 @@ form {
 }
 label {
     margin-bottom: 5px;
+    
    
 }
 input {
     margin-bottom: 10px;
     padding: 5px;
+   
     
+}
+
+input[type="text"] {
+    width: 90%; /* Schimbă lățimea la o valoare mai mică, de exemplu 200px */
 }
 button {
     margin-top: 30px;
     padding: 20px 25px;
-    width: 50%;
-    font-size: 15x;
+    width: 75%;
+    font-size: 16px;
     background-color: #ffc107;
     color: #fff;
     cursor: pointer;
