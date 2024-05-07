@@ -290,7 +290,7 @@ body.location {
 }
 
 .left, .right {
-    width: 100%;
+    width: 80%;
 }
 
 @media screen and (min-width: 768px) {
