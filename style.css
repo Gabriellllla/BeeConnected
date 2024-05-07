@@ -279,27 +279,34 @@ body.location {
     background-size: cover;
 }
 .container {
+    max-width: 1200px; /* Lățime maximă a containerului */
+    margin: 0 auto; /* Centrarea containerului pe pagină */
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
-   width: 80%;
+    align-items: flex-start;
+    padding: 20px;
 }
 
-.left, .right {
-    width: 100%;
+.left {
+    width: 35%;
+}
+
+.right {
+    width: 60%;
 }
 
 @media screen and (min-width: 768px) {
     .container {
-        flex-direction: row;
+        flex-direction: column; /* Schimbă direcția de afișare la coloană */
+        align-items: center;
     }
 
     .left {
-        width: 40%;
+        width: 100%;
     }
 
     .right {
-        width: 60%;
+        width: 100%;
     }
 }
 
