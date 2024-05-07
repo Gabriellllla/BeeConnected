@@ -45,7 +45,7 @@ locationForm.addEventListener("submit", async function(event) {
    
     try {
         const userId = getCurrentUserId(); 
-        const userStupineRef = collection(db, "stupine", userId);
+        const userStupineRef = collection(db, "stupine", userId, "stupine");
         const locationData = {
             numeStupina,
             latitudine,
