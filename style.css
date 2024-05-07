@@ -288,9 +288,9 @@ body.location {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-   width: 80%;
+   width: 70%;
    
-   align-items:center;
+   align-items: center;
    padding: 20px;
    margin: 0 auto;
 }
@@ -342,13 +342,16 @@ form {
     display: flex;
     flex-direction: column;
     padding: 5px;
+    align-items: center;
 }
 label {
     margin-bottom: 5px;
+    align-items: center;
 }
 input {
     margin-bottom: 10px;
     padding: 5px;
+    align-items: center;
 }
 button {
     margin-top: 30px;
@@ -361,7 +364,7 @@ button {
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    
+align-items: center;    
 }
 
 button:hover {
