@@ -282,10 +282,7 @@ body.location {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: flex-start;
-    padding: 20px;
-    width: 90%; /* Schimbă această valoare pentru a ajusta lățimea containerului */
-    margin: 0 auto; /* Centrare containerului */
+   width: 80%;
 }
 
 .left, .right {
