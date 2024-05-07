@@ -278,42 +278,35 @@ body.location {
     height: 100vh;
     background-size: cover;
 }
-.container {
-    max-width: 1200px; /* Lățime maximă a containerului */
-    margin: 0 auto; /* Centrarea containerului pe pagină */
+.location-container {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: flex-start;
-    padding: 20px;
+   width: 80%;
 }
 
-.left {
-    width: 35%;
-}
-
-.right {
-    width: 60%;
+.left, .right {
+    width: 100%;
 }
 
 @media screen and (min-width: 768px) {
-    .container {
-        flex-direction: column; /* Schimbă direcția de afișare la coloană */
-        align-items: center;
+    .location-container {
+        flex-direction: row;
     }
 
     .left {
-        width: 100%;
+        width: 40%;
     }
 
     .right {
-        width: 100%;
+        width: 60%;
     }
 }
 
 /* Restul stilurilor */
 
  /* Stilurile pentru containerul principal */
- #container {
+ /* #container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -321,17 +314,16 @@ body.location {
     width: 80%;
     margin: 0 auto;
 }
+/* 
 
-/* Stilurile pentru containerul hărții */
 #map-container {
-    width: 60%; /* Ajustează lățimea după preferințe */
+    width: 60%; 
 }
 
-/* Stilurile pentru containerul conținutului */
+
 #content-container {
-    width: 35%; /* Ajustează lățimea după preferințe */
-}
-/* Stilurile pentru harta */
+    width: 35%; 
+} */
 #map {
     height: 400px;
     width: 100%;
