@@ -1,6 +1,8 @@
 // Initializează Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+import { getFirestore, doc, setDoc, collection } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyDY4OQCbazOZQ9EIFZR5iY1tfV5yQ2IJ4g",
@@ -32,7 +34,7 @@ let marker = new mapboxgl.Marker(); // Inițializare marker
 const locationForm = document.getElementById("location-form");
 const numeStupinaInput = document.getElementById("nume-stupina");
 
-locationForm.addEventListener("submit", function(event) {
+locationForm.addEventListener("submit", async function(event) {
     event.preventDefault(); // Oprirea acțiunii implicite a formularului
 
     // Obținerea valorilor introduse de utilizator
@@ -40,21 +42,21 @@ locationForm.addEventListener("submit", function(event) {
     const latitudine = marker.getLngLat().lat;
     const longitudine = marker.getLngLat().lng;
    
-    // Salvarea datelor în Firestore
-    const locationData = {
-        numeStupina,
-        latitudine,
-        longitudine
-    };
-
-    setDoc(doc(db, "stupine", "idDocument"), locationData)
-        .then(() => {
-            console.log("Locație salvată cu succes în Firestore!");
-            window.location.href = "AddHive.html";
-        })
-        .catch((error) => {
-            console.error("Eroare la salvarea locației:", error);
-        });
+    try {
+        const userId = getCurrentUserId(); // Înlocuiește cu ID-ul utilizatorului actual
+        const userStupineRef = collection(db, "utilizatori", userId, "stupine");
+        const locationData = {
+            numeStupina,
+            latitudine,
+            longitudine
+        };
+        await setDoc(doc(userStupineRef), locationData);
+        console.log("Locație salvată cu succes în Firestore!");
+        window.location.href = "AddHive.html";
+    } catch (error) {
+        console.error("Eroare la salvarea locației:", error);
+    }
+    
 });
 
 map.on('click', async function(e) {
@@ -80,4 +82,19 @@ async function reverseGeocode(lngLat) {
 function getAdminArea(context) {
     const adminArea = context.context.find((item) => item.id.startsWith('region'));
     return adminArea ? adminArea.text : null;
+}
+
+// Funcție pentru a obține ID-ul utilizatorului curent
+function getCurrentUserId() {
+    // Obține obiectul de autentificare Firebase
+    const auth = getAuth();
+    
+    // Verifică dacă utilizatorul este autentificat
+    if (auth.currentUser) {
+        // Returnează ID-ul utilizatorului curent
+        return auth.currentUser.uid;
+    } else {
+        // Dacă utilizatorul nu este autentificat, ar trebui să implementezi o logică de gestionare a acestui caz
+        throw new Error("Utilizatorul nu este autentificat.");
+    }
 }
