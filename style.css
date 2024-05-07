@@ -285,6 +285,13 @@ body.location {
 
 .left, .right {
     width: 100%;
+    padding: 20px; /* Adaugă un spațiu intern de 20px */
+    box-sizing: border-box; /* Asigură că padding-ul nu mărește lățimea totală */
+
+}
+
+.left{
+    margin-bottom: 20px; /* Adaugă un spațiu de 20px între partea stângă și partea dreaptă */
 }
 
 @media screen and (min-width: 768px) {
@@ -294,6 +301,8 @@ body.location {
 
     .left {
         width: 40%;
+        margin-right: 20px; /* Adaugă un spațiu de 20px între partea stângă și partea dreaptă */
+        margin-bottom: 0; /* Anulează spațiul de jos adăugat pe ecrane mai mici */
     }
 
     .right {
