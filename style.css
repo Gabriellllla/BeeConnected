@@ -340,7 +340,7 @@ body.location {
 }
 
 h1{
-    align-items: center;
+    text-align: center;
 }
 form {
     display: flex;
@@ -368,7 +368,7 @@ button {
     border: none;
     border-radius: 10px;
     cursor: pointer;
-align-items: center;    
+    align-self: center;    
 }
 
 button:hover {
