@@ -44,8 +44,8 @@ locationForm.addEventListener("submit", async function(event) {
     const longitudine = marker.getLngLat().lng;
    
     try {
-        const userId = getCurrentUserId(); // Înlocuiește cu ID-ul utilizatorului actual
-        const userStupineRef = collection(db, "utilizatori", userId, "stupine");
+        const userId = getCurrentUserId(); 
+        const userStupineRef = collection(db, "users", userId, "stupine");
         const locationData = {
             numeStupina,
             latitudine,
