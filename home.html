@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina Principală</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Biblioteca Mapbox pentru hărți -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet">
+</head>
+<body class="home">
+    <!-- Meniu de sus -->
+    <div class="top-menu">
+        <button class="menu-button" onmouseover="showTooltip('Vizualizează Stupine')">Vizualizează Stupine</button>
+        <button class="menu-button" onmouseover="showTooltip('Vizualizează Stupi')">Vizualizează Stupi</button>
+        <button class="menu-button" onmouseover="showTooltip('Notițe Generale')">Notițe Generale</button>
+        <button class="menu-button" onmouseover="showTooltip('Pagină de Contact')">Pagină de Contact</button>
+        <div id="report-dropdown" class="dropdown">
+            <button class="dropbtn" onmouseover="showTooltip('Rapoarte')">Rapoarte</button>
+            <div class="dropdown-content">
+                <a href="#">Raport 1</a>
+                <a href="#">Raport 2</a>
+                <a href="#">Raport 3</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conținutul principal al paginii -->
+    <div class="main-content">
+        <h1>Lista Stupinelor Tale</h1>
+        <div id="hive-list">
+            <!-- Aici vor fi afișate stupinele -->
+        </div>
+    </div>
+
+    <!-- Script JavaScript separat -->
+    <script src="main.js" defer type="module"></script>
+</body>
+</html>

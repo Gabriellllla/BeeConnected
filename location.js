@@ -58,7 +58,7 @@ locationForm.addEventListener("submit", async function(event) {
         const userStupineRef = collection(db, "stupine", userId, "stupine");
         await setDoc(doc(userStupineRef), locationData);
         console.log("Locație salvată cu succes în Firestore!");
-        window.location.href = "AddHive.html";
+        window.location.href = "home.html";
     } catch (error) {
         console.error("Eroare la salvarea locației:", error);
     }
