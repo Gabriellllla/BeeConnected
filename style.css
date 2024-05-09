@@ -64,9 +64,12 @@ button {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    align-items: center;
     
 }
-
+.login-button{
+    align-items: center;
+}
 button {
     background-color: #ffc107;
     color: #fff;
