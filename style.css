@@ -71,6 +71,7 @@ button {
     background-color: #ffc107;
     color: #fff;
     cursor: pointer;
+    align-self: center;
 }
 
 .container {
