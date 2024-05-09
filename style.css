@@ -50,14 +50,14 @@ body {
 input[type="text"],
 input[type="password"],
 button {
-    
+     padding: 15px 10px;
     width: 100%;
-    
     margin-top: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
     align-items: center;
+    text-align: center;
 
 }
 .register-button{
@@ -95,14 +95,14 @@ input[type="text"]{
     
 }
 input[type="password"] {
-    width: 100%;
+    width: 256px;
     padding: 15px;
     /* align-items: center; */
     margin: 5px 0;
     border: 1px solid #ccc;
     border-radius: 3px;
     justify-content: center;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 input[type="email"]{
     width: 230px;
