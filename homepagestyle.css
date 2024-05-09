@@ -120,11 +120,13 @@ body.home {
 /* Stilurile pentru conținutul principal */
 @media screen and (max-width: 768px) {
     .top-menu {
-        padding: 5px; /* Reducem padding-ul pentru a face meniul mai compact */
+        padding: 10px; /* Reducem padding-ul pentru a face meniul mai compact */
+        width: 500px;
     }
 
     .logo img {
         width: 60px; /* Reducem dimensiunea logo-ului pentru a face mai mult spațiu pentru butoane */
+        margin-left: 80px;
     }
 
     .menu-button {
@@ -133,6 +135,10 @@ body.home {
     }
     .hide-on-small-screen {
         display: none;
+    }
+    .main-content{
+        padding: 1px;
+        width: 330px;
     }
 }
 .main-content {
@@ -144,9 +150,11 @@ body.home {
     margin-left: 20px;
     width: 500px; /* Ajustează lățimea */
     height: 400px;  /* Ajustează înălțimea */
+    
 }
 #hive-list button {
-    margin: 5px;
+    width: 70%;
+    margin-bottom: 20px;
     background-color: #aa6408;
     color: #fff;
     border: none;
