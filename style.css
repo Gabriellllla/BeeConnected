@@ -72,6 +72,7 @@ button {
     color: #fff;
     cursor: pointer;
     align-self: center;
+    align-items: center;
 }
 
 .container {
@@ -415,9 +416,9 @@ body.home {
 }
 
 .logo img {
-    width: 80px; /* Ajustează dimensiunea logo-ului după preferință */
+    width: 70px; /* Ajustează dimensiunea logo-ului după preferință */
     height: auto;
-    /* margin-left: 20px; Spațiu între logo și butoanele meniului */
+    align-items:flex-start;
 }
 
 .buttons img{
