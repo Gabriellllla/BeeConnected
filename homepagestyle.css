@@ -121,24 +121,25 @@ body.home {
 @media screen and (max-width: 768px) {
     .top-menu {
         padding: 10px; /* Reducem padding-ul pentru a face meniul mai compact */
-        width: 500px;
+        width: 100%;
     }
 
     .logo img {
-        width: 60px; /* Reducem dimensiunea logo-ului pentru a face mai mult spațiu pentru butoane */
+        width: 30%; /* Reducem dimensiunea logo-ului pentru a face mai mult spațiu pentru butoane */
         margin-left: 80px;
     }
 
     .menu-button {
         font-size: 14px; /* Reducem dimensiunea textului butoanelor pentru a se potrivi ecranului mai mic */
         padding: 3px 8px; /* Reducem padding-ul butoanelor pentru a face meniul mai compact */
+        
     }
     .hide-on-small-screen {
         display: none;
     }
     .main-content{
         padding: 1px;
-        width: 330px;
+        width: 100%;
     }
 }
 .main-content {
@@ -168,8 +169,12 @@ body.home {
 /* Alte stiluri pot fi adăugate aici */
 /* Stilurile pentru butonul de adăugare stupină nouă */
 .add-button {
+    width: 60%;
     margin-right: 20px; /* Poziționează butonul în partea dreaptă */
     margin-top: 20px; /* Poziționează butonul în partea de sus */
+    margin-bottom: 20px;
+    align-content: center;
+    text-align:center;
 }
 
 .add-button button {
