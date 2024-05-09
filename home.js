@@ -85,17 +85,3 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-
-// Apelează funcția pentru a afișa lista de stupine când pagina este încărcată complet
-document.addEventListener("DOMContentLoaded", function() {
-    const auth = getAuth();
-    auth.onAuthStateChanged((user) => {
-        if (user) {
-            getHiveList();
-        } else {
-            // Utilizatorul nu este autentificat, poți gestiona acest caz aici
-            console.log("Utilizatorul nu este autentificat.");
-        }
-    });
-});
-

@@ -352,6 +352,8 @@ button:hover {
 /* ****************************home*************** */
 body.home {
     background-image: url('imagini/image3_1.jpeg');
+    background-attachment: fixed; /* Face imaginea de fundal să fie fixă */
+    background-repeat: no-repeat;
     font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
     background-color: #f9f9f9;
     margin: 0;
@@ -481,6 +483,9 @@ body.home {
 #hive-list {
     display: flex;
     flex-wrap: wrap;
+    margin: 5px;
+    width: 200px; /* Ajustează lățimea */
+    height: 150px; /* Ajustează înălțimea */
 }
 #hive-list button {
     margin: 5px;
