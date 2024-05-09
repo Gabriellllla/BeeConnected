@@ -48,6 +48,7 @@ body {
 }
 form {
     margin-top: 20px;
+    align-items: center;
 }
 input[type="text"],
 input[type="password"],
@@ -179,7 +180,7 @@ button {
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    
+    align-items: center;
 }
 button:hover {
     background-color: #ffcd38;
