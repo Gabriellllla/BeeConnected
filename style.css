@@ -415,17 +415,17 @@ body.home {
 }
 
 .logo img {
-    width: 100px; /* Ajustează dimensiunea logo-ului după preferință */
+    width: 80px; /* Ajustează dimensiunea logo-ului după preferință */
     height: auto;
     margin-left: 20px; /* Spațiu între logo și butoanele meniului */
 }
 
 .buttons img{
-    width: 50px; /* Ajustează dimensiunea logo-ului după preferință */
+    width: 30px; /* Ajustează dimensiunea logo-ului după preferință */
     height: auto;
     
 }
-
+/* 
 .menu-button, .dropbtn {
     background-color: #333;
     color: #fff;
@@ -433,7 +433,7 @@ body.home {
     cursor: pointer;
     padding: 10px 20px;
     margin: 0 5px;
-}
+} */
 
 .menu-button{
     background-color: transparent;
@@ -444,13 +444,19 @@ body.home {
     border-radius: 5px;
     font-size: 16px;
     transition: background-color 0.3s ease;
+    margin-left: 5px;
+}
+
+.menu-button img{
+    width: 30px; /* Ajustează dimensiunea logo-ului după preferință */
+    height: auto;
 }
 
 .menu-button:hover, .dropbtn:hover {
     background-color: #555;
 }
 
-.dropdown {
+/* .dropdown {
     position: relative;
     display: inline-block;
 }
@@ -477,7 +483,7 @@ body.home {
 
 .dropdown:hover .dropdown-content {
     display: block;
-}
+} */
 
 /* Stilurile pentru conținutul principal */
 .main-content {
