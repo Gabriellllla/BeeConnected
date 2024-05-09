@@ -45,9 +45,10 @@ body {
     
 }
 
-.logo {
+.logo-login {
     width: 250px;
     height: auto;
+    align-items: center;
 }
 
 form {
@@ -136,6 +137,7 @@ button {
     border: none;
     border-radius: 3px;
     cursor: pointer;
+    align-items: center;
 }
 p {
     font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
