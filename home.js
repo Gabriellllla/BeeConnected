@@ -15,9 +15,11 @@ const firebaseConfig = {
     measurementId: "G-00SQH47GGE"
 };
 
-firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
-
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth();
+auth.onAuthStateChanged((user) => {
+    if (user) {
 // Funcție pentru a obține lista de stupine din Firestore
 function getHiveList() {
     const hiveList = document.getElementById("hive-list");
@@ -40,10 +42,23 @@ function getHiveList() {
 
 // Apelează funcția pentru a afișa lista de stupine când pagina este încărcată complet
 document.addEventListener("DOMContentLoaded", function() {
-    getHiveList();
+    const auth = getAuth();
+    auth.onAuthStateChanged((user) => {
+        if (user) {
+            getHiveList();
+        } else {
+            // Utilizatorul nu este autentificat, poți gestiona acest caz aici
+            console.log("Utilizatorul nu este autentificat.");
+        }
+    });
 });
 
 // Funcție pentru afișarea tooltip-ului la survolul butoanelor din meniu
 function showTooltip(message) {
     alert(message);
-}
+} 
+}else {
+        // Utilizatorul nu este autentificat, poți gestiona acest caz aici
+        console.log("Utilizatorul nu este autentificat.");
+    }
+});

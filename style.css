@@ -382,7 +382,11 @@ button {
 button:hover {
     background-color: #ffcd38;
 }
-/* *****************home*************** */
+
+
+/* ****************************home*************** */
+
+
 body.home {
     background-image: url('imagini/image3_1.jpeg');
     font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
