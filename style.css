@@ -414,10 +414,16 @@ body.home {
 
 }
 
-.top-menu img {
+.logo img {
     width: 100px; /* Ajustează dimensiunea logo-ului după preferință */
     height: auto;
-    margin-right: 50px; /* Spațiu între logo și butoanele meniului */
+    margin-left: 20px; /* Spațiu între logo și butoanele meniului */
+}
+
+.buttons img{
+    width: 50px; /* Ajustează dimensiunea logo-ului după preferință */
+    height: auto;
+    
 }
 
 .menu-button, .dropbtn {
