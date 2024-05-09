@@ -10,7 +10,6 @@ body {
     background-image: url('imagini/image2.jpeg');
     background-size: cover;
 }
-
 @media only screen and (max-width: 768px) {
     .container {
         max-width: 90%; /* Ajustează lățimea containerului */
@@ -24,14 +23,12 @@ body {
         width: 90%; /* Ajustează lățimea elementelor de intrare */
     }
 }
-
 /* Media query pentru ecrane mai mari */
 @media only screen and (min-width: 1200px) {
     .container {
         max-width: 1200px; /* Ajustează lățimea maximă a containerului */
     }
 }
-
 .login-container {
     text-align: center;
     background-color: #ffffff; /* Schimbarea culorii de fundal la alb */
@@ -44,17 +41,14 @@ body {
     justify-content: center;
     
 }
-
-.logo-login {
+.logo {
     width: 250px;
     height: auto;
     align-items: center;
 }
-
 form {
     margin-top: 20px;
 }
-
 input[type="text"],
 input[type="password"],
 button {
@@ -66,37 +60,22 @@ button {
     border-radius: 4px;
     box-sizing: border-box;
     align-items: center;
-    position: absolute; /* Setează poziția absolută pentru buton */
-    bottom: 0.1px; /* Poziționează butonul la 10px distanță de partea de jos a containerului */
-    left: 50%; /* Poziționează butonul la mijlocul containerului */
-    transform: translateX(-50%); /* Corectează poziția butonului pentru a fi în mijloc */
-    z-index: 1; 
-    
+
 }
 
 .login-button{
     align-items: center;
+}
+#login-button{
+    align-items: center;
+}
+button {
     background-color: #ffc107;
     color: #fff;
     cursor: pointer;
     align-self: center;
     align-items: center;
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    position: absolute; /* Setează poziția absolută pentru buton */
-    bottom: 0.1px; /* Poziționează butonul la 10px distanță de partea de jos a containerului */
-    left: 50%; /* Poziționează butonul la mijlocul containerului */
-    transform: translateX(-50%); /* Corectează poziția butonului pentru a fi în mijloc */
-    z-index: 1; 
 }
-
-
-
 .container {
     max-width: 400px;
     margin: 50px auto;
@@ -105,7 +84,6 @@ button {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
 input[type="text"],
 input[type="password"] {
     width: 300px;
@@ -122,30 +100,26 @@ input[type="email"]{
     border: 1px solid #ccc;
     border-radius: 3px;
 }
-
 button:hover {
     background-color: #ffcd38;
 }
-
 a {
     display: block;
     margin-top: 10px;
     text-decoration: none;
     color: #007bff;
 }
-
 .input-group {
     margin-bottom: 15px;
     align-items: center;
 }
-
 h2 {
     margin-bottom: 20px;
     text-align: center;
 }
-
-
-
+#register-button{
+    align-items: center;
+}
 button {
     width: 100%;
     padding: 10px;
@@ -155,20 +129,11 @@ button {
     border: none;
     border-radius: 3px;
     cursor: pointer;
-    align-items: center;
-    position: absolute; /* Setează poziția absolută pentru buton */
-    bottom: 0.1px; /* Poziționează butonul la 10px distanță de partea de jos a containerului */
-    left: 50%; /* Poziționează butonul la mijlocul containerului */
-    transform: translateX(-50%); /* Corectează poziția butonului pentru a fi în mijloc */
-    z-index: 1; 
 }
 p {
     font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
 }
-
-
 /* ************ Welcome ****************** */
-
 /* Stilizare container pentru bun venit */
 body.welcome {
   
@@ -182,7 +147,6 @@ body.welcome {
     height: 100vh;
     background-size: cover;
 }
-
 .welcome-container {
     width: 1000px; /* Dimensiunea fixă a slide-ului */
     height: 450px; /* Dimensiunea fixă a slide-ului */
@@ -196,7 +160,6 @@ body.welcome {
     justify-content: center;
     position: relative;
 }
-
 /* Stilizare galerie de imagini */
 .gallery {
     display: flex;
@@ -207,7 +170,6 @@ body.welcome {
     word-wrap: break-word; /* Permite textului să se împartă pe mai multe linii */
     text-align: center; 
 }
-
 .slide {
     flex: 0 0 auto;
     scroll-snap-align: start;
@@ -217,14 +179,12 @@ body.welcome {
     max-width: 900px; /* Lățime maximă a slide-urilor */
     margin: 0 auto; /* Centrare a slide-urilor în cadrul containerului */
 }
-
 .slide img {
     max-width: 95%; /* Redimensionează imaginea la lățimea maximă a slide-ului */
     max-height: 180px; /* Limitează înălțimea maximă a imaginii */
     height: auto; /* Asigură proporțiile corecte ale imaginii */
     margin: 0 auto; /* Centrează imaginea în cadrul slide-ului */
 }
-
 /* Stilizare buton */
 button {
     margin-top: 30px;
@@ -238,12 +198,9 @@ button {
     cursor: pointer;
     
 }
-
 button:hover {
     background-color: #ffcd38;
 }
-
-
 /* Stilizare butoane de navigare */
 .prev, .next {
     position: absolute; /* Poziționează butoanele absolut în cadrul containerului */
@@ -260,19 +217,15 @@ button:hover {
     font-size: 24px; /* Ajustați dimensiunea fontului săgeții */
    
 }
-
 .prev {
     left: 30px;
 }
-
 .next {
     right: 30px;
 }
-
 .slide p {
     font-size: 22px; /* Ajustați dimensiunea fontului pentru paragrafe */
 }
-
 /* Stilizare buton "Începeți acum" */
 #startBtn {
     display: block;
@@ -292,11 +245,6 @@ button:hover {
     z-index: 1; 
     font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
 }
-
-
-
-
-
 /* ****************** LOCATION ************************ */
 body.location {
     background-image: url('imagini/image3_1.jpeg');
@@ -325,27 +273,21 @@ body.location {
    padding: 20px;
    margin: 0 auto;
 }
-
 .left, .right {
     width: 80%;
 }
-
 @media screen and (min-width: 768px) {
     .location-container {
         flex-direction: row;
     }
-
     .left {
         width: 40%;
     }
-
     .right {
         width: 60%;
     }
 }
-
 /* Restul stilurilor */
-
  /* Stilurile pentru containerul principal */
  /* #container {
     display: flex;
@@ -356,12 +298,9 @@ body.location {
     margin: 0 auto;
 }
 /* 
-
 #map-container {
     width: 60%; 
 }
-
-
 #content-container {
     width: 35%; 
 } */
@@ -370,7 +309,6 @@ body.location {
     width: 100%;
      margin-top: 20px;
 }
-
 h1{
     text-align: center;
 }
@@ -391,7 +329,6 @@ input {
    
     
 }
-
 input[type="text"] {
     width: 90%; /* Schimbă lățimea la o valoare mai mică, de exemplu 200px */
 }
@@ -408,15 +345,10 @@ button {
     cursor: pointer;
     align-self: center;    
 }
-
 button:hover {
     background-color: #ffcd38;
 }
-
-
 /* ****************************home*************** */
-
-
 body.home {
     background-image: url('imagini/image3_1.jpeg');
     font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
@@ -428,7 +360,6 @@ body.home {
     height: 100vh;
     background-size: cover;
 }
-
 /* Stilurile pentru meniul de sus */
 .top-menu {
     background-color: #333;
@@ -442,9 +373,7 @@ body.home {
     width: 100%;
     z-index: 999;
     
-
 }
-
 .logo img {
     width: 70px; /* Ajustează dimensiunea logo-ului după preferință */
     height: auto;
@@ -452,11 +381,9 @@ body.home {
     
     padding-left: 20px;
 }
-
 .logo{
     margin-right: auto;
 }
-
 .buttons img{
     width: 30px; /* Ajustează dimensiunea logo-ului după preferință */
     height: auto;
@@ -472,7 +399,6 @@ body.home {
     padding: 10px 20px;
     margin: 0 5px;
 } */
-
 .buttons {
     background-color: transparent;
     color: #fff;
@@ -487,7 +413,6 @@ body.home {
     display: flex; /* Afișează butonul ca element inline flexibil */
     align-items: center; 
 }
-
 .menu-button{
     background-color: transparent;
     color: #fff;
@@ -502,21 +427,17 @@ body.home {
     display: flex; /* Afișează butonul ca element inline flexibil */
     align-items: center; 
 }
-
 .menu-button img{
     width: 30px; /* Ajustează dimensiunea logo-ului după preferință */
     height: auto;
 }
-
 .menu-button:hover, .dropbtn:hover {
     background-color: #555;
 }
-
 /* .dropdown {
     position: relative;
     display: inline-block;
 }
-
 .dropdown-content {
     display: none;
     position: absolute;
@@ -525,34 +446,27 @@ body.home {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     z-index: 1;
 }
-
 .dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
-
 .dropdown-content a:hover {
     background-color: #ddd;
 }
-
 .dropdown:hover .dropdown-content {
     display: block;
 } */
-
 /* Stilurile pentru conținutul principal */
 .main-content {
     margin: 20px;
 }
-
 #hive-list {
     display: flex;
     flex-wrap: wrap;
 }
-
 #hive-list button {
     margin: 5px;
 }
-
 /* Alte stiluri pot fi adăugate aici */
