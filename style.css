@@ -405,7 +405,8 @@ body.home {
 .top-menu {
     background-color: #333;
     color: #fff;
-    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     display: flex;
     justify-content: flex-end;
     position: fixed;
@@ -421,7 +422,7 @@ body.home {
     height: auto;
     align-items:flex-start;
     
-    padding-left: 10px;
+    padding-left: 20px;
 }
 
 .logo{
