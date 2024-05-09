@@ -483,9 +483,9 @@ body.home {
 #hive-list {
     display: flex;
     flex-wrap: wrap;
-    margin: 5px;
-    width: 200px; /* Ajustează lățimea */
-    height: 150px; /* Ajustează înălțimea */
+    margin-left: 20px;
+    width: 500px; /* Ajustează lățimea */
+    height: 400px;  /* Ajustează înălțimea */
 }
 #hive-list button {
     margin: 5px;
