@@ -114,6 +114,7 @@ a {
 
 .input-group {
     margin-bottom: 15px;
+    align-items: center;
 }
 
 h2 {
@@ -419,6 +420,11 @@ body.home {
     width: 70px; /* Ajustează dimensiunea logo-ului după preferință */
     height: auto;
     align-items:flex-start;
+    margin-right: auto;
+}
+
+.logo{
+    margin-right: auto;
 }
 
 .buttons img{
