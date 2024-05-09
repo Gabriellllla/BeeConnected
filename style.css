@@ -57,7 +57,7 @@ button {
     border-radius: 4px;
     box-sizing: border-box;
     align-items: center;
-    text-align: center;
+    
 
 }
 .register-button{
@@ -360,6 +360,7 @@ body.home {
     align-items: center;
     height: 100vh;
     background-size: cover;
+    width: 100%;
 }
 /* Stilurile pentru meniul de sus */
 .top-menu {
@@ -460,6 +461,20 @@ body.home {
     display: block;
 } */
 /* Stilurile pentru conținutul principal */
+@media screen and (max-width: 768px) {
+    .top-menu {
+        padding: 5px; /* Reducem padding-ul pentru a face meniul mai compact */
+    }
+
+    .logo img {
+        width: 60px; /* Reducem dimensiunea logo-ului pentru a face mai mult spațiu pentru butoane */
+    }
+
+    .menu-button {
+        font-size: 14px; /* Reducem dimensiunea textului butoanelor pentru a se potrivi ecranului mai mic */
+        padding: 3px 8px; /* Reducem padding-ul butoanelor pentru a face meniul mai compact */
+    }
+}
 .main-content {
     margin: 20px;
 }
