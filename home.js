@@ -37,6 +37,8 @@ function getHiveList() {
             };
             hiveList.appendChild(hiveButton);
         });
+    }).catch((error) => {
+        console.error("Eroare la obținerea listei de stupine:", error);
     });
 }
 

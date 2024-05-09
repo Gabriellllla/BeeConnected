@@ -406,6 +406,10 @@ body.home {
     padding: 10px;
     display: flex;
     justify-content: flex-end;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
 }
 
 .menu-button, .dropbtn {
