@@ -52,9 +52,9 @@ form {
 input[type="text"],
 input[type="password"],
 button {
-    display: block;
+    
     width: 100%;
-    padding: 10px;
+    
     margin-top: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -63,19 +63,9 @@ button {
 
 }
 
-.login-button{
-    align-items: center;
-}
-#login-button{
-    align-items: center;
-}
-button {
-    background-color: #ffc107;
-    color: #fff;
-    cursor: pointer;
-    align-self: center;
-    align-items: center;
-}
+
+
+
 .container {
     max-width: 400px;
     margin: 50px auto;
@@ -120,16 +110,7 @@ h2 {
 #register-button{
     align-items: center;
 }
-button {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0 0;
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-}
+
 p {
     font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
 }
