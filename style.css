@@ -469,13 +469,17 @@ body.home {
     }
 
     .logo img {
-        width: 60px; /* Reducem dimensiunea logo-ului pentru a face mai mult spațiu pentru butoane */
+        width: 25px; /* Reducem dimensiunea logo-ului pentru a face mai mult spațiu pentru butoane */
     }
 
     .menu-button {
         font-size: 14px; /* Reducem dimensiunea textului butoanelor pentru a se potrivi ecranului mai mic */
         padding: 3px 8px; /* Reducem padding-ul butoanelor pentru a face meniul mai compact */
     }
+    .hide-on-small-screen {
+        display: none;
+    }
+
 }
 .main-content {
     margin: 20px;

@@ -41,7 +41,7 @@ body.home {
 }
 .logo h1 {
     margin-left: 10px; /* Adaugă un spațiu mic între logo și numele site-ului */
-    color: #333; /* Poți să adaugi alte stiluri CSS pentru numele site-ului */
+    color: #ede4e4; /* Poți să adaugi alte stiluri CSS pentru numele site-ului */
 }
 .buttons img{
     width: 30px; /* Ajustează dimensiunea logo-ului după preferință */
@@ -131,6 +131,9 @@ body.home {
         font-size: 14px; /* Reducem dimensiunea textului butoanelor pentru a se potrivi ecranului mai mic */
         padding: 3px 8px; /* Reducem padding-ul butoanelor pentru a face meniul mai compact */
     }
+    .hide-on-small-screen {
+        display: none;
+    }
 }
 .main-content {
     margin: 20px;
@@ -144,6 +147,15 @@ body.home {
 }
 #hive-list button {
     margin: 5px;
+    background-color: #aa6408;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    height: 80px;
+    transition: background-color 0.3s ease;
 }
 /* Alte stiluri pot fi adăugate aici */
 /* Stilurile pentru butonul de adăugare stupină nouă */
