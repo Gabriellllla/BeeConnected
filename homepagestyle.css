@@ -36,6 +36,12 @@ body.home {
 }
 .logo{
     margin-right: auto;
+    display: flex;
+    align-items: center;
+}
+.logo h1 {
+    margin-left: 10px; /* Adaugă un spațiu mic între logo și numele site-ului */
+    color: #333; /* Poți să adaugi alte stiluri CSS pentru numele site-ului */
 }
 .buttons img{
     width: 30px; /* Ajustează dimensiunea logo-ului după preferință */
