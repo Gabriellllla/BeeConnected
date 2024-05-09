@@ -1,0 +1,162 @@
+/* ****************************home*************** */
+body.home {
+    background-image: url('imagini/image3_1.jpeg');
+    background-attachment: fixed; /* Face imaginea de fundal să fie fixă */
+    background-repeat: no-repeat;
+    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-size: cover;
+    width: 100%;
+}
+/* Stilurile pentru meniul de sus */
+.top-menu {
+    background-color: #333;
+    color: #fff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    
+}
+.logo img {
+    width: 70px; /* Ajustează dimensiunea logo-ului după preferință */
+    height: auto;
+    align-items:flex-start;
+    
+    padding-left: 20px;
+}
+.logo{
+    margin-right: auto;
+}
+.buttons img{
+    width: 30px; /* Ajustează dimensiunea logo-ului după preferință */
+    height: auto;
+    display: inline-flex; /* Afișează butonul ca element inline flexibil */
+    align-items: center; 
+}
+/* 
+.menu-button, .dropbtn {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin: 0 5px;
+} */
+.buttons {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    margin: 0 5px;
+    transition: background-color 0.3s ease;
+    margin-left: 5px; /* Spațiu între butoane */
+    display: flex; /* Afișează butonul ca element inline flexibil */
+    align-items: center; 
+}
+.menu-button{
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    margin: 0 5px;
+    transition: background-color 0.3s ease;
+    margin-left: 5px; /* Spațiu între butoane */
+    display: flex; /* Afișează butonul ca element inline flexibil */
+    align-items: center; 
+}
+.menu-button img{
+    width: 30px; /* Ajustează dimensiunea logo-ului după preferință */
+    height: auto;
+}
+.menu-button:hover, .dropbtn:hover {
+    background-color: #555;
+}
+/* .dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+} */
+/* Stilurile pentru conținutul principal */
+@media screen and (max-width: 768px) {
+    .top-menu {
+        padding: 5px; /* Reducem padding-ul pentru a face meniul mai compact */
+    }
+
+    .logo img {
+        width: 60px; /* Reducem dimensiunea logo-ului pentru a face mai mult spațiu pentru butoane */
+    }
+
+    .menu-button {
+        font-size: 14px; /* Reducem dimensiunea textului butoanelor pentru a se potrivi ecranului mai mic */
+        padding: 3px 8px; /* Reducem padding-ul butoanelor pentru a face meniul mai compact */
+    }
+}
+.main-content {
+    margin: 20px;
+}
+#hive-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 20px;
+    width: 500px; /* Ajustează lățimea */
+    height: 400px;  /* Ajustează înălțimea */
+}
+#hive-list button {
+    margin: 5px;
+}
+/* Alte stiluri pot fi adăugate aici */
+/* Stilurile pentru butonul de adăugare stupină nouă */
+.add-button {
+    margin-right: 20px; /* Poziționează butonul în partea dreaptă */
+    margin-top: 20px; /* Poziționează butonul în partea de sus */
+}
+
+.add-button button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.add-button button:hover {
+    background-color: #555;
+}
