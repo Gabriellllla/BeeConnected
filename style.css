@@ -410,7 +410,7 @@ body.home {
     top: 0;
     width: 100%;
     z-index: 999;
-    gap: 5px; /* Spațiu între butoane */
+    
 
 }
 
@@ -436,6 +436,21 @@ body.home {
     margin: 0 5px;
 } */
 
+.buttons {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    margin: 0 5px;
+    transition: background-color 0.3s ease;
+    margin-left: 5px; /* Spațiu între butoane */
+    display: flex; /* Afișează butonul ca element inline flexibil */
+    align-items: center; 
+}
+
 .menu-button{
     background-color: transparent;
     color: #fff;
@@ -447,7 +462,7 @@ body.home {
     margin: 0 5px;
     transition: background-color 0.3s ease;
     margin-left: 5px; /* Spațiu între butoane */
-    display: inline-flex; /* Afișează butonul ca element inline flexibil */
+    display: flex; /* Afișează butonul ca element inline flexibil */
     align-items: center; 
 }
 
