@@ -66,26 +66,14 @@ button {
     border-radius: 4px;
     box-sizing: border-box;
     align-items: center;
-    
-}
-#login-button{
-    display: block;
-    width: 200px;
-    margin-top: 330px;
-    padding: 10px 20px;
-    font-size: 20px;
-    background-color: #ff8c00;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
     position: absolute; /* Setează poziția absolută pentru buton */
     bottom: 0.1px; /* Poziționează butonul la 10px distanță de partea de jos a containerului */
     left: 50%; /* Poziționează butonul la mijlocul containerului */
     transform: translateX(-50%); /* Corectează poziția butonului pentru a fi în mijloc */
     z-index: 1; 
-    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
+    
 }
+
 .login-button{
     align-items: center;
     background-color: #ffc107;
@@ -100,26 +88,14 @@ button {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-}
-
-#register-button {
-    display: block;
-    width: 200px;
-    margin-top: 330px;
-    padding: 10px 20px;
-    font-size: 20px;
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
     position: absolute; /* Setează poziția absolută pentru buton */
     bottom: 0.1px; /* Poziționează butonul la 10px distanță de partea de jos a containerului */
     left: 50%; /* Poziționează butonul la mijlocul containerului */
     transform: translateX(-50%); /* Corectează poziția butonului pentru a fi în mijloc */
     z-index: 1; 
-    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
 }
+
+
 
 .container {
     max-width: 400px;
@@ -180,6 +156,11 @@ button {
     border-radius: 3px;
     cursor: pointer;
     align-items: center;
+    position: absolute; /* Setează poziția absolută pentru buton */
+    bottom: 0.1px; /* Poziționează butonul la 10px distanță de partea de jos a containerului */
+    left: 50%; /* Poziționează butonul la mijlocul containerului */
+    transform: translateX(-50%); /* Corectează poziția butonului pentru a fi în mijloc */
+    z-index: 1; 
 }
 p {
     font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
