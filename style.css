@@ -410,6 +410,14 @@ body.home {
     top: 0;
     width: 100%;
     z-index: 999;
+    gap: 10px; /* Spațiu între butoane */
+
+}
+
+.top-menu img {
+    width: 100px; /* Ajustează dimensiunea logo-ului după preferință */
+    height: auto;
+    margin-right: 20px; /* Spațiu între logo și butoanele meniului */
 }
 
 .menu-button, .dropbtn {
@@ -419,6 +427,17 @@ body.home {
     cursor: pointer;
     padding: 10px 20px;
     margin: 0 5px;
+}
+
+.menu-button{
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
 .menu-button:hover, .dropbtn:hover {
