@@ -73,7 +73,7 @@ loginButtonEl.addEventListener("click", function() {
                             });
                         } else {
                             // Utilizatorul a mai vizitat deja pagina de bun venit
-                            window.location.href = "succes.html";
+                            window.location.href = "home.html";
                             // Poate fi redirecționat către altă pagină sau puteți lua alte acțiuni necesare
                         }
                     }
