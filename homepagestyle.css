@@ -29,7 +29,7 @@ body.home {
     
 }
 .logo img {
-    width: 70px; /* Ajustează dimensiunea logo-ului după preferință */
+    width: 50px; /* Ajustează dimensiunea logo-ului după preferință */
     height: auto;
     align-items:flex-start;
     
@@ -125,7 +125,7 @@ body.home {
     .top-menu {
         padding: 10px; /* Reducem padding-ul pentru a face meniul mai compact */
         width: 100%; /* Extinderea meniului până la capătul ecranului */
-        padding: 0; /* Eliminarea paddingului pentru a maximiza lățimea */
+        /* Eliminarea paddingului pentru a maximiza lățimea */
         margin: 0;
         position:absolute; 
         
