@@ -25,6 +25,7 @@ body.home {
     top: 0;
     width: 100%;
     z-index: 999;
+   
     
 }
 .logo img {
@@ -32,7 +33,7 @@ body.home {
     height: auto;
     align-items:flex-start;
     
-    padding-left: 20px;
+    padding-left: 10px;
 }
 .logo{
     margin-right: auto;
@@ -40,6 +41,7 @@ body.home {
     align-items: center;
 }
 .logo h1 {
+    font-size: 18px;
     margin-left: 10px; /* Adaugă un spațiu mic între logo și numele site-ului */
     color: #ede4e4; /* Poți să adaugi alte stiluri CSS pentru numele site-ului */
 }
@@ -59,6 +61,7 @@ body.home {
     margin: 0 5px;
 } */
 .buttons {
+    
     background-color: transparent;
     color: #fff;
     border: none;
@@ -77,7 +80,7 @@ body.home {
     color: #fff;
     border: none;
     cursor: pointer;
-    padding: 5px 10px;
+    
     border-radius: 5px;
     font-size: 16px;
     margin: 0 5px;
@@ -121,18 +124,30 @@ body.home {
 @media screen and (max-width: 768px) {
     .top-menu {
         padding: 10px; /* Reducem padding-ul pentru a face meniul mai compact */
-        width: 100%;
+        width: 100%; /* Extinderea meniului până la capătul ecranului */
+        padding: 0; /* Eliminarea paddingului pentru a maximiza lățimea */
+        margin: 0;
+        position:absolute; 
+        
     }
 
     .logo img {
-        width: 30%; /* Reducem dimensiunea logo-ului pentru a face mai mult spațiu pentru butoane */
-        margin-left: 80px;
+        width: 25%; /* Reducem dimensiunea logo-ului pentru a face mai mult spațiu pentru butoane */
+        
+       
     }
+    
+    .buttons {
+        margin-left: 0; /* Elimină margin-left-ul */
+        margin-right: 0; /* Elimină margin-right-ul */
+            
+    }
+
 
     .menu-button {
         font-size: 14px; /* Reducem dimensiunea textului butoanelor pentru a se potrivi ecranului mai mic */
-        padding: 3px 8px; /* Reducem padding-ul butoanelor pentru a face meniul mai compact */
-        
+        padding: px px; /* Reducem padding-ul butoanelor pentru a face meniul mai compact */
+        margin-left: px;
     }
     .hide-on-small-screen {
         display: none;
@@ -141,6 +156,7 @@ body.home {
         padding: 1px;
         width: 100%;
     }
+    
 }
 .main-content {
     margin: 20px;
