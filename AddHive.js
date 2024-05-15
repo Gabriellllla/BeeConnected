@@ -28,7 +28,10 @@ document.getElementById("add-hive-form").addEventListener("submit", async (e) =>
         if (user) {
             const userId = user.uid;
             const stupineRef = collection(db, "stupine", userId, "stupine");
-            const stupiRef = collection(stupineRef.doc(), "stupi"); // Referința către colecția "stupi" în cadrul colecției "stupine"
+            const stupineSnapshot = await getDocs(stupineRef)
+            stupineSnapshot.forEach(async (doc) => {
+                const stupinaId = doc.id;
+                const stupiRef = collection(db, "stupine", stupinaId, "stupi");
 
             const hiveData = {
                 name: hiveName,
@@ -43,6 +46,7 @@ document.getElementById("add-hive-form").addEventListener("submit", async (e) =>
                 console.error("Eroare la adăugarea stupului:", error);
                 alert("A apărut o eroare. Vă rugăm să încercați din nou.");
             }
+        });
         } else {
             console.log("Utilizatorul nu este autentificat.");
         }
