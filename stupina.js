@@ -17,35 +17,37 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth();
 
-document.addEventListener("DOMContentLoaded", function() {
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-    const auth = getAuth();
+document.getElementById("add-hive-button").addEventListener("click", () => {
+    window.location.href = "AddHive.html"; // Redirecționează utilizatorul către pagina de adăugare a unui stup
+});
 
-    document.getElementById("add-hive-button").addEventListener("click", () => {
-        window.location.href = "AddHive.html"; // Redirecționează utilizatorul către pagina de adăugare a unui stup
-    });
+onAuthStateChanged(auth, async (user) => {
+    if (user) {
+        const userId = user.uid;
+        const hiveListContainer = document.getElementById("hive-list");
+        hiveListContainer.innerHTML = ""; // Golește conținutul înainte de a adăuga stupii
 
-    onAuthStateChanged(auth, async (user) => {
-        if (user) {
-            const userId = user.uid;
-            const hiveListContainer = document.getElementById("hive-list");
-            //hiveListContainer.innerHTML = ""; // Golește conținutul înainte de a adăuga stupii
+        try {
+            // Referința către colecția "stupine" specifică utilizatorului curent
+            const userStupineRef = collection(db, "stupine", userId);
 
-            try {
-                const hiveSnapshot = await getDocs(collection(db, "stupine", userId, "stupi"));
-                hiveSnapshot.forEach((doc) => {
-                    const hive = doc.data();
-                    const hiveElement = document.createElement("div");
-                    hiveElement.classList.add("hive-item");
-                    hiveElement.textContent = `Nume: ${hive.name}, Tip: ${hive.type}`;
-                    hiveListContainer.appendChild(hiveElement);
-                });
-            } catch (error) {
-                console.error("Eroare la obținerea stupilor:", error);
-            }
-        } else {
-            console.log("Utilizatorul nu este autentificat.");
+            // Obține o referință către colecția "stupi" specifică utilizatorului curent
+            const userStupiRef = collection(userStupineRef, "stupi");
+
+            // Obține snapshot-ul documentelor din subcolecția "stupi"
+            const hiveSnapshot = await getDocs(userStupiRef);
+
+            hiveSnapshot.forEach((doc) => {
+                const hive = doc.data();
+                const hiveElement = document.createElement("div");
+                hiveElement.classList.add("hive-item");
+                hiveElement.textContent = `Nume: ${hive.name}, Tip: ${hive.type}`;
+                hiveListContainer.appendChild(hiveElement);
+            });
+        } catch (error) {
+            console.error("Eroare la obținerea stupilor:", error);
         }
-    });
+    } else {
+        console.log("Utilizatorul nu este autentificat.");
+    }
 });
