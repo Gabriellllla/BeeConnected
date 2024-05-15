@@ -35,7 +35,7 @@ document.getElementById("add-hive-form").addEventListener("submit", async (e) =>
             try {
                 await addDoc(collection(db, "stupine", userId, "stupi"), hiveData);
                 alert("Stup adăugat cu succes!");
-                window.location.href = "hiveList.html"; // Redirecționează utilizatorul către lista de stupi
+                window.location.href = "stupina.html"; // Redirecționează utilizatorul către lista de stupi
             } catch (error) {
                 console.error("Eroare la adăugarea stupului:", error);
                 alert("A apărut o eroare. Vă rugăm să încercați din nou.");
