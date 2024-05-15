@@ -18,39 +18,34 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth();
 
-document.getElementById("add-hive-form").addEventListener("submit", async (e) => {
-    e.preventDefault();
-    
-    const hiveName = document.getElementById("hive-name").value;
-    const hiveType = document.getElementById("hive-type").value;
+        // Funcție pentru a obține ID-ul unic al stupinei din URL
+        function getStupinaIdFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('stupinaId');
+        }
 
-    const auth = getAuth();
-    const user = auth.currentUser;
-
-    if (user) {
-        const userId = user.uid;
-        const userStupineRef = collection(db, "stupine", userId, "stupine");
-        const stupineSnapshot = await getDocs(userStupineRef);
-
-        stupineSnapshot.forEach(async (stupinaDoc) => {
-            const stupinaId = stupinaDoc.id;
-            const stupiRef = collection(db, "stupine", userId, "stupine", stupinaId, "stupi");
-
-            const hiveData = {
-                nume: hiveName,
-                tip: hiveType
-            };
-            
+        // Funcția pentru adăugarea stupului în colecția stupi a stupinei corespunzătoare
+        async function addHiveToStupina(userId, stupinaId, hiveName, hiveType) {
+            const stupiRef = db.collection("stupine").doc(userId).collection("stupine").doc(stupinaId).collection("stupi");
             try {
-                await addDoc(stupiRef, hiveData);
+                await stupiRef.add({
+                    name: hiveName,
+                    type: hiveType
+                });
                 alert("Stup adăugat cu succes!");
-                window.location.href = "stupina.html"; // Redirecționează utilizatorul către lista de stupi
+                window.location.href = "HomePage.html"; // Redirecționează utilizatorul către pagina principală
             } catch (error) {
                 console.error("Eroare la adăugarea stupului:", error);
                 alert("A apărut o eroare. Vă rugăm să încercați din nou.");
             }
+        }
+
+        // Ascultă evenimentul de submit al formularului
+        document.getElementById("add-hive-form").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const userId = auth.currentUser.uid;
+            const stupinaId = getStupinaIdFromUrl();
+            const hiveName = document.getElementById("hive-name").value;
+            const hiveType = document.getElementById("hive-type").value;
+            await addHiveToStupina(userId, stupinaId, hiveName, hiveType);
         });
-    } else {
-        console.log("Utilizatorul nu este autentificat.");
-    }
-});
