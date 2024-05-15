@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
 import { getFirestore, doc, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+import { getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDY4OQCbazOZQ9EIFZR5iY1tfV5yQ2IJ4g",
@@ -17,33 +17,28 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth();
 
-auth.onAuthStateChanged((user) => {
+document.getElementById("add-hive-button").addEventListener("click", () => {
+    window.location.href = "AddHive.html"; // Redirecționează utilizatorul către pagina de adăugare a unui stup
+});
+
+onAuthStateChanged(auth, async (user) => {
     if (user) {
-        const urlParams = new URLSearchParams(window.location.search);
-        const stupinaId = urlParams.get('id');
-        const stupList = document.getElementById("stup-list");
-        const addStupButton = document.getElementById("add-stup-button");
+        const userId = user.uid;
+        const hiveListContainer = document.getElementById("hive-list");
+        hiveListContainer.innerHTML = ""; // Golește conținutul înainte de a adăuga stupii
 
-        async function getStupList() {
-            const stupineRef = doc(db, "stupine", user.uid, "stupine", stupinaId);
-            const stupiCollection = collection(stupineRef, "stupi");
-            const stupiSnapshot = await getDocs(stupiCollection);
-            stupiSnapshot.forEach((stupDoc) => {
-                const stupData = stupDoc.data();
-                const stupButton = document.createElement("button");
-                stupButton.textContent = stupData.numeStup || `Stup ${stupDoc.id}`;
-                stupButton.onclick = () => {
-                    window.location.href = `stup_inspectii.html?id=${stupDoc.id}`;
-                };
-                stupList.appendChild(stupButton);
+        try {
+            const hiveSnapshot = await getDocs(collection(db, "stupine", userId, "stupi"));
+            hiveSnapshot.forEach((doc) => {
+                const hive = doc.data();
+                const hiveElement = document.createElement("div");
+                hiveElement.classList.add("hive-item");
+                hiveElement.textContent = `Nume: ${hive.name}, Tip: ${hive.type}`;
+                hiveListContainer.appendChild(hiveElement);
             });
+        } catch (error) {
+            console.error("Eroare la obținerea stupilor:", error);
         }
-
-        addStupButton.onclick = () => {
-            window.location.href = `AddHive.html?stupinaId=${stupinaId}`;
-        };
-
-        getStupList();
     } else {
         console.log("Utilizatorul nu este autentificat.");
     }
