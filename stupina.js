@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (user) {
             const userId = user.uid;
             const hiveListContainer = document.getElementById("hive-list");
-            hiveListContainer.innerHTML = ""; // Golește conținutul înainte de a adăuga stupii
+            //hiveListContainer.innerHTML = ""; // Golește conținutul înainte de a adăuga stupii
 
             try {
                 const hiveSnapshot = await getDocs(collection(db, "stupine", userId, "stupi"));
