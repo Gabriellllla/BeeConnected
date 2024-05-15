@@ -24,18 +24,21 @@ document.getElementById("add-hive-form").addEventListener("submit", async (e) =>
     const hiveName = document.getElementById("hive-name").value;
     const hiveType = document.getElementById("hive-type").value;
 
-    onAuthStateChanged(auth, async (user) => {
-        if (user) {
-            const userId = user.uid;
-            const stupineRef = collection(db, "stupine", userId, "stupine");
-            const stupineSnapshot = await getDocs(stupineRef)
-            stupineSnapshot.forEach(async (doc) => {
-                const stupinaId = doc.id;
-                const stupiRef = collection(db, "stupine", stupinaId, "stupi");
+    const auth = getAuth();
+    const user = auth.currentUser;
+
+    if (user) {
+        const userId = user.uid;
+        const userStupineRef = collection(db, "stupine", userId, "stupine");
+        const stupineSnapshot = await getDocs(userStupineRef);
+
+        stupineSnapshot.forEach(async (stupinaDoc) => {
+            const stupinaId = stupinaDoc.id;
+            const stupiRef = collection(db, "stupine", userId, "stupine", stupinaId, "stupi");
 
             const hiveData = {
-                name: hiveName,
-                type: hiveType
+                nume: hiveName,
+                tip: hiveType
             };
             
             try {
@@ -47,8 +50,7 @@ document.getElementById("add-hive-form").addEventListener("submit", async (e) =>
                 alert("A apărut o eroare. Vă rugăm să încercați din nou.");
             }
         });
-        } else {
-            console.log("Utilizatorul nu este autentificat.");
-        }
-    });
+    } else {
+        console.log("Utilizatorul nu este autentificat.");
+    }
 });
