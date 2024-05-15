@@ -45,12 +45,18 @@
     </div>
 
     <div class="main-content">
-        <h1>Adaugă Stup Nou</h1>
+        <h1>Adaugă Stup</h1>
         <form id="add-stup-form">
             <label for="nume-stup">Nume Stup:</label>
             <input type="text" id="nume-stup" required>
-            <label for="stup-poza">Poza Stup (opțional):</label>
-            <input type="file" id="stup-poza">
+            
+            <label for="hive-type">Tip Stup:</label>
+        <select id="hive-type" name="hive-type" required>
+            <option value="dadant">Dadant</option>
+            <option value="multietajat">Multietajat</option>
+            <option value="orizontal">Orizontal</option>
+        </select>
+        
             <button type="submit">Adaugă</button>
         </form>
     </div>

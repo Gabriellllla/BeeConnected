@@ -1,7 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
 import { getFirestore, doc, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-storage.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDY4OQCbazOZQ9EIFZR5iY1tfV5yQ2IJ4g",
@@ -14,46 +13,35 @@ const firebaseConfig = {
     measurementId: "G-00SQH47GGE"
 };
 
+
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth();
-const storage = getStorage(app);
 
-auth.onAuthStateChanged((user) => {
-    if (user) {
-        const urlParams = new URLSearchParams(window.location.search);
-        const stupinaId = urlParams.get('stupinaId');
-        const addStupForm = document.getElementById("add-stup-form");
+document.getElementById("add-hive-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    
+    const hiveName = document.getElementById("hive-name").value;
+    const hiveType = document.getElementById("hive-type").value;
 
-        addStupForm.addEventListener("submit", async function(event) {
-            event.preventDefault();
-
-            const numeStup = document.getElementById("nume-stup").value;
-            const stupPoza = document.getElementById("stup-poza").files[0];
-
-            let stupPozaUrl = null;
-            if (stupPoza) {
-                const storageRef = ref(storage, `stupi/${user.uid}/${stupinaId}/${stupPoza.name}`);
-                const snapshot = await uploadBytes(storageRef, stupPoza);
-                stupPozaUrl = await getDownloadURL(snapshot.ref);
-            }
-
-            const stupData = {
-                numeStup,
-                pozaUrl: stupPozaUrl || null
+    onAuthStateChanged(auth, async (user) => {
+        if (user) {
+            const userId = user.uid;
+            const hiveData = {
+                name: hiveName,
+                type: hiveType
             };
-
+            
             try {
-                const stupineRef = doc(db, "stupine", user.uid, "stupine", stupinaId);
-                const stupiCollection = collection(stupineRef, "stupi");
-                await addDoc(stupiCollection, stupData);
-                console.log("Stup adăugat cu succes!");
-                window.location.href = `stupina.html?id=${stupinaId}`;
+                await addDoc(collection(db, "stupine", userId, "stupi"), hiveData);
+                alert("Stup adăugat cu succes!");
+                window.location.href = "hiveList.html"; // Redirecționează utilizatorul către lista de stupi
             } catch (error) {
                 console.error("Eroare la adăugarea stupului:", error);
+                alert("A apărut o eroare. Vă rugăm să încercați din nou.");
             }
-        });
-    } else {
-        console.log("Utilizatorul nu este autentificat.");
-    }
+        } else {
+            console.log("Utilizatorul nu este autentificat.");
+        }
+    });
 });
