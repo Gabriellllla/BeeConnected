@@ -48,7 +48,7 @@ auth.onAuthStateChanged((user) => {
                 const stupiCollection = collection(stupineRef, "stupi");
                 await addDoc(stupiCollection, stupData);
                 console.log("Stup adăugat cu succes!");
-                window.location.href = `stup_details.html?id=${stupinaId}`;
+                window.location.href = `stupina.html?id=${stupinaId}`;
             } catch (error) {
                 console.error("Eroare la adăugarea stupului:", error);
             }
