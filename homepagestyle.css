@@ -165,6 +165,7 @@ body.home {
     border-radius: 10px; /* Rotunjește colțurile chenarului */
      /* Rotunjirea colțurilor chenarului */
     background-color: rgba(255, 255, 255, 0.8); /* Culoarea de fundal cu transparență */
+    margin-top: 100px;
 }
 #hive-list {
     display: flex;
