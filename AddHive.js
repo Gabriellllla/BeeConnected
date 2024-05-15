@@ -27,13 +27,16 @@ document.getElementById("add-hive-form").addEventListener("submit", async (e) =>
     onAuthStateChanged(auth, async (user) => {
         if (user) {
             const userId = user.uid;
+            const stupineRef = collection(db, "stupine", userId, "stupine");
+            const stupiRef = collection(stupineRef.doc(), "stupi"); // Referința către colecția "stupi" în cadrul colecției "stupine"
+
             const hiveData = {
                 name: hiveName,
                 type: hiveType
             };
             
             try {
-                await addDoc(collection(db, "stupine", userId, "stupi"), hiveData);
+                await addDoc(stupiRef, hiveData);
                 alert("Stup adăugat cu succes!");
                 window.location.href = "stupina.html"; // Redirecționează utilizatorul către lista de stupi
             } catch (error) {
