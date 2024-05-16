@@ -30,19 +30,21 @@ document.getElementById("add-hive-button").addEventListener("click", () => {
 onAuthStateChanged(auth, async (user) => {
     if (user) {
         const userId = user.uid;
-        const stupinaId = getQueryParam("stupinaId");
+        const urlParams = new URLSearchParams(window.location.search);
+        const stupinaId = urlParams.get("id");
         const hiveListContainer = document.getElementById("hive-list");
+        hiveListContainer.innerHTML = ""; // Golește conținutul înainte de a adăuga stupii
 
         try {
-            const stupiRef = collection(db, "stupine", userId, "stupine", stupinaId, "stupi");
-            const stupiSnapshot = await getDocs(stupiRef);
-
-            hiveListContainer.innerHTML = ""; // Golește conținutul înainte de a adăuga stupii
-            stupiSnapshot.forEach((stupDoc) => {
-                const stupData = stupDoc.data();
-                const hiveElement = document.createElement("div");
+            const hiveSnapshot = await getDocs(collection(db, "stupine", userId, "stupine", stupinaId, "stupi"));
+            hiveSnapshot.forEach((doc) => {
+                const hive = doc.data();
+                const hiveElement = document.createElement("button");
                 hiveElement.classList.add("hive-item");
-                hiveElement.textContent = `Nume: ${stupData.name}, Tip: ${stupData.type}`;
+                hiveElement.textContent = `Nume: ${hive.name}, Tip: ${hive.type}`;
+                hiveElement.addEventListener("click", () => {
+                    window.location.href = `inspectii.html?stupinaId=${stupinaId}&stupId=${doc.id}`;
+                });
                 hiveListContainer.appendChild(hiveElement);
             });
         } catch (error) {
