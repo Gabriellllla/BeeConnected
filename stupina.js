@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getFirestore, doc, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+import { getFirestore, doc, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 import { getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 
 const firebaseConfig = {
@@ -17,26 +17,37 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth();
 
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
+
 document.getElementById("add-hive-button").addEventListener("click", () => {
-    window.location.href = "AddHive.html"; // Redirecționează utilizatorul către pagina de adăugare a unui stup
+    const stupinaId = getQueryParam("stupinaId");
+    window.location.href = `AddHive.html?stupinaId=${stupinaId}`;
 });
 
 onAuthStateChanged(auth, async (user) => {
     if (user) {
         const userId = user.uid;
-        const userStupineRef = collection(db, "stupine", userId, "stupine");
-        const stupineSnapshot = await getDocs(userStupineRef);
+        const stupinaId = getQueryParam("stupinaId");
+        const hiveListContainer = document.getElementById("hive-list");
 
-        stupineSnapshot.forEach(async (stupinaDoc) => {
-            const stupinaId = stupinaDoc.id;
+        try {
             const stupiRef = collection(db, "stupine", userId, "stupine", stupinaId, "stupi");
             const stupiSnapshot = await getDocs(stupiRef);
 
+            hiveListContainer.innerHTML = ""; // Golește conținutul înainte de a adăuga stupii
             stupiSnapshot.forEach((stupDoc) => {
                 const stupData = stupDoc.data();
-                console.log("Nume: " + stupData.nume + ", Tip: " + stupData.tip);
+                const hiveElement = document.createElement("div");
+                hiveElement.classList.add("hive-item");
+                hiveElement.textContent = `Nume: ${stupData.name}, Tip: ${stupData.type}`;
+                hiveListContainer.appendChild(hiveElement);
             });
-        });
+        } catch (error) {
+            console.error("Eroare la obținerea stupilor:", error);
+        }
     } else {
         console.log("Utilizatorul nu este autentificat.");
     }
