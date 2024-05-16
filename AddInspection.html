@@ -3,94 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adaugă Inspectie</title>
+    <title>Adaugă Inspecție</title>
     <link rel="stylesheet" href="homepagestyle.css">
 </head>
 <body class="home">
     <div class="top-menu">
         <div class="logo">
             <a href="home.html">
-                <img src="imagini/logo.png" alt="Logo BeeConnected"></a>
-                <h1 class="hide-on-small-screen">BeeConnected</h1>
-            </div>
-            <div class="buttons">
-                <a href="home.html">
-                    <button class="menu-button" title="Vezi Stupinele">
-                        <img src="imagini/stupine.png" alt="Stupine">
-                    </button>
-                </a>
-                <a href="rapoarte.html">
-                    <button class="menu-button" title="Sfaturi utile">
-                        <img src="imagini/rapoarte.png" alt="Rapoarte">
-                    </button>
-                </a>
-                <a href="contact.html">
-                    <button class="menu-button" title="Contactează-ne">
-                        <img src="imagini/contact.png" alt="Contact">
-                    </button>
-                </a>
-                <a href="index.html">
-                    <button class="menu-button" title="Log Out">
-                        <img src="imagini/delogare.png" alt="Delogare">
-                    </button>
-                </a>
-            </div>
+                <img src="imagini/logo.png" alt="Logo BeeConnected">
+            </a>
+            <h1 class="hide-on-small-screen">BeeConnected</h1>
+        </div>
+        <div class="buttons">
+            <a href="home.html">
+                <button class="menu-button" title="Vezi Stupinele">
+                    <img src="imagini/stupine.png" alt="Stupine">
+                </button>
+            </a>
+            <a href="rapoarte.html">
+                <button class="menu-button" title="Sfaturi utile">
+                    <img src="imagini/rapoarte.png" alt="Rapoarte">
+                </button>
+            </a>
+            <a href="contact.html">
+                <button class="menu-button" title="Contactează-ne">
+                    <img src="imagini/contact.png" alt="Contact">
+                </button>
+            </a>
+            <a href="index.html">
+                <button class="menu-button" title="Log Out">
+                    <img src="imagini/delogare.png" alt="Delogare">
+                </button>
+            </a>
+        </div>
     </div>
 
     <div class="main-content">
-        <h1>Adaugă Inspectie</h1>
+        <h1>Adaugă Inspecție</h1>
         <form id="add-inspection-form">
             <label for="inspection-date">Data inspecției:</label>
-            <input type="date" id="inspection-date" required>
-
-            <label for="has-queen">Are regină:</label>
-            <input type="checkbox" id="has-queen">
-
-            <label for="has-brood">Are puiet:</label>
-            <input type="checkbox" id="has-brood">
-
-            <label for="has-disease">Are boli:</label>
-            <input type="checkbox" id="has-disease" onchange="toggleDiseaseList()">
-
-            <div id="disease-list" style="display: none;">
+            <input type="date" id="inspection-date" name="inspection-date" required>
+            
+            <label for="queen-present">Regină prezentă:</label>
+            <input type="checkbox" id="queen-present" name="queen-present">
+            
+            <label for="brood-present">Puiet prezent:</label>
+            <input type="checkbox" id="brood-present" name="brood-present">
+            
+            <label for="diseases-present">Boli:</label>
+            <input type="checkbox" id="diseases-present" name="diseases-present">
+            
+            <div id="disease-options" style="display:none;">
                 <label for="disease-type">Tipul bolii:</label>
-                <select id="disease-type">
-                    <option value="boala-virala">Boala virala a albinelor</option>
-                    <option value="loca-americana">Loca americana</option>
-                    <option value="loca-europeana">Loca europeana</option>
-                    <option value="nosemoza">Nosemoza</option>
-                    <option value="varrooza">Varrooza</option>
+                <select id="disease-type" name="disease-type">
+                    <option value="Boala virala a albinelor">Boala virala a albinelor</option>
+                    <option value="Loca americana">Loca americana</option>
+                    <option value="Loca europeana">Loca europeana</option>
+                    <option value="Nosemoza">Nosemoza</option>
+                    <option value="Varrooza">Varrooza</option>
                 </select>
             </div>
-
-            <label for="has-fed">A fost hranit:</label>
-            <input type="checkbox" id="has-fed" onchange="toggleFeedList()">
-
-            <div id="feed-list" style="display: none;">
-                <label for="feed-type">Tipul hranei:</label>
-                <select id="feed-type" multiple>
-                    <option value="sirop">Sirop</option>
-                    <option value="turta-de-zahar">Turtă de zahăr</option>
-                    <option value="miere">Miere</option>
-                    <option value="polen">Polen</option>
+            
+            <label for="feeding">Hranire:</label>
+            <input type="checkbox" id="feeding" name="feeding">
+            
+            <div id="feeding-options" style="display:none;">
+                <label for="feeding-type">Tipul hranei:</label>
+                <select id="feeding-type" name="feeding-type" multiple>
+                    <option value="Sirop">Sirop</option>
+                    <option value="Turtă de zahar">Turtă de zahar</option>
+                    <option value="Miere">Miere</option>
+                    <option value="Polen">Polen</option>
                 </select>
             </div>
-
-            <button type="submit">Save Inspection</button>
+            
+            <button type="submit">Salvează Inspecția</button>
         </form>
     </div>
 
-    <script src="AddInspection.js" defer type="module"></script>
-    <script>
-        function toggleDiseaseList() {
-            const diseaseList = document.getElementById("disease-list");
-            diseaseList.style.display = diseaseList.style.display === "none" ? "block" : "none";
-        }
-
-        function toggleFeedList() {
-            const feedList = document.getElementById("feed-list");
-            feedList.style.display = feedList.style.display === "none" ? "block" : "none";
-        }
-    </script>
+    <script src="addInspection.js" defer></script>
 </body>
 </html>

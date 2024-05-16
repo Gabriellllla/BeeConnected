@@ -17,44 +17,57 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth();
 
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
+
+document.getElementById("diseases-present").addEventListener("change", (event) => {
+    document.getElementById("disease-options").style.display = event.target.checked ? "block" : "none";
+});
+
+document.getElementById("feeding").addEventListener("change", (event) => {
+    document.getElementById("feeding-options").style.display = event.target.checked ? "block" : "none";
+});
+
 document.getElementById("add-inspection-form").addEventListener("submit", async (e) => {
     e.preventDefault();
     
     const inspectionDate = document.getElementById("inspection-date").value;
-    const hasQueen = document.getElementById("has-queen").checked;
-    const hasBrood = document.getElementById("has-brood").checked;
-    const hasDisease = document.getElementById("has-disease").checked;
-    const diseaseType = hasDisease ? document.getElementById("disease-type").value : null;
-    const hasFed = document.getElementById("has-fed").checked;
-    const feedTypes = hasFed ? Array.from(document.getElementById("feed-type").selectedOptions).map(option => option.value) : [];
+    const queenPresent = document.getElementById("queen-present").checked;
+    const broodPresent = document.getElementById("brood-present").checked;
+    const diseasesPresent = document.getElementById("diseases-present").checked;
+    const diseaseType = diseasesPresent ? document.getElementById("disease-type").value : null;
+    const feeding = document.getElementById("feeding").checked;
+    const feedingType = feeding ? Array.from(document.getElementById("feeding-type").selectedOptions).map(option => option.value) : null;
+
+    const inspectionData = {
+        date: inspectionDate,
+        queenPresent: queenPresent,
+        broodPresent: broodPresent,
+        diseasesPresent: diseasesPresent,
+        diseaseType: diseaseType,
+        feeding: feeding,
+        feedingType: feedingType
+    };
 
     onAuthStateChanged(auth, async (user) => {
         if (user) {
             const userId = user.uid;
-            const urlParams = new URLSearchParams(window.location.search);
-            const stupinaId = urlParams.get("stupinaId");
-            const stupId = urlParams.get("stupId");
-
-            const inspectionData = {
-                date: inspectionDate,
-                hasQueen,
-                hasBrood,
-                hasDisease,
-                diseaseType,
-                hasFed,
-                feedTypes
-            };
-
+            const stupinaId = getQueryParam("stupinaId");
+            const stupId = getQueryParam("stupId");
+            const inspectiiRef = collection(db, "stupine", userId, "stupine", stupinaId, "stupi", stupId, "inspectii");
+            
             try {
-                await addDoc(collection(db, "stupine", userId, "stupine", stupinaId, "stupi", stupId, "inspectii"), inspectionData);
+                await addDoc(inspectiiRef, inspectionData);
                 alert("Inspecție adăugată cu succes!");
-                window.location.href = `inspectii.html?stupinaId=${stupinaId}&stupId=${stupId}`; // Redirecționează utilizatorul către lista de inspecții
+                window.location.href = `inspectii.html?stupinaId=${stupinaId}&stupId=${stupId}`;
             } catch (error) {
                 console.error("Eroare la adăugarea inspecției:", error);
-                alert("A apărut o eroare. Vă rugurăm să încercați din nou mai târziu.");
+                alert("A apărut o eroare. Vă rugăm să încercați din nou.");
             }
-            } else {
+        } else {
             console.log("Utilizatorul nu este autentificat.");
-            }
-            });
-            });
+        }
+    });
+});

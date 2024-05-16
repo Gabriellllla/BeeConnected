@@ -17,32 +17,36 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth();
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
 
 document.getElementById("add-inspection-button").addEventListener("click", () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const stupinaId = urlParams.get("stupinaId");
-    const stupId = urlParams.get("stupId");
-    window.location.href = `AddInspection.html?stupinaId=${stupinaId}&stupId=${stupId}`; // Redirecționează utilizatorul către pagina de adăugare a unei inspecții
+    const stupinaId = getQueryParam("stupinaId");
+    const stupId = getQueryParam("stupId");
+    window.location.href = `AddInspection.html?stupinaId=${stupinaId}&stupId=${stupId}`;
 });
 
 onAuthStateChanged(auth, async (user) => {
     if (user) {
         const userId = user.uid;
-        const urlParams = new URLSearchParams(window.location.search);
-        const stupinaId = urlParams.get("stupinaId");
-        const stupId = urlParams.get("stupId");
+        const stupinaId = getQueryParam("stupinaId");
+        const stupId = getQueryParam("stupId");
         const inspectionListContainer = document.getElementById("inspection-list");
-        inspectionListContainer.innerHTML = ""; // Golește conținutul înainte de a adăuga inspecțiile
 
         try {
-            const inspectionSnapshot = await getDocs(collection(db, "stupine", userId, "stupine", stupinaId, "stupi", stupId, "inspectii"));
-            inspectionSnapshot.forEach((doc) => {
-                const inspection = doc.data();
+            const inspectiiRef = collection(db, "stupine", userId, "stupine", stupinaId, "stupi", stupId, "inspectii");
+            const inspectiiSnapshot = await getDocs(inspectiiRef);
+
+            inspectionListContainer.innerHTML = "";
+            inspectiiSnapshot.forEach((inspectieDoc) => {
+                const inspectieData = inspectieDoc.data();
                 const inspectionElement = document.createElement("button");
                 inspectionElement.classList.add("inspection-item");
-                inspectionElement.textContent = `Inspectie: ${inspection.data}`;
+                inspectionElement.textContent = `Inspecție ${inspectieData.date}`;
                 inspectionElement.addEventListener("click", () => {
-                    window.location.href = `InspectieDetalii.html?stupinaId=${stupinaId}&stupId=${stupId}&inspectieId=${doc.id}`;
+                    alert(JSON.stringify(inspectieData, null, 2));
                 });
                 inspectionListContainer.appendChild(inspectionElement);
             });
