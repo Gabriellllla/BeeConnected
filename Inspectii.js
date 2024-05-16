@@ -25,7 +25,11 @@ function getQueryParam(param) {
 document.getElementById("add-inspection-button").addEventListener("click", () => {
     const stupinaId = getQueryParam("stupinaId");
     const stupId = getQueryParam("stupId");
-    window.location.href = `AddInspection.html?stupinaId=${stupinaId}&stupId=${stupId}`;
+    if (stupinaId && stupId) {
+        window.location.href = `AddInspection.html?stupinaId=${stupinaId}&stupId=${stupId}`;
+    } else {
+        alert("ID-ul stupinei sau al stupului lipsește din URL.");
+    }
 });
 
 onAuthStateChanged(auth, async (user) => {
@@ -33,6 +37,12 @@ onAuthStateChanged(auth, async (user) => {
         const userId = user.uid;
         const stupinaId = getQueryParam("stupinaId");
         const stupId = getQueryParam("stupId");
+        
+        if (!stupinaId || !stupId) {
+            alert("ID-ul stupinei sau al stupului lipsește din URL.");
+            return;
+        }
+
         const inspectionListContainer = document.getElementById("inspection-list");
 
         try {

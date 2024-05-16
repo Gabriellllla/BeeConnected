@@ -56,6 +56,12 @@ document.getElementById("add-inspection-form").addEventListener("submit", async 
             const userId = user.uid;
             const stupinaId = getQueryParam("stupinaId");
             const stupId = getQueryParam("stupId");
+            
+            if (!stupinaId || !stupId) {
+                alert("ID-ul stupinei sau al stupului lipsește din URL.");
+                return;
+            }
+
             const inspectiiRef = collection(db, "stupine", userId, "stupine", stupinaId, "stupi", stupId, "inspectii");
             
             try {

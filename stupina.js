@@ -17,37 +17,55 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth();
 
-
-document.addEventListener("DOMContentLoaded", async () => {
-    const stupinaId = getQueryParam("id");
-
-    if (stupinaId) {
-        // Obține lista de stupi din stupina curentă
-        const stupiRef = collection(db, "stupine", stupinaId, "stupi");
-        const stupiSnapshot = await getDocs(stupiRef);
-
-        // Afișează lista de stupi și butoane pentru adăugarea de inspectii
-        const stupineListContainer = document.getElementById("stupine-list");
-        stupiSnapshot.forEach((doc) => {
-            const stupData = doc.data();
-            const stupButton = document.createElement("button");
-            stupButton.textContent = stupData.numeStup; // Poți folosi alte atribute ale stupului pentru textul butonului
-            stupButton.addEventListener("click", () => {
-                // Redirectează utilizatorul către pagina de adăugare a unei inspectii pentru acest stup
-                window.location.href = `AddInspection.html?id=${doc.id}`;
-            });
-            stupineListContainer.appendChild(stupButton);
-        });
-    } else {
-        console.error("ID-ul stupinei lipsește din URL.");
-    }
-});
-
 function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(param);
 }
 
+document.getElementById("add-hive-button").addEventListener("click", () => {
+    const stupinaId = getQueryParam("stupinaId");
+    if (stupinaId) {
+        window.location.href = `AddHive.html?stupinaId=${stupinaId}`;
+    } else {
+        alert("ID-ul stupinei lipsește din URL.");
+    }
+});
+
+onAuthStateChanged(auth, async (user) => {
+    if (user) {
+        const userId = user.uid;
+        const stupinaId = getQueryParam("stupinaId");
+        if (!stupinaId) {
+            alert("ID-ul stupinei lipsește din URL.");
+            return;
+        }
+
+        const hiveListContainer = document.getElementById("hive-list");
+        hiveListContainer.innerHTML = ""; // Golește conținutul înainte de a adăuga stupii
+
+        try {
+            const stupiRef = collection(db, "stupine", userId, "stupine", stupinaId, "stupi");
+            const stupiSnapshot = await getDocs(stupiRef);
+            hiveListContainer.innerHTML = "";
+            stupiSnapshot.forEach((stupDoc) => {
+                const stupData = stupDoc.data();
+
+                console.log("Nume: " + stupData.name + ", Tip: " + stupData.type);
+                const hiveElement = document.createElement("button");
+                hiveElement.classList.add("hive-item");
+                hiveElement.textContent = `Nume: ${stupData.name}, Tip: ${stupData.type}`;
+                hiveElement.addEventListener("click", () => {
+                    window.location.href = `inspectii.html?stupinaId=${stupinaId}&stupId=${stupDoc.id}`;
+                });
+                hiveListContainer.appendChild(hiveElement);
+            });
+        } catch (error) {
+            console.error("Eroare la obținerea stupilor:", error);
+        }
+    } else {
+        console.log("Utilizatorul nu este autentificat.");
+    }
+});
 // function getQueryParam(param) {
 //     const urlParams = new URLSearchParams(window.location.search);
 //     return urlParams.get(param);
