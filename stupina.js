@@ -30,18 +30,22 @@ document.getElementById("add-hive-button").addEventListener("click", () => {
 onAuthStateChanged(auth, async (user) => {
     if (user) {
         const userId = user.uid;
-        const urlParams = new URLSearchParams(window.location.search);
-        const stupinaId = urlParams.get("id");
+        const stupinaId = getQueryParam("stupinaId");
         const hiveListContainer = document.getElementById("hive-list");
+        const urlParams = new URLSearchParams(window.location.search);
         hiveListContainer.innerHTML = ""; // Golește conținutul înainte de a adăuga stupii
 
         try {
-            const hiveSnapshot = await getDocs(collection(db, "stupine", userId, "stupine", stupinaId, "stupi"));
-            hiveSnapshot.forEach((doc) => {
-                const hive = doc.data();
+            const stupiRef = collection(db, "stupine", userId, "stupine", stupinaId, "stupi");
+            const stupiSnapshot = await getDocs(stupiRef);
+          hiveListContainer.innerHTML = "";
+            stupiSnapshot.forEach((stupDoc) => {
+                const stupData = stupDoc.data();
+
+                console.log("Nume: " + stupData.nume + ", Tip: " + stupData.tip);
                 const hiveElement = document.createElement("button");
                 hiveElement.classList.add("hive-item");
-                hiveElement.textContent = `Nume: ${hive.name}, Tip: ${hive.type}`;
+                hiveElement.textContent = `Nume: ${stupData.name}, Tip: ${stupData.type}`;
                 hiveElement.addEventListener("click", () => {
                     window.location.href = `inspectii.html?stupinaId=${stupinaId}&stupId=${doc.id}`;
                 });
