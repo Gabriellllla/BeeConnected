@@ -270,8 +270,12 @@ body.home {
 .contact-us{
     width: 80%;
     margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 .contact-col{
+    display: flex;
     flex-basis: 48%;
     margin-bottom: 40px;
 }
@@ -376,6 +380,9 @@ form button{
 
     margin-top: 5%;
     display: flex;
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 
 }
