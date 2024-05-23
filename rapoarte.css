@@ -11,7 +11,7 @@ body{
     font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
     background-color: #f9f9f9;
      margin: 0;
-    margin-top: 600px;
+    margin-top: 800px;
    
     display: flex;
     justify-content: center;
@@ -203,7 +203,7 @@ body{
 .footer h4
 {
     margin-bottom: 25px;
-    margin-top: 20px;
+    margin-top: 200px;
     font-weight: 600;
     color: var(--secondary-color);
 }
