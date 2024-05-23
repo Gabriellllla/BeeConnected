@@ -1,257 +1,3 @@
-/* ****************************home*************** */
-body.home {
-    background-image: url('imagini/image3_1.jpeg');
-    background-attachment: fixed; /* Face imaginea de fundal să fie fixă */
-    background-repeat: no-repeat;
-    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
-    background-color: #f9f9f9;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-size: cover;
-    width: 100%;
-}
-.footer{
-    width: 100%;
-    text-align: center;
-    padding: 30px 0;
-}
-.footer h4
-{
-    margin-bottom: 25px;
-    margin-top: 200px;
-    font-weight: 600;
-    color: var(--secondary-color);
-}
-/* Stilurile pentru meniul de sus */
-.top-menu {
-    background-color: #333;
-    color: #fff;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    display: flex;
-    justify-content: flex-end;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 999;
-   
-    
-}
-.logo img {
-    width: 50px; /* Ajustează dimensiunea logo-ului după preferință */
-    height: auto;
-    align-items:flex-start;
-    
-    padding-left: 10px;
-}
-.logo{
-    margin-right: auto;
-    display: flex;
-    align-items: center;
-}
-.logo h1 {
-    font-size: 18px;
-    margin-left: 10px; /* Adaugă un spațiu mic între logo și numele site-ului */
-    color: #ede4e4; /* Poți să adaugi alte stiluri CSS pentru numele site-ului */
-}
-.buttons img{
-    width: 30px; /* Ajustează dimensiunea logo-ului după preferință */
-    height: auto;
-    display: inline-flex; /* Afișează butonul ca element inline flexibil */
-    align-items: center; 
-}
-/* 
-.menu-button, .dropbtn {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    padding: 10px 20px;
-    margin: 0 5px;
-} */
-.buttons {
-    
-    background-color: transparent;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 16px;
-    margin: 0 5px;
-    transition: background-color 0.3s ease;
-    margin-left: 5px; /* Spațiu între butoane */
-    display: flex; /* Afișează butonul ca element inline flexibil */
-    align-items: center; 
-}
-.menu-button{
-    background-color: transparent;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    
-    border-radius: 5px;
-    font-size: 16px;
-    margin: 0 5px;
-    transition: background-color 0.3s ease;
-    margin-left: 5px; /* Spațiu între butoane */
-    display: flex; /* Afișează butonul ca element inline flexibil */
-    align-items: center; 
-}
-.menu-button img{
-    width: 30px; /* Ajustează dimensiunea logo-ului după preferință */
-    height: auto;
-}
-.menu-button:hover, .dropbtn:hover {
-    background-color: #555;
-}
-/* .dropdown {
-    position: relative;
-    display: inline-block;
-}
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    z-index: 1;
-}
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-.dropdown-content a:hover {
-    background-color: #ddd;
-}
-.dropdown:hover .dropdown-content {
-    display: block;
-} */
-/* Stilurile pentru conținutul principal */
-@media screen and (max-width: 768px) {
-    .top-menu {
-        padding: 10px; /* Reducem padding-ul pentru a face meniul mai compact */
-        width: 100%; /* Extinderea meniului până la capătul ecranului */
-        /* Eliminarea paddingului pentru a maximiza lățimea */
-        margin: 0;
-        position:absolute; 
-        
-    }
-
-    .logo img {
-        width: 24%; /* Reducem dimensiunea logo-ului pentru a face mai mult spațiu pentru butoane */
-        
-       
-    }
-    
-    .buttons {
-        margin-left: 0; /* Elimină margin-left-ul */
-        margin-right: 0; /* Elimină margin-right-ul */
-            
-    }
-
-
-    .menu-button {
-        font-size: 14px; /* Reducem dimensiunea textului butoanelor pentru a se potrivi ecranului mai mic */
-        padding: px px; /* Reducem padding-ul butoanelor pentru a face meniul mai compact */
-        margin-left: px;
-    }
-    .hide-on-small-screen {
-        display: none;
-    }
-    .main-content{
-        padding: 1px;
-        width: 100%;
-    }
-    
-}
-.main-content {
-    margin: 20px;
-    padding: 20px; /* Adaugă un spațiu între conținut și chenar */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Adaugă o umbră subtilă în jurul conținutului */
-    border-radius: 10px; /* Rotunjește colțurile chenarului */
-     /* Rotunjirea colțurilor chenarului */
-    background-color: rgba(255, 255, 255, 0.8); /* Culoarea de fundal cu transparență */
-    margin-top: 100px;
-}
-#hive-list {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: 20px;
-    width: 500px; /* Ajustează lățimea */
-    height: 400px;  /* Ajustează înălțimea */
-    
-}
-#hive-list button {
-    width: 70%;
-    margin-bottom: 20px;
-    background-color: #aa6408;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    height: 80px;
-    transition: background-color 0.3s ease;
-    height: 100px;
-}
-/* Alte stiluri pot fi adăugate aici */
-/* Stilurile pentru butonul de adăugare stupină nouă */
-.add-button {
-    width: 60%;
-    margin-right: 20px; /* Poziționează butonul în partea dreaptă */
-    margin-top: 20px; /* Poziționează butonul în partea de sus */
-    margin-bottom: 20px;
-    align-content: center;
-    text-align:center;
-}
-
-.add-button button {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-.add-button button:hover {
-    background-color: #555;
-}
-
-
-
-/* *******************Stupina.html***************** */
-#stup-list button, #add-stup-button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    font-size: 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: left;
-}
-
-#stup-list button:hover, #add-stup-button:hover {
-    background-color: #0056b3;
-}
-
-
-
-/* ********************logout dialog******************* */
-
 #dialog-overlay {
     display: none;
     position: fixed;
@@ -260,16 +6,19 @@ body.home {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    z-index: 1000;
 }
 
 #dialog-box {
     background-color: #fff;
+    width: 300px;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
 }
 
@@ -277,20 +26,10 @@ body.home {
     margin-top: 20px;
 }
 
-#confirm-button, #cancel-button {
-    padding: 10px 20px;
-    margin: 0 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+#dialog-box h2 {
+    margin-top: 0;
 }
 
-#confirm-button {
-    background-color: #cc7532;
-    color: white;
-}
-
-#cancel-button {
-    background-color: #520903;
-    color: white;
+#dialog-box p {
+    margin-bottom: 20px;
 }
