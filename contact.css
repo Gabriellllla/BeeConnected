@@ -151,12 +151,28 @@ body.contact {
         display: none;
     }
     .contact-container{
-        padding: 1px;
-        width: 100%;
+        
+        width:100%;
+       margin-top: 300px;
+        font-size: 15px;
+        text-align: center;
+        align-items: center;
     }
     .row{
         flex-direction: column;
 
+    }
+    .contact-col form{
+        font-size: 25px;
+        margin-left: 10px;
+    }
+    .input-group label{
+        font-size: 15px;
+    }
+    .contact-col{
+        width: 100%;
+        margin-left: -21px;
+     
     }
 }
 
@@ -222,14 +238,15 @@ body.contact {
     font-weight: 400;
 }
 .contact-col form{
-    width:  80%;
+    width:  90%;
     max-width: 500px;
     padding: 50px 30px 20px;
     background: var(--primary-color);
     border-radius: 4px;
     box-shadow: 0 4px 30px rgba(0,0,0,0.5);
     position: relative;
-    
+    font-size: 25px;
+    margin-left: 10px;
 }
 .fa-paper-plane{
     position: absolute;
@@ -254,8 +271,8 @@ body.contact {
 
 .input-group label{
     flex-basis: 28%;
-    
-    
+    width: 100%;
+    margin-right: 10px;
 }
 .input-group, .input-group textarea{
 flex-basis: 68%;
@@ -299,12 +316,13 @@ form button{
 }
 .contact-container{
     margin: 20px;
+    width:80%;
     padding: 20px; /* Adaugă un spațiu între conținut și chenar */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Adaugă o umbră subtilă în jurul conținutului */
     border-radius: 10px; /* Rotunjește colțurile chenarului */
      /* Rotunjirea colțurilor chenarului */
-    background-color: rgba(255, 255, 255, 0.8); /* Culoarea de fundal cu transparență */
-    margin-top: 100px;
+    background-color: #ffffffeb; /* Culoarea de fundal cu transparență */
+    margin-top: 300px;
 }
 
 .row{
