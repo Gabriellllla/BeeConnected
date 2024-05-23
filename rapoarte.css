@@ -5,12 +5,13 @@
 }
 
 body{
-    background-image: url('imagini/image3_1.jpeg');
+    background-image: url('imagini/fundal_rapoarte.jpg');
     background-attachment: fixed; /* Face imaginea de fundal să fie fixă */
     background-repeat: no-repeat;
     font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
     background-color: #f9f9f9;
-    margin-top: 700;
+    margin-top: 700px;
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
