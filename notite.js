@@ -62,7 +62,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebas
             const date = new Date(note.date).toISOString().split('T')[0]; // Extrage doar data
             const listItem = document.createElement('li');
             listItem.className = 'note-item';
-            listItem.textContent = `${note.date} - ${note.title}`;
+            listItem.textContent = `${date} - ${note.title}`;
             listItem.onclick = () => showNoteDialog(note.title, note.text);
             noteList.appendChild(listItem);
           });
