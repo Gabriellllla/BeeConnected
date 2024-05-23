@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalii Stupină</title>
+    <link rel="stylesheet" href="homepagestyle.css">
+</head>
+<body class="contact">
+    <div class="top-menu">
+        <div class="logo">
+            <a href="home.html">
+                <img src="imagini/logo.png" alt="Logo BeeConnected"></a>
+                <h1 class="hide-on-small-screen">BeeConnected</h1>
+            </div>
+    
+            
+    
+            <div class="buttons">
+            <a href="home.html">
+                <button class="menu-button" title="Vezi Stupinele">
+                    <img src="imagini/stupine.png" alt="Stupine"> <!-- Adaugă calea către imagine și un alt text opțional -->
+                </button>
+            </a>
+    
+    
+            <a href="rapoarte.html">
+                <button class="menu-button" title="Sfaturi utile">
+                    <img src="imagini/rapoarte.png" alt="Rapoarte"> <!-- Adaugă calea către imagine și un alt text opțional -->
+                </button>
+            </a>
+    
+            <a href="contact.html">
+                <button class="menu-button" title="Contactează-ne">
+                    <img src="imagini/contact.png" alt="Contact"> <!-- Adaugă calea către imagine și un alt text opțional -->
+                </button>
+            </a>
+    
+            <a href="index.html">
+                <button class="menu-button" title="Log Out">
+                    <img src="imagini/delogare.png" alt="Delogare"> <!-- Adaugă calea către imagine și un alt text opțional -->
+                </button>
+            </a>
+    
+            </div>
+    </div>
+
+    <div class="main-content">
+        <h1>Contactează-ne</h1>
+        
+        <section class="contact-us">
+            <div class="row">
+                <div class="contact-col">
+                    <div>
+                        <i class="fa fa-home"></i>
+                        <span>
+                            <h5>Nr. 96, str. Principală</h5>
+                            <p>Seliște, Petriș, Arad</p>
+                        </span>
+                    </div>
+                    <div>
+                        <i class="fa fa-phone"></i>
+                        <span>
+                            <h5>+40 453628478</h5>
+                            <p> Luni-Sâmbătă, 10AM - 6PM</p>
+                        </span>
+                    </div>
+                    <div>
+                        <i class="fa fa-envelope-o"></i>
+                        <span>
+                            <h5>mieredepetris@gmail.com</h5>
+                            <p>Ne poți scrie oricând un email</p>
+                        </span>
+                    </div>
+                </div>
+                <div class="contact-col">
+                     <form  action="https://formspree.io/f/mjvdzbjq" method="POST">
+                        <i class="fas fa-paper-plane"></i>
+                        <div class="input-group">
+                            <label>Nume Prenume</label>
+                            <input type="text" placeholder="Numele tău" id="contact-name" name="name" onkeyup="validateName()" >
+                            <span id="name-error"></span>
+                        </div>
+        
+                        <div class="input-group">
+                            <label>Telefon</label>
+                            <input type="tel" placeholder="073 456 7869" id="contact-phone" name="phone" onkeyup="validatePhone()">
+                            <span id="phone-error"></span>
+                      
+                        </div>
+        
+                        <div class="input-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="Adresa de Email"  id="contact-email" name="email" onkeyup="validateEmail()" >
+                            <span id="email-error"></span>
+                      
+                        </div>
+        
+                        <div class="input-group">
+                            <label>Mesajul Tău</label>
+                            <textarea rows="5" placeholder="Mesajul tău"  id="contact-message" name="message" onkeyup="validateMessage()" ></textarea>
+                            <span id="message-error"></span>
+                      
+                       </div>
+                       <button onclick="return validateForm()">Trimite</button>
+                       <span id="submit-error"></span>
+                      
+                        
+                     </form>
+                </div>
+        </section>
+        
+        
+        
+        <section class="footer">
+            <h4>Despre Noi</h4>
+            <p>Din pasiunea pentru creșterea albinelor am realizat această aplicație ce vine în ajutorul apicultorilor. <br>Aici poți păstra toate informațiile utile, într-un singur loc!  </p>
+        <div class="icons">
+            <i class="fa fa-facebook"></i>
+            <i class="fa fa-twitter"></i>
+            <i class="fa fa-instagram"></i>
+            
+        
+        </div> 
+        <p>Made with <i class="fa fa-heart-o"></i> by BeeConnected family</p>
+        
+        </section>
+    </div>
+    
+    <script  src="script.js"></script>
+    
+
+    
+</body>
+</html>
