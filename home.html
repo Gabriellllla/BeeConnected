@@ -44,6 +44,11 @@
                 <img src="imagini/rapoarte.png" alt="Rapoarte"> <!-- Adaugă calea către imagine și un alt text opțional -->
             </button>
         </a>
+        <a href="notite.html">
+            <button class="menu-button" title="Notițe">
+                <img src="imagini/notes.png" alt="Notițe"> <!-- Adaugă calea către imagine și un alt text opțional -->
+            </button>
+        </a>
 
         <a href="contact.html">
             <button class="menu-button" title="Contactează-ne">
@@ -97,8 +102,17 @@
 
     <!-- Script JavaScript separat -->
     
-   
+    <div id="dialog-overlay">
+        <div id="dialog-box">
+            <h2>Confirmare delogare</h2>
+            <p>Sigur vrei să părăsești aplicația?</p>
+            <div id="button-container">
+                <button id="confirm-button">Da</button>
+                <button id="cancel-button">Anulează</button>
+            </div>
+        </div>
+    </div>
     <script src="home.js" defer type="module"></script>
-   
+    
 </body>
 </html>

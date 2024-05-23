@@ -73,5 +73,18 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+// *****logout button******
 
+document.getElementById('logout-button').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('dialog-overlay').style.display = 'flex';
+});
+
+document.getElementById('confirm-logout').addEventListener('click', function() {
+    window.location.href = 'index.html'; // Redirecționează la pagina de log in
+});
+
+document.getElementById('cancel-logout').addEventListener('click', function() {
+    document.getElementById('dialog-overlay').style.display = 'none';
+});
 
