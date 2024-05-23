@@ -28,6 +28,11 @@
                     <img src="imagini/rapoarte.png" alt="Rapoarte">
                 </button>
             </a>
+            <a href="notite.html">
+                <button class="menu-button" title="Notițe">
+                    <img src="imagini/notes.png" alt="Notițe"> <!-- Adaugă calea către imagine și un alt text opțional -->
+                </button>
+            </a>
             <a href="contact.html">
                 <button class="menu-button" title="Contactează-ne">
                     <img src="imagini/contact.png" alt="Contact">
@@ -83,7 +88,16 @@
             <button type="submit">Salvează Inspecția</button>
         </form>
     </div>
-
+    <div id="dialog-overlay" style="display: none;">
+        <div id="dialog-box">
+            <h2>Confirmare delogare</h2>
+            <p>Sigur vrei să părăsești aplicația?</p>
+            <div id="button-container">
+                <button id="confirm-logout">Da</button>
+                <button id="cancel-logout">Anulează</button>
+            </div>
+        </div>
+    </div>
     <script src="addInspection.js" defer type="module"></script>
 </body>
 </html>

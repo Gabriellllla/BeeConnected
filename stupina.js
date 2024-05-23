@@ -107,3 +107,31 @@ onAuthStateChanged(auth, async (user) => {
 //         console.log("Utilizatorul nu este autentificat.");
 //     }
 // });
+
+// *****logout button******
+
+document.addEventListener('DOMContentLoaded', function() {
+    const logoutButton = document.getElementById('logout-button');
+    const dialogOverlay = document.getElementById('dialog-overlay');
+    const confirmLogout = document.getElementById('confirm-logout');
+    const cancelLogout = document.getElementById('cancel-logout');
+
+    if (logoutButton) {
+        logoutButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            dialogOverlay.style.display = 'flex';
+        });
+    }
+
+    if (confirmLogout) {
+        confirmLogout.addEventListener('click', function() {
+            window.location.href = 'index.html'; // Redirecționează la pagina de log in
+        });
+    }
+
+    if (cancelLogout) {
+        cancelLogout.addEventListener('click', function() {
+            dialogOverlay.style.display = 'none';
+        });
+    }
+});
