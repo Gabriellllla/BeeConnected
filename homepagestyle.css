@@ -270,12 +270,10 @@ body.home {
 .contact-us{
     width: 80%;
     margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    
 }
 .contact-col{
-    display: flex;
+  
     flex-basis: 48%;
     margin-bottom: 40px;
 }
@@ -375,14 +373,21 @@ form button{
 .input-group span i{
     color: seagreen;
 }
+.contact-container{
+    margin: 20px;
+    padding: 20px; /* Adaugă un spațiu între conținut și chenar */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Adaugă o umbră subtilă în jurul conținutului */
+    border-radius: 10px; /* Rotunjește colțurile chenarului */
+     /* Rotunjirea colțurilor chenarului */
+    background-color: rgba(255, 255, 255, 0.8); /* Culoarea de fundal cu transparență */
+    margin-top: 100px;
+}
 
 .row{
 
     margin-top: 5%;
     display: flex;
     justify-content: space-between;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    
 
 }
