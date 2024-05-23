@@ -75,16 +75,28 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // *****logout button******
 
-document.getElementById('logout-button').addEventListener('click', function(event) {
-    event.preventDefault();
-    document.getElementById('dialog-overlay').style.display = 'flex';
-});
+document.addEventListener('DOMContentLoaded', function() {
+    const logoutButton = document.getElementById('logout-button');
+    const dialogOverlay = document.getElementById('dialog-overlay');
+    const confirmLogout = document.getElementById('confirm-logout');
+    const cancelLogout = document.getElementById('cancel-logout');
 
-document.getElementById('confirm-logout').addEventListener('click', function() {
-    window.location.href = 'index.html'; // Redirecționează la pagina de log in
-});
+    if (logoutButton) {
+        logoutButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            dialogOverlay.style.display = 'flex';
+        });
+    }
 
-document.getElementById('cancel-logout').addEventListener('click', function() {
-    document.getElementById('dialog-overlay').style.display = 'none';
-});
+    if (confirmLogout) {
+        confirmLogout.addEventListener('click', function() {
+            window.location.href = 'index.html'; // Redirecționează la pagina de log in
+        });
+    }
 
+    if (cancelLogout) {
+        cancelLogout.addEventListener('click', function() {
+            dialogOverlay.style.display = 'none';
+        });
+    }
+});
