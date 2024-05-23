@@ -5,7 +5,7 @@ body {
     font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
     background-color: #f9f9f9;
     margin: 0;
-    margin-top: 50px;
+    
     
     display: flex;
     justify-content: center;
@@ -111,7 +111,7 @@ body {
             
     }
     body.contact{
-        margin-top: 350px;
+        margin-top: 20px;
     }
 
     .menu-button {
@@ -122,32 +122,16 @@ body {
     .hide-on-small-screen {
         display: none;
     }
-    .contact-container{
+    .notite-container{
         
         width:100%;
-       margin-top: 300px;
-        font-size: 15px;
+       margin-top: 200px;
+        font-size: 17px;
         text-align: center;
         align-items: center;
     }
-    .row{
-        flex-direction: column;
-
-    }
-    .contact-col form{
-        font-size: 25px;
-        margin-left: 10px;
-    }
-    .input-group label{
-        font-size: 15px;
-    }
-    .contact-col{
-        margin-bottom: px;
-        width: 100%;
-        
-        margin-left: -25px;
-       
-    }
+    
+    
 }
 
 .footer{
@@ -168,15 +152,23 @@ body {
     background-color: #fff;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 20px; /* Adaugă un spațiu între conținut și chenar */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Adaugă o umbră subtilă în jurul conținutului */
+    border-radius: 10px; /* Rotunjește colțurile chenarului */
+     /* Rotunjirea colțurilor chenarului */
+    background-color: rgba(255, 255, 255, 0.8); /* Culoarea de fundal cu transparență */
+    margin-top: 100px;
   }
   .add-note-button {
     display: block;
     margin: 20px 0;
     padding: 10px;
-    background-color: #007BFF;
+    background-color: #ffab00;
     color: #fff;
     border: none;
     cursor: pointer;
+      
   }
   .note-list {
     list-style-type: none;
@@ -185,8 +177,8 @@ body {
   .note-item {
     margin: 10px 0;
     padding: 10px;
-    border: 1px solid #ccc;
-    background-color: #fafafa;
+    border: 1px solid #883e25;
+    background-color: #f4e5de;
     cursor: pointer;
   }
   .note-dialog,
