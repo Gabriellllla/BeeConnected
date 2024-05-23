@@ -1,0 +1,107 @@
+:root {
+    --primary-color: #f8f8f8;
+    --secondary-color: #555;
+    --highlight-color: #f44336;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-color);
+}
+
+.top-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    height: 50px;
+}
+
+.logo h1 {
+    display: inline;
+    margin-left: 10px;
+    font-size: 24px;
+}
+
+.buttons {
+    display: flex;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.menu-button img {
+    height: 40px;
+}
+
+.useful-tips-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.useful-tips-container h1 {
+    margin-bottom: 40px;
+    color: var(--secondary-color);
+}
+
+.tip-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tip-item {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px 0;
+    text-decoration: none;
+    color: var(--secondary-color);
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.tip-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.tip-item h2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    text-align: center;
+    font-size: 24px;
+}
+
+.tip-item:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .tip-item h2 {
+        font-size: 18px;
+    }
+}
