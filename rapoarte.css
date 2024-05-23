@@ -4,45 +4,93 @@
     --highlight-color: #f44336;
 }
 
-body {
-    font-family: Arial, sans-serif;
+body.contact {
+    background-image: url('imagini/image3_1.jpeg');
+    background-attachment: fixed; /* Face imaginea de fundal să fie fixă */
+    background-repeat: no-repeat;
+    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
+    background-color: #f9f9f9;
     margin: 0;
-    padding: 0;
-    background-color: var(--primary-color);
-}
-
-.top-menu {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 10px 20px;
-    background-color: var(--primary-color);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 100vh;
+    background-size: cover;
+    width: 100%;
 }
-
+.top-menu {
+    background-color: #333;
+    color: #fff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+   
+    
+}
 .logo img {
-    height: 50px;
+    width: 50px; /* Ajustează dimensiunea logo-ului după preferință */
+    height: auto;
+    align-items:flex-start;
+    
+    padding-left: 10px;
 }
-
+.logo{
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+}
 .logo h1 {
-    display: inline;
-    margin-left: 10px;
-    font-size: 24px;
+    font-size: 18px;
+    margin-left: 10px; /* Adaugă un spațiu mic între logo și numele site-ului */
+    color: #ede4e4; /* Poți să adaugi alte stiluri CSS pentru numele site-ului */
+}
+.buttons img{
+    width: 30px; /* Ajustează dimensiunea logo-ului după preferință */
+    height: auto;
+    display: inline-flex; /* Afișează butonul ca element inline flexibil */
+    align-items: center; 
 }
 
 .buttons {
-    display: flex;
-}
-
-.menu-button {
-    background: none;
+    
+    background-color: transparent;
+    color: #fff;
     border: none;
     cursor: pointer;
-    margin: 0 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    margin: 0 5px;
+    transition: background-color 0.3s ease;
+    margin-left: 5px; /* Spațiu între butoane */
+    display: flex; /* Afișează butonul ca element inline flexibil */
+    align-items: center; 
 }
-
-.menu-button img {
-    height: 40px;
+.menu-button{
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    
+    border-radius: 5px;
+    font-size: 16px;
+    margin: 0 5px;
+    transition: background-color 0.3s ease;
+    margin-left: 5px; /* Spațiu între butoane */
+    display: flex; /* Afișează butonul ca element inline flexibil */
+    align-items: center; 
+}
+.menu-button img{
+    width: 30px; /* Ajustează dimensiunea logo-ului după preferință */
+    height: auto;
+}
+.menu-button:hover, .dropbtn:hover {
+    background-color: #555;
 }
 
 .useful-tips-container {
@@ -103,5 +151,35 @@ body {
 @media (max-width: 768px) {
     .tip-item h2 {
         font-size: 18px;
+    }
+    .top-menu {
+        padding: 10px; /* Reducem padding-ul pentru a face meniul mai compact */
+        width: 100%; /* Extinderea meniului până la capătul ecranului */
+        /* Eliminarea paddingului pentru a maximiza lățimea */
+        margin: 0;
+        position:absolute; 
+        
+    }
+
+    .logo img {
+        width: 24%; /* Reducem dimensiunea logo-ului pentru a face mai mult spațiu pentru butoane */
+        
+       
+    }
+    
+    .buttons {
+        margin-left: 0; /* Elimină margin-left-ul */
+        margin-right: 0; /* Elimină margin-right-ul */
+            
+    }
+
+
+    .menu-button {
+        font-size: 14px; /* Reducem dimensiunea textului butoanelor pentru a se potrivi ecranului mai mic */
+        padding: px px; /* Reducem padding-ul butoanelor pentru a face meniul mai compact */
+        margin-left: px;
+    }
+    .hide-on-small-screen {
+        display: none;
     }
 }
