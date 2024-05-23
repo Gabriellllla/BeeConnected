@@ -59,6 +59,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebas
           noteList.innerHTML = '';
           querySnapshot.forEach((doc) => {
             const note = doc.data();
+            const date = new Date(note.date).toISOString().split('T')[0]; // Extrage doar data
             const listItem = document.createElement('li');
             listItem.className = 'note-item';
             listItem.textContent = `${note.date} - ${note.title}`;
