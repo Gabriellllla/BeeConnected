@@ -10,8 +10,9 @@ body{
     background-repeat: no-repeat;
     font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
     background-color: #f9f9f9;
-    margin-top: 700px;
-    margin: 0;
+     margin: 0;
+    margin-top: 600px;
+   
     display: flex;
     justify-content: center;
     align-items: center;
@@ -98,12 +99,20 @@ body{
     max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
-    text-align: center;
+    
+    margin: 20px;
+    width:80%;
+    padding: 20px; /* Adaugă un spațiu între conținut și chenar */
+    box-shadow: 0 0 10px rgb(255 255 255 / 0%); /* Adaugă o umbră subtilă în jurul conținutului */
+    border-radius: 10px; /* Rotunjește colțurile chenarului */
+     /* Rotunjirea colțurilor chenarului */
+    background-color: #ffffff7d; /* Culoarea de fundal cu transparență */
+    margin-top: 300px;
 }
 
 .useful-tips-container h1 {
     margin-bottom: 40px;
-    color: var(--secondary-color);
+    color:black;
 }
 
 .tip-list {
