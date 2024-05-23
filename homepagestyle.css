@@ -332,18 +332,7 @@ body.home {
 
     
 }
-.contact-form button {
-    padding: 10px;
-    margin-top: 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
 
-.contact-form button:hover {
-    background-color: #45a049;
-}
 
 .fa-paper-plane{
     position: absolute;
