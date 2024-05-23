@@ -338,7 +338,7 @@ body.home {
     align-items: center;
     margin: 10px 0;
     position: relative;
-   
+    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
 }
 
 .input-group label{
@@ -396,3 +396,10 @@ form button{
     color: seagreen;
 }
 
+.row{
+
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+    
+}
