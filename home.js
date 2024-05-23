@@ -48,7 +48,15 @@ function displayHiveList(hiveList) {
         hiveListContainer.appendChild(hiveButton);
     });
 }
+document.getElementById("logout-button").addEventListener("click", function(event) {
+    event.preventDefault(); // Previne comportamentul implicit al link-ului
 
+    // Afișează un dialog de confirmare
+    if (confirm("Sigur vrei să te deloghezi?")) {
+        // Dacă utilizatorul confirmă, redirecționează către pagina de logare
+        window.location.href = "pagina_de_logare.html";
+    }
+});
 // Apelarea funcției pentru afișarea listei de stupine când pagina este încărcată complet
 document.addEventListener("DOMContentLoaded", function() {
     onAuthStateChanged(auth, (user) => {

@@ -170,14 +170,16 @@ body{
         position:absolute; 
         
     }
-
+.useful-tips-container {
+    font-size: 12px;
+}
     .logo img {
         width: 24%; /* Reducem dimensiunea logo-ului pentru a face mai mult spațiu pentru butoane */
         
        
     }
     body{
-        margin-top: 380px;
+        margin-top: 440px;
     }
     .buttons {
         margin-left: 0; /* Elimină margin-left-ul */
