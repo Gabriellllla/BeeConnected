@@ -10,7 +10,7 @@ body{
     background-repeat: no-repeat;
     font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
     background-color: #f9f9f9;
-    margin: 0;
+    margin-top: 700;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -166,7 +166,9 @@ body{
         
        
     }
-    
+    body{
+        margin-top: 380px;
+    }
     .buttons {
         margin-left: 0; /* Elimină margin-left-ul */
         margin-right: 0; /* Elimină margin-right-ul */

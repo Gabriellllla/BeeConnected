@@ -140,7 +140,9 @@ body.contact {
         margin-right: 0; /* Elimină margin-right-ul */
             
     }
-
+    body.contact{
+        margin-top: 300px;
+    }
 
     .menu-button {
         font-size: 14px; /* Reducem dimensiunea textului butoanelor pentru a se potrivi ecranului mai mic */
