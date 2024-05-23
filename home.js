@@ -52,9 +52,9 @@ document.getElementById("logout-button").addEventListener("click", function(even
     event.preventDefault(); // Previne comportamentul implicit al link-ului
 
     // Afișează un dialog de confirmare
-    if (confirm("Sigur vrei să te deloghezi?")) {
+    if (confirm("Sigur vrei să părăsești aplicația?")) {
         // Dacă utilizatorul confirmă, redirecționează către pagina de logare
-        window.location.href = "pagina_de_logare.html";
+        window.location.href = "index.html";
     }
 });
 // Apelarea funcției pentru afișarea listei de stupine când pagina este încărcată complet
