@@ -4,7 +4,7 @@
     --highlight-color: #f44336;
 }
 
-body.contact {
+body{
     background-image: url('imagini/image3_1.jpeg');
     background-attachment: fixed; /* Face imaginea de fundal să fie fixă */
     background-repeat: no-repeat;
