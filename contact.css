@@ -5,6 +5,8 @@ body.contact {
     font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
     background-color: #f9f9f9;
     margin: 0;
+    margin-top: 50px;
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -141,7 +143,7 @@ body.contact {
             
     }
     body.contact{
-        margin-top: 300px;
+        margin-top: 350px;
     }
 
     .menu-button {
@@ -172,9 +174,11 @@ body.contact {
         font-size: 15px;
     }
     .contact-col{
+        margin-bottom: px;
         width: 100%;
-        margin-left: -21px;
-     
+        
+        margin-left: -25px;
+       
     }
 }
 
@@ -217,12 +221,12 @@ body.contact {
 .contact-col{
   
     flex-basis: 48%;
-    margin-bottom: 40px;
+    margin-bottom: 200px;
 }
 .contact-col div{
     display: flex;
     align-items: center;
-    margin-bottom: 40px;
+    
 }
 .contact-col div .fa{
     font-size: 28px;
