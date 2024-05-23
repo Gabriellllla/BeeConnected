@@ -253,6 +253,7 @@ body.home {
 /* ********************logout dialog******************* */
 
 #dialog-overlay {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -285,11 +286,11 @@ body.home {
 }
 
 #confirm-button {
-    background-color: #4CAF50;
+    background-color: #cc7532;
     color: white;
 }
 
 #cancel-button {
-    background-color: #f44336;
+    background-color: #520903;
     color: white;
 }
