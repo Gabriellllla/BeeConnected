@@ -7,6 +7,7 @@ body.home {
     background-color: #f9f9f9;
     margin: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -17,13 +18,19 @@ body.home {
     width: 100%;
     text-align: center;
     padding: 30px 0;
+    background-color: #f8f8f8;
+    border-top: 1px solid #e7e7e7;
 }
 .footer h4
 {
     margin-bottom: 25px;
-    margin-top: 200px;
+    margin-top: 20px;
     font-weight: 600;
     color: var(--secondary-color);
+}
+.footer p {
+    margin: 0;
+    padding: 0;
 }
 /* Stilurile pentru meniul de sus */
 .top-menu {
@@ -108,30 +115,7 @@ body.home {
 .menu-button:hover, .dropbtn:hover {
     background-color: #555;
 }
-/* .dropdown {
-    position: relative;
-    display: inline-block;
-}
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    z-index: 1;
-}
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-.dropdown-content a:hover {
-    background-color: #ddd;
-}
-.dropdown:hover .dropdown-content {
-    display: block;
-} */
+
 /* Stilurile pentru conținutul principal */
 @media screen and (max-width: 768px) {
     .top-menu {
@@ -305,3 +289,14 @@ body.home {
 #dialog-box p {
     margin-bottom: 20px;
 }
+.icons .fa {
+    color: #f44336;
+    margin: 0 13px;
+    cursor: pointer;
+    padding: 18px 0;
+}
+
+.fa-heart-o {
+    color: #f44336;
+}
+
