@@ -22,24 +22,24 @@ function getQueryParam(param) {
     return urlParams.get(param);
 }
 
-document.getElementById("diseases-present").addEventListener("change", (event) => {
-    document.getElementById("disease-options").style.display = event.target.checked ? "block" : "none";
+document.getElementById("Are boli").addEventListener("change", (event) => {
+    document.getElementById("Optiuni boli").style.display = event.target.checked ? "block" : "none";
 });
 
-document.getElementById("feeding").addEventListener("change", (event) => {
-    document.getElementById("feeding-options").style.display = event.target.checked ? "block" : "none";
+document.getElementById("Mâncare").addEventListener("change", (event) => {
+    document.getElementById("Tipul mâncării").style.display = event.target.checked ? "block" : "none";
 });
 
 document.getElementById("add-inspection-form").addEventListener("submit", async (e) => {
     e.preventDefault();
     
-    const inspectionDate = document.getElementById("inspection-date").value;
-    const queenPresent = document.getElementById("queen-present").checked;
-    const broodPresent = document.getElementById("brood-present").checked;
-    const diseasesPresent = document.getElementById("diseases-present").checked;
-    const diseaseType = diseasesPresent ? document.getElementById("disease-type").value : null;
-    const feeding = document.getElementById("feeding").checked;
-    const feedingType = feeding ? Array.from(document.getElementById("feeding-type").selectedOptions).map(option => option.value) : null;
+    const inspectionDate = document.getElementById("Data inspecției").value;
+    const queenPresent = document.getElementById("Regină prezentă").checked;
+    const broodPresent = document.getElementById("Puiet").checked;
+    const diseasesPresent = document.getElementById("Are boli").checked;
+    const diseaseType = diseasesPresent ? document.getElementById("Tipul bolii").value : null;
+    const feeding = document.getElementById("Mâncare").checked;
+    const feedingType = feeding ? Array.from(document.getElementById("Tipul mâncării").selectedOptions).map(option => option.value) : null;
 
     const inspectionData = {
         date: inspectionDate,
