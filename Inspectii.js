@@ -71,23 +71,25 @@ onAuthStateChanged(auth, async (user) => {
 // Funcție pentru a afișa dialogul cu inspecția
 function showInspectionDialog(inspectieData) {
     const inspectionDialog = document.getElementById('inspection-dialog');
-    const inspectionContent = document.getElementById('inspection-content');
-    inspectionContent.innerHTML = `<pre>${JSON.stringify(inspectieData, null, 2)}</pre>`;
+    const inspectionDetails = document.getElementById('inspection-details');
+    inspectionDetails.innerHTML = `
+        <h2>Detalii Inspecție</h2>
+        <p><strong>Data:</strong> ${inspectieData.date}</p>
+        <p><strong>Observații:</strong> ${inspectieData.observatii}</p>
+        <p><strong>Concluzii:</strong> ${inspectieData.concluzii}</p>
+        <p><strong>Acțiuni:</strong> ${inspectieData.actiuni}</p>
+    `;
     inspectionDialog.style.display = 'block';
-    document.getElementById('dialog-overlay').style.display = 'block';
+    document.getElementById('overlay').style.display = 'block';
 }
 
-// Funcție pentru a închide dialogul cu inspecția
 function closeInspectionDialog() {
     const inspectionDialog = document.getElementById('inspection-dialog');
     inspectionDialog.style.display = 'none';
-    document.getElementById('dialog-overlay').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
 }
 
-// Evenimente pentru a închide dialogul
-document.getElementById('close-inspection-dialog').onclick = closeInspectionDialog;
-
-
+document.getElementById('close-dialog').onclick = closeInspectionDialog;
 // *****logout button******
 
 document.addEventListener('DOMContentLoaded', function() {

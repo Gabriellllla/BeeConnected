@@ -318,8 +318,7 @@ body.home {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Adăugăm stiluri pentru dialog-overlay-ul de inspectie */
-.dialog-overlay {
+#overlay {
     display: none;
     position: fixed;
     top: 0;
