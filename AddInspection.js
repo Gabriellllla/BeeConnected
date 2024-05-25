@@ -33,22 +33,22 @@ document.getElementById("Mâncare").addEventListener("change", (event) => {
 document.getElementById("add-inspection-form").addEventListener("submit", async (e) => {
     e.preventDefault();
     
-    const inspectionDate = document.getElementById("Data inspecției").value;
-    const queenPresent = document.getElementById("Regină prezentă").checked;
-    const broodPresent = document.getElementById("Puiet").checked;
-    const diseasesPresent = document.getElementById("Are boli").checked;
-    const diseaseType = diseasesPresent ? document.getElementById("Tipul bolii").value : null;
-    const feeding = document.getElementById("Mâncare").checked;
-    const feedingType = feeding ? Array.from(document.getElementById("Tipul mâncării").selectedOptions).map(option => option.value) : null;
+    const Data_inspecției = document.getElementById("Data inspecției").value;
+    const Regină_prezentă = document.getElementById("Regină prezentă").checked;
+    const Puiet = document.getElementById("Puiet").checked;
+    const Are_boli = document.getElementById("Are boli").checked;
+    const Tipul_bolii = Are_boli ? document.getElementById("Tipul bolii").value : null;
+    const Mâncare = document.getElementById("Mâncare").checked;
+    const Tipul_mâncării = Mâncare ? Array.from(document.getElementById("Tipul mâncării").selectedOptions).map(option => option.value) : null;
 
     const inspectionData = {
-        date: inspectionDate,
-        queenPresent: queenPresent,
-        broodPresent: broodPresent,
-        diseasesPresent: diseasesPresent,
-        diseaseType: diseaseType,
-        feeding: feeding,
-        feedingType: feedingType
+        date: Data_inspecției,
+        Regină_prezentă: Regină_prezentă,
+        Puiet: Puiet,
+        Are_boli: Are_boli,
+        Tipul_bolii: Tipul_bolii,
+        Mâncare: Mâncare,
+        Tipul_mâncării: Tipul_mâncării
     };
 
     onAuthStateChanged(auth, async (user) => {
