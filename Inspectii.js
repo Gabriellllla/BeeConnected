@@ -68,28 +68,6 @@ onAuthStateChanged(auth, async (user) => {
     }
 });
 
-// Funcție pentru a afișa dialogul cu inspecția
-function showInspectionDialog(inspectieData) {
-    const inspectionDialog = document.getElementById('inspection-dialog');
-    const inspectionDetails = document.getElementById('inspection-details');
-    inspectionDetails.innerHTML = `
-        <h2>Detalii Inspecție</h2>
-        <p><strong>Data:</strong> ${inspectieData.date}</p>
-        <p><strong>Observații:</strong> ${inspectieData.observatii}</p>
-        <p><strong>Concluzii:</strong> ${inspectieData.concluzii}</p>
-        <p><strong>Acțiuni:</strong> ${inspectieData.actiuni}</p>
-    `;
-    inspectionDialog.style.display = 'block';
-    document.getElementById('overlay').style.display = 'block';
-}
-
-function closeInspectionDialog() {
-    const inspectionDialog = document.getElementById('inspection-dialog');
-    inspectionDialog.style.display = 'none';
-    document.getElementById('overlay').style.display = 'none';
-}
-
-document.getElementById('close-dialog').onclick = closeInspectionDialog;
 // *****logout button******
 
 document.addEventListener('DOMContentLoaded', function() {
