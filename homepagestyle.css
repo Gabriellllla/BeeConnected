@@ -345,6 +345,12 @@ body.home {
     cursor: pointer;
       
   }
+  #add-inspection-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* spațiere între inspecții */
+    margin-top: 20px;
+}
   .inspection-list {
     list-style-type: none;
     padding: 0;
