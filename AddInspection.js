@@ -39,7 +39,8 @@ document.getElementById("add-inspection-form").addEventListener("submit", async 
     const Are_boli = document.getElementById("Are boli").checked;
     const Tipul_bolii = Are_boli ? document.getElementById("Tipul bolii").value : null;
     const Mâncare = document.getElementById("Mâncare").checked;
-    const Tipul_mâncării = Mâncare ? Array.from(document.getElementById("Tipul mâncării").selectedOptions).map(option => option.value) : null;
+    const Tipul_mâncării_elem = document.getElementById("Tipul mâncării");
+    const Tipul_mâncării = (Mâncare && Tipul_mâncării_elem) ? Array.from(Tipul_mâncării_elem.selectedOptions).map(option => option.value) : null;
 
     const inspectionData = {
         date: Data_inspecției,
