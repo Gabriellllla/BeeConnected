@@ -275,13 +275,10 @@ body.regina-noua{
     background-color: #f9f9f9;
      margin: 0;
    
-   
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-size: cover;
-    width: 100%;
+     margin: 0;
+     padding: 0;
+     
+    
 }
 
 @media(max-width: 700px)
@@ -312,6 +309,9 @@ p{
     display: flex;
     justify-content: space-between;
     
+    flex-wrap: wrap;
+   
+    
 }
 
 .sub-header{
@@ -337,19 +337,20 @@ p{
     margin: auto;
     padding-top: 80px;
     padding-bottom: 50px;
-    margin: 20px;
+   
     padding: 20px; /* Adaugă un spațiu între conținut și chenar */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Adaugă o umbră subtilă în jurul conținutului */
     border-radius: 10px; /* Rotunjește colțurile chenarului */
      /* Rotunjirea colțurilor chenarului */
     background-color: rgba(255, 255, 255, 0.8); /* Culoarea de fundal cu transparență */
-    margin-top: 100px;
-    margin-bottom: 400px;
+    margin-top: 80px; /* Ajustează acest spațiu în funcție de înălțimea meniului */
+    padding: 20px;
 }
 
 .about-col{
-    flex-basis: 48%;
-    padding: 30px 2px;
+    flex: 1;
+    min-width: 300px;
+    margin: 20px;
 }
 
 .about-col img{
