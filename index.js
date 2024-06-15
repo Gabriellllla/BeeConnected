@@ -98,18 +98,22 @@ loginButtonEl.addEventListener("click", function() {
         });
 });
 // Logica pentru resetarea parolei
+// Logica pentru resetarea parolei
 resetPasswordLinkEl.addEventListener("click", () => {
+    console.log("Link resetare parola apăsat.");
     loginContainerEl.style.display = "none";
     resetPasswordContainerEl.style.display = "block";
   });
   
   backToLoginLinkEl.addEventListener("click", () => {
+    console.log("Link înapoi la autentificare apăsat.");
     loginContainerEl.style.display = "block";
     resetPasswordContainerEl.style.display = "none";
   });
   
   resetButtonEl.addEventListener("click", () => {
     const resetEmail = resetEmailInputEl.value;
+    console.log("Trimitere email pentru resetare parola la:", resetEmail);
   
     sendPasswordResetEmail(auth, resetEmail)
       .then(() => {

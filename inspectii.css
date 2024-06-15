@@ -144,6 +144,65 @@ body {
     }
 
 }
+.main-content {
+    margin: 20px;
+    padding: 20px; /* Adaugă un spațiu între conținut și chenar */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Adaugă o umbră subtilă în jurul conținutului */
+    border-radius: 10px; /* Rotunjește colțurile chenarului */
+     /* Rotunjirea colțurilor chenarului */
+    background-color: rgba(255, 255, 255, 0.8); /* Culoarea de fundal cu transparență */
+    margin-top: 100px;
+    margin-bottom: 400px;
+}
+#hive-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 20px;
+    width: 500px; /* Ajustează lățimea */
+    height: 400px;  /* Ajustează înălțimea */
+
+}
+#hive-list button {
+    width: 70%;
+    margin-bottom: 20px;
+    background-color: #aa6408;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    height: 80px;
+    transition: background-color 0.3s ease;
+    height: 100px;
+}
+/* Alte stiluri pot fi adăugate aici */
+/* Stilurile pentru butonul de adăugare stupină nouă */
+.add-button {
+    width: 60%;
+    margin-right: 20px; /* Poziționează butonul în partea dreaptă */
+    margin-top: 20px; /* Poziționează butonul în partea de sus */
+    margin-bottom: 20px;
+    align-content: center;
+    text-align:center;
+}
+
+.add-button button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.add-button button:hover {
+    background-color: #555;
+}
+
+
 
 #dialog-overlay {
     display: none;

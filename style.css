@@ -499,3 +499,30 @@ body.home {
 /* Alte stiluri pot fi adăugate aici */
 
 /* ********************logout dialog******************* */
+/* Container Styles */
+.reset-password-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+.logo-index {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+/* Specific Container Styles */
+.input-group {
+    margin-bottom: 15px;
+}
+
+.login-button, .reset-button {
+    margin-top: 10px;
+}
+
+.hidden {
+    display: none;
+}
