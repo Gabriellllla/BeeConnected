@@ -1,4 +1,3 @@
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail, setPersistence, browserSessionPersistence  } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 import { getFirestore, doc, updateDoc, getDoc } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
@@ -32,19 +31,16 @@ setPersistence(auth, browserSessionPersistence)
   
 const db = getFirestore(app);
 
-
-
 // Referințele către elementele HTML
 const emailInputEl = document.getElementById("email");
 const parolaInputEl = document.getElementById("parola");
 const loginButtonEl = document.getElementById("login-button");
 const resetPasswordLinkEl = document.getElementById("reset-password-link");
 const resetPasswordContainerEl = document.getElementById("reset-password-container");
-const loginContainerEl = document.querySelector(".login-container");
+const loginContainerEl = document.getElementById("login-container");
 const resetEmailInputEl = document.getElementById("reset-email");
 const resetButtonEl = document.getElementById("reset-button");
 const backToLoginLinkEl = document.getElementById("back-to-login-link");
-
 
 // Adăugarea unui listener pentru butonul de înregistrare
 loginButtonEl.addEventListener("click", function() {
@@ -86,7 +82,6 @@ loginButtonEl.addEventListener("click", function() {
                 })
                 .catch((error) => {
                     console.error("Eroare la obținerea datelor utilizatorului:", error);
-                   
                     // Poți afișa un mesaj de eroare către utilizator sau să iei alte măsuri necesare
                 });
         })
@@ -97,6 +92,7 @@ loginButtonEl.addEventListener("click", function() {
             // Poți afișa un mesaj de eroare către utilizator sau să iei alte măsuri necesare
         });
 });
+
 // Logica pentru resetarea parolei
 resetPasswordLinkEl.addEventListener("click", function() {
     loginContainerEl.classList.add("hidden");
