@@ -372,4 +372,10 @@ body {
 #stup-list button:hover, #add-stup-button:hover {
     background-color: #0056b3;
 }
+#add-hive-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* spațiere între inspecții */
+    margin-top: 20px;
+}
 
