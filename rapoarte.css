@@ -337,6 +337,14 @@ p{
     margin: auto;
     padding-top: 80px;
     padding-bottom: 50px;
+    margin: 20px;
+    padding: 20px; /* Adaugă un spațiu între conținut și chenar */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Adaugă o umbră subtilă în jurul conținutului */
+    border-radius: 10px; /* Rotunjește colțurile chenarului */
+     /* Rotunjirea colțurilor chenarului */
+    background-color: rgba(255, 255, 255, 0.8); /* Culoarea de fundal cu transparență */
+    margin-top: 100px;
+    margin-bottom: 400px;
 }
 
 .about-col{
