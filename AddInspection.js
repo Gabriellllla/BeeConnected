@@ -27,7 +27,7 @@ document.getElementById("Are boli").addEventListener("change", (event) => {
 });
 
 document.getElementById("Mâncare").addEventListener("change", (event) => {
-    document.getElementById("Tipul mâncării").style.display = event.target.checked ? "block" : "none";
+    document.getElementById("TipM").style.display = event.target.checked ? "block" : "none";
 });
 
 document.getElementById("add-inspection-form").addEventListener("submit", async (e) => {
@@ -39,7 +39,7 @@ document.getElementById("add-inspection-form").addEventListener("submit", async 
     const Are_boli = document.getElementById("Are boli").checked;
     const Tipul_bolii = Are_boli ? document.getElementById("Tipul bolii").value : null;
     const Mâncare = document.getElementById("Mâncare").checked;
-    const Tipul_mâncării = Mâncare ? document.getElementById("Tipul mâncării").value : null;
+    const TipM = Mâncare ? document.getElementById("Tipul mâncării").value : null;
 
     const inspectionData = {
         date: Data_inspecției,
@@ -48,7 +48,7 @@ document.getElementById("add-inspection-form").addEventListener("submit", async 
         Are_boli: Are_boli,
         Tipul_bolii: Tipul_bolii,
         Mâncare: Mâncare,
-        Tipul_mâncării: Tipul_mâncării
+        TipM: TipM
     };
 
     onAuthStateChanged(auth, async (user) => {
