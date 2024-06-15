@@ -98,30 +98,29 @@ loginButtonEl.addEventListener("click", function() {
         });
 });
 // Logica pentru resetarea parolei
-// Logica pentru resetarea parolei
-resetPasswordLinkEl.addEventListener("click", () => {
-    console.log("Link resetare parola apăsat.");
-    loginContainerEl.style.display = "none";
-    resetPasswordContainerEl.style.display = "block";
-  });
-  
-  backToLoginLinkEl.addEventListener("click", () => {
-    console.log("Link înapoi la autentificare apăsat.");
-    loginContainerEl.style.display = "block";
-    resetPasswordContainerEl.style.display = "none";
-  });
-  
-  resetButtonEl.addEventListener("click", () => {
-    const resetEmail = resetEmailInputEl.value;
-    console.log("Trimitere email pentru resetare parola la:", resetEmail);
-  
-    sendPasswordResetEmail(auth, resetEmail)
-      .then(() => {
-        console.log("Email pentru resetare parolă trimis cu succes.");
-        alert("Un email pentru resetarea parolei a fost trimis. Verificați inbox-ul.");
-      })
-      .catch((error) => {
-        console.error("Eroare la trimiterea emailului pentru resetare parolă:", error.message);
-        alert("A apărut o eroare la trimiterea emailului pentru resetare parolă.");
-      });
-  });
+resetPasswordLinkEl.addEventListener("click", function() {
+    loginContainerEl.classList.add("hidden");
+    resetPasswordContainerEl.classList.remove("hidden");
+});
+
+// Eveniment de click pentru butonul de resetare a parolei
+resetButtonEl.addEventListener("click", function() {
+    const email = resetEmailInputEl.value;
+
+    sendPasswordResetEmail(auth, email)
+        .then(() => {
+            console.log("Email pentru resetarea parolei trimis cu succes");
+            alert("Un email pentru resetarea parolei a fost trimis. Verifică căsuța de email.");
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.error("Eroare la trimiterea emailului pentru resetarea parolei:", errorMessage);
+        });
+});
+
+// Eveniment de click pentru linkul de întoarcere la autentificare
+backToLoginLinkEl.addEventListener("click", function() {
+    resetPasswordContainerEl.classList.add("hidden");
+    loginContainerEl.classList.remove("hidden");
+});
