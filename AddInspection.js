@@ -38,10 +38,9 @@ document.getElementById("add-inspection-form").addEventListener("submit", async 
     const Puiet = document.getElementById("Puiet").checked;
     const Are_boli = document.getElementById("Are boli").checked;
     const Tipul_bolii = Are_boli ? document.getElementById("Tipul bolii").value : null;
-    const Mâncare = document.getElementById("Mâncare").checked;
-    const Tipul_mâncării_elem = document.getElementById("Tipul mâncării");
-    const Tipul_mâncării = (Mâncare && Tipul_mâncării_elem) ? Array.from(Tipul_mâncării_elem.selectedOptions).map(option => option.value) : null;
-
+    const Mâncare= document.getElementById("Mâncare").checked;
+    const Tipul_mâncării = Mâncare ? document.getElementById("Tipul mâncării").value : null;
+   
     const inspectionData = {
         date: Data_inspecției,
         Regină_prezentă: Regină_prezentă,
