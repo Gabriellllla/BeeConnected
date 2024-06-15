@@ -496,10 +496,12 @@ body.home {
 #hive-list button {
     margin: 5px;
 }
-/* Alte stiluri pot fi adăugate aici */
 
-/* ********************logout dialog******************* */
-/* Container Styles */
+
+
+/* ********resetare parola***********/
+
+
  .reset-password-container {
     background-color: white;
     padding: 20px;
@@ -524,4 +526,15 @@ body.home {
 
 .hidden {
     display: none;
+}
+
+/* *******recuperare parola********** */
+.message-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    margin: 100px auto;
 }

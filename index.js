@@ -76,20 +76,22 @@ loginButtonEl.addEventListener("click", function() {
                         } else {
                             // Utilizatorul a mai vizitat deja pagina de bun venit
                             window.location.href = "home.html";
-                            // Poate fi redirecționat către altă pagină sau puteți lua alte acțiuni necesare
+                            
                         }
                     }
                 })
                 .catch((error) => {
                     console.error("Eroare la obținerea datelor utilizatorului:", error);
-                    // Poți afișa un mesaj de eroare către utilizator sau să iei alte măsuri necesare
+                    
                 });
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
             console.error("Eroare la autentificare:", errorMessage);
-            // Poți afișa un mesaj de eroare către utilizator sau să iei alte măsuri necesare
+            
+            window.location.href = "recuperare-parola.html";
+     
         });
 });
 

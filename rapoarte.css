@@ -265,3 +265,105 @@ body{
 #dialog-box p {
     margin-bottom: 20px;
 }
+
+
+body.regina{
+    background-color: antiquewhite;
+    background-attachment: fixed; /* Face imaginea de fundal să fie fixă */
+    background-repeat: no-repeat;
+    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
+    background-color: #f9f9f9;
+     margin: 0;
+     margin-top: 900px;
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-size: cover;
+    width: 100%;
+}
+
+@media(max-width: 700px)
+{
+    .row{
+        flex-direction: column;
+
+    }
+}
+
+h1{
+    font-size:36px;
+    font-weight: 600;
+    text-align: center;
+    color: var(--secondary-color);
+}
+p{
+    color:#777;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 22px;
+    padding: 10px;
+    text-align: center;
+}
+.row{
+
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.sub-header{
+    
+    height: 60vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(190, 91, 197, 0.7), rgba(58, 61, 73, 0.7)), url(images/home.jpg);
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+
+
+.sub-header h1{
+    margin-top: -20px;
+
+}
+
+.about-us{
+    width: 80%;
+    margin: auto;
+    padding-top: 80px;
+    padding-bottom: 50px;
+}
+
+.about-col{
+    flex-basis: 48%;
+    padding: 30px 2px;
+}
+
+.about-col img{
+    width: 100%;
+}
+
+.about-col h1{
+    padding-top: 0;
+}
+
+.about-col p{
+    padding: 15px 0 25px;
+    text-align: left;
+}
+
+.red-btn{
+    border: 1px solid #d8681d;
+    background: transparent;
+    color: #d8681d;
+}
+
+.red-btn:hover{
+    color: var(--primary-color);
+}
+
