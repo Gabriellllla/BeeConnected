@@ -27,7 +27,7 @@ document.getElementById("Are boli").addEventListener("change", (event) => {
 });
 
 document.getElementById("Mâncare").addEventListener("change", (event) => {
-    document.getElementById("TipM").style.display = event.target.checked ? "block" : "none";
+    document.getElementById("Tipul mâncării").style.display = event.target.checked ? "block" : "none";
 });
 
 document.getElementById("add-inspection-form").addEventListener("submit", async (e) => {
