@@ -38,7 +38,7 @@ document.getElementById("add-inspection-form").addEventListener("submit", async 
     const Puiet = document.getElementById("Puiet").checked;
     const Are_boli = document.getElementById("Are boli").checked;
     const Tipul_bolii = Are_boli ? document.getElementById("Tipul bolii").value : null;
-    const Mâncare= document.getElementById("Mâncare").checked;
+    const Mâncare = document.getElementById("Mâncare").checked;
     const Tipul_mâncării = Mâncare ? document.getElementById("Tipul mâncării").value : null;
    
     const inspectionData = {
@@ -48,7 +48,7 @@ document.getElementById("add-inspection-form").addEventListener("submit", async 
         Are_boli: Are_boli,
         Tipul_bolii: Tipul_bolii,
         Mâncare: Mâncare,
-        Tipul_mâncării: Tipul_mâncării
+        Tipul_mâncării: Tipul_mâncării ? Tipul_mâncării : []
     };
 
     onAuthStateChanged(auth, async (user) => {
