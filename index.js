@@ -90,7 +90,7 @@ loginButtonEl.addEventListener("click", function() {
             const errorMessage = error.message;
             console.error("Eroare la autentificare:", errorMessage);
             
-            window.location.href = "recuperare-parola.html";
+            window.location.href = "recuperare_parola.html";
      
         });
 });
