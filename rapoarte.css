@@ -267,14 +267,14 @@ body{
 }
 
 
-body.regina{
+body.regina-noua{
     background-color: antiquewhite;
     background-attachment: fixed; /* Face imaginea de fundal să fie fixă */
     background-repeat: no-repeat;
     font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
     background-color: #f9f9f9;
      margin: 0;
-     margin-top: 900px;
+   
    
     display: flex;
     justify-content: center;
