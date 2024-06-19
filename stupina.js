@@ -47,7 +47,14 @@ onAuthStateChanged(auth, async (user) => {
             const stupiRef = collection(db, "stupine", userId, "stupine", stupinaId, "stupi");
             const stupiSnapshot = await getDocs(stupiRef);
             hiveListContainer.innerHTML = "";
-            stupiSnapshot.forEach((stupDoc) => {
+
+            let warningMessage = "";
+            let showWarning = false;
+            const currentDate = new Date();
+            const currentMonth = currentDate.getMonth() + 1;
+            const isWinter = currentMonth <= 2 || currentMonth === 12;
+
+            stupiSnapshot.forEach(async (stupDoc) => {
                 const stupData = stupDoc.data();
 
                 console.log("Nume: " + stupData.name + ", Tip: " + stupData.type);
@@ -58,7 +65,35 @@ onAuthStateChanged(auth, async (user) => {
                     window.location.href = `inspectii.html?stupinaId=${stupinaId}&stupId=${stupDoc.id}`;
                 });
                 hiveListContainer.appendChild(hiveElement);
+
+                const inspectiiRef = collection(db, "stupine", userId, "stupine", stupinaId, "stupi", stupDoc.id, "inspectii");
+                const inspectiiSnapshot = await getDocs(inspectiiRef);
+                inspectiiSnapshot.forEach((inspectieDoc) => {
+                    const inspectieData = inspectieDoc.data();
+                    const inspectieDate = new Date(inspectieData.date);
+                    const timeDifference = Math.abs(currentDate - inspectieDate);
+                    const dayDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+    
+                    // Verifică dacă avertismentul trebuie afișat
+                    if ((isWinter && dayDifference > 30) || (!isWinter && dayDifference > 7)) {
+                        warningMessage += `Stupul ${stupData.name} nu a fost inspectat de ${dayDifference} zile.\n`;
+                        showWarning = true;
+                    }
+                });
             });
+    
+            if (showWarning) {
+                const warningDialogOverlay = document.getElementById("warning-dialog-overlay");
+                const warningMessageElement = document.getElementById("warning-message");
+                warningMessageElement.textContent = warningMessage;
+                warningDialogOverlay.style.display = "flex";
+    
+                const closeWarningButton = document.getElementById("close-warning");
+                closeWarningButton.addEventListener("click", () => {
+                    warningDialogOverlay.style.display = "none";
+
+            });
+        }
         } catch (error) {
             console.error("Eroare la obținerea stupilor:", error);
         }
