@@ -55,7 +55,16 @@ document.getElementById("Tipul bolii").addEventListener("change", (event) => {
     }
 
     if (treatmentMessage) {
-        alert(`${treatmentMessage}\nPentru mai multe informații, vizitați pagina de Sfaturi Utile.`);
+        const diseaseMessageElement = document.getElementById("disease-message");
+        diseaseMessageElement.textContent = treatmentMessage;
+
+        const diseaseDialogOverlay = document.getElementById("disease-dialog-overlay");
+        diseaseDialogOverlay.style.display = 'flex';
+
+        const closeDiseaseDialogButton = document.getElementById("close-disease-dialog");
+        closeDiseaseDialogButton.addEventListener("click", () => {
+            diseaseDialogOverlay.style.display = 'none';
+        });
     }
 });
 
