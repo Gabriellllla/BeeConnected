@@ -31,6 +31,8 @@ document.getElementById("Mâncare").addEventListener("change", (event) => {
 });
 
 document.getElementById("Regină prezentă").addEventListener("change", (event) => {
+    const queenColorDialogOverlay = document.getElementById("queen-color-dialog-overlay");
+
     if (event.target.checked) {
         const currentYear = new Date().getFullYear();
         const lastDigit = currentYear % 10;
@@ -64,19 +66,21 @@ document.getElementById("Regină prezentă").addEventListener("change", (event) 
         const queenColorMessageElement = document.getElementById("queen-color-message");
         queenColorMessageElement.textContent = colorMessage;
 
-        const queenColorDialogOverlay = document.getElementById("queen-color-dialog-overlay");
+        // Afiseaza dialogul
         queenColorDialogOverlay.style.display = 'flex';
-
-        const closeQueenColorDialogButton = document.getElementById("close-queen-color-dialog");
-        closeQueenColorDialogButton.addEventListener("click", () => {
-            queenColorDialogOverlay.style.display = 'none';
-        });
     } else {
-        // Dacă utilizatorul deselectează checkbox-ul, ascundem dialogul dacă este afișat
-        const queenColorDialogOverlay = document.getElementById("queen-color-dialog-overlay");
+        // Ascunde dialogul daca utilizatorul deselecteaza checkbox-ul
         queenColorDialogOverlay.style.display = 'none';
     }
 });
+
+// Adauga eveniment pentru butonul de inchidere a dialogului
+const closeQueenColorDialogButton = document.getElementById("close-queen-color-dialog");
+closeQueenColorDialogButton.addEventListener("click", () => {
+    const queenColorDialogOverlay = document.getElementById("queen-color-dialog-overlay");
+    queenColorDialogOverlay.style.display = 'none';
+});
+
 
 document.getElementById("Tipul bolii").addEventListener("change", (event) => {
     const disease = event.target.value;
