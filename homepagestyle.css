@@ -543,7 +543,7 @@ body.home {
     margin: 20px 0;
 }
 
-#queen-color-dialog {
+#close-queen-color-dialog {
     background: #ff0000;
     color: white;
     border: none;
@@ -553,6 +553,6 @@ body.home {
     font-size: 16px;
 }
 
-#queen-color-dialog:hover {
+#close-queen-color-dialog:hover {
     background: #cc0000;
 }

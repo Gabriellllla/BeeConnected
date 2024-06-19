@@ -30,7 +30,53 @@ document.getElementById("Mâncare").addEventListener("change", (event) => {
     document.getElementById("Tipul mâncării").style.display = event.target.checked ? "block" : "none";
 });
 
+document.getElementById("Regină prezentă").addEventListener("change", (event) => {
+    if (event.target.checked) {
+        const currentYear = new Date().getFullYear();
+        const lastDigit = currentYear % 10;
+        let colorMessage = "";
 
+        switch (lastDigit) {
+            case 1:
+            case 6:
+                colorMessage = "Culoarea anului pentru matca este alb.";
+                break;
+            case 2:
+            case 7:
+                colorMessage = "Culoarea anului pentru matca este galben.";
+                break;
+            case 3:
+            case 8:
+                colorMessage = "Culoarea anului pentru matca este roșu.";
+                break;
+            case 4:
+            case 9:
+                colorMessage = "Culoarea anului pentru matca este verde.";
+                break;
+            case 0:
+            case 5:
+                colorMessage = "Culoarea anului pentru matca este albastru.";
+                break;
+            default:
+                colorMessage = "Nu s-a putut determina culoarea anului pentru matca.";
+        }
+
+        const queenColorMessageElement = document.getElementById("queen-color-message");
+        queenColorMessageElement.textContent = colorMessage;
+
+        const queenColorDialogOverlay = document.getElementById("queen-color-dialog-overlay");
+        queenColorDialogOverlay.style.display = 'flex';
+
+        const closeQueenColorDialogButton = document.getElementById("close-queen-color-dialog");
+        closeQueenColorDialogButton.addEventListener("click", () => {
+            queenColorDialogOverlay.style.display = 'none';
+        });
+    } else {
+        // Dacă utilizatorul deselectează checkbox-ul, ascundem dialogul dacă este afișat
+        const queenColorDialogOverlay = document.getElementById("queen-color-dialog-overlay");
+        queenColorDialogOverlay.style.display = 'none';
+    }
+});
 
 document.getElementById("Tipul bolii").addEventListener("change", (event) => {
     const disease = event.target.value;
@@ -117,53 +163,7 @@ document.getElementById("add-inspection-form").addEventListener("submit", async 
         }
     });
 });
-document.getElementById("Regină prezentă").addEventListener("change", (event) => {
-    if (event.target.checked) {
-        const currentYear = new Date().getFullYear();
-        const lastDigit = currentYear % 10;
-        let colorMessage = "";
 
-        switch (lastDigit) {
-            case 1:
-            case 6:
-                colorMessage = "Culoarea anului pentru matca este alb.";
-                break;
-            case 2:
-            case 7:
-                colorMessage = "Culoarea anului pentru matca este galben.";
-                break;
-            case 3:
-            case 8:
-                colorMessage = "Culoarea anului pentru matca este roșu.";
-                break;
-            case 4:
-            case 9:
-                colorMessage = "Culoarea anului pentru matca este verde.";
-                break;
-            case 0:
-            case 5:
-                colorMessage = "Culoarea anului pentru matca este albastru.";
-                break;
-            default:
-                colorMessage = "Nu s-a putut determina culoarea anului pentru matca.";
-        }
-
-        const queenColorMessageElement = document.getElementById("queen-color-message");
-        queenColorMessageElement.textContent = colorMessage;
-
-        const queenColorDialogOverlay = document.getElementById("queen-color-dialog-overlay");
-        queenColorDialogOverlay.style.display = 'flex';
-
-        const closeQueenColorDialogButton = document.getElementById("close-queen-color-dialog");
-        closeQueenColorDialogButton.addEventListener("click", () => {
-            queenColorDialogOverlay.style.display = 'none';
-        });
-    } else {
-        // Dacă utilizatorul deselectează checkbox-ul, ascundem dialogul dacă este afișat
-        const queenColorDialogOverlay = document.getElementById("queen-color-dialog-overlay");
-        queenColorDialogOverlay.style.display = 'none';
-    }
-});
 
 
 // *****logout button******
