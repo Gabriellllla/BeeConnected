@@ -30,6 +30,35 @@ document.getElementById("Mâncare").addEventListener("change", (event) => {
     document.getElementById("Tipul mâncării").style.display = event.target.checked ? "block" : "none";
 });
 
+document.getElementById("Tipul bolii").addEventListener("change", (event) => {
+    const disease = event.target.value;
+    let treatmentMessage = "";
+
+    switch(disease) {
+        case "Boala virala a albinelor":
+            treatmentMessage = "Tratament: Aplicați antivirale specifice și îmbunătățiți igiena stupului.";
+            break;
+        case "Loca americana":
+            treatmentMessage = "Tratament: Folosiți antibiotice și distrugeți fagurii afectați. Consultați un specialist.";
+            break;
+        case "Loca europeana":
+            treatmentMessage = "Tratament: Aplicați antibiotice și asigurați-vă că stupii sunt bine ventilați.";
+            break;
+        case "Nosemoza":
+            treatmentMessage = "Tratament: Administrați fumagilină și reduceți umiditatea în stup.";
+            break;
+        case "Varrooza":
+            treatmentMessage = "Tratament: Utilizați acaricide și monitorizați nivelul de infestare.";
+            break;
+        default:
+            treatmentMessage = "";
+    }
+
+    if (treatmentMessage) {
+        alert(`${treatmentMessage}\nPentru mai multe informații, vizitați pagina de Sfaturi Utile.`);
+    }
+});
+
 document.getElementById("add-inspection-form").addEventListener("submit", async (e) => {
     e.preventDefault();
     
