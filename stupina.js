@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
 import { getFirestore, doc, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
-import { getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDY4OQCbazOZQ9EIFZR5iY1tfV5yQ2IJ4g",
@@ -54,7 +54,7 @@ onAuthStateChanged(auth, async (user) => {
             const currentMonth = currentDate.getMonth() + 1;
             const isWinter = currentMonth <= 2 || currentMonth === 12;
 
-            stupiSnapshot.forEach(async (stupDoc) => {
+            const promises = stupiSnapshot.docs.map(async (stupDoc) => {
                 const stupData = stupDoc.data();
 
                 console.log("Nume: " + stupData.name + ", Tip: " + stupData.type);
@@ -68,12 +68,13 @@ onAuthStateChanged(auth, async (user) => {
 
                 const inspectiiRef = collection(db, "stupine", userId, "stupine", stupinaId, "stupi", stupDoc.id, "inspectii");
                 const inspectiiSnapshot = await getDocs(inspectiiRef);
+
                 inspectiiSnapshot.forEach((inspectieDoc) => {
                     const inspectieData = inspectieDoc.data();
                     const inspectieDate = new Date(inspectieData.date);
                     const timeDifference = Math.abs(currentDate - inspectieDate);
                     const dayDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
-    
+
                     // Verifică dacă avertismentul trebuie afișat
                     if ((isWinter && dayDifference > 30) || (!isWinter && dayDifference > 7)) {
                         warningMessage += `Stupul ${stupData.name} nu a fost inspectat de ${dayDifference} zile.\n`;
@@ -81,19 +82,20 @@ onAuthStateChanged(auth, async (user) => {
                     }
                 });
             });
-    
+
+            await Promise.all(promises);
+
             if (showWarning) {
                 const warningDialogOverlay = document.getElementById("warning-dialog-overlay");
                 const warningMessageElement = document.getElementById("warning-message");
                 warningMessageElement.textContent = warningMessage;
                 warningDialogOverlay.style.display = "flex";
-    
+
                 const closeWarningButton = document.getElementById("close-warning");
                 closeWarningButton.addEventListener("click", () => {
                     warningDialogOverlay.style.display = "none";
-
-            });
-        }
+                });
+            }
         } catch (error) {
             console.error("Eroare la obținerea stupilor:", error);
         }
@@ -101,47 +103,6 @@ onAuthStateChanged(auth, async (user) => {
         console.log("Utilizatorul nu este autentificat.");
     }
 });
-// function getQueryParam(param) {
-//     const urlParams = new URLSearchParams(window.location.search);
-//     return urlParams.get(param);
-// }
-
-// document.getElementById("add-hive-button").addEventListener("click", () => {
-//     const stupinaId = getQueryParam("stupinaId");
-//     window.location.href = `AddHive.html?stupinaId=${stupinaId}`;
-// });
-
-// onAuthStateChanged(auth, async (user) => {
-//     if (user) {
-//         const userId = user.uid;
-//         const stupinaId = getQueryParam("stupinaId");
-//         const hiveListContainer = document.getElementById("hive-list");
-//         const urlParams = new URLSearchParams(window.location.search);
-//         hiveListContainer.innerHTML = ""; // Golește conținutul înainte de a adăuga stupii
-
-//         try {
-//             const stupiRef = collection(db, "stupine", userId, "stupine", stupinaId, "stupi");
-//             const stupiSnapshot = await getDocs(stupiRef);
-//           hiveListContainer.innerHTML = "";
-//             stupiSnapshot.forEach((stupDoc) => {
-//                 const stupData = stupDoc.data();
-
-//                 console.log("Nume: " + stupData.nume + ", Tip: " + stupData.tip);
-//                 const hiveElement = document.createElement("button");
-//                 hiveElement.classList.add("hive-item");
-//                 hiveElement.textContent = `Nume: ${stupData.name}, Tip: ${stupData.type}`;
-//                 hiveElement.addEventListener("click", () => {
-//                     window.location.href = `inspectii.html?stupinaId=${stupinaId}&stupId=${doc.id}`;
-//                 });
-//                 hiveListContainer.appendChild(hiveElement);
-//             });
-//         } catch (error) {
-//             console.error("Eroare la obținerea stupilor:", error);
-//         }
-//     } else {
-//         console.log("Utilizatorul nu este autentificat.");
-//     }
-// });
 
 // *****logout button******
 
