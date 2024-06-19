@@ -69,10 +69,18 @@ onAuthStateChanged(auth, async (user) => {
                 const inspectiiRef = collection(db, "stupine", userId, "stupine", stupinaId, "stupi", stupDoc.id, "inspectii");
                 const inspectiiSnapshot = await getDocs(inspectiiRef);
 
+                let latestInspectieDate = null;
+
                 inspectiiSnapshot.forEach((inspectieDoc) => {
                     const inspectieData = inspectieDoc.data();
                     const inspectieDate = new Date(inspectieData.date);
-                    const timeDifference = Math.abs(currentDate - inspectieDate);
+                    if (!latestInspectieDate || inspectieDate > latestInspectieDate) {
+                        latestInspectieDate = inspectieDate;
+                    }
+                });
+
+                if (latestInspectieDate) {
+                    const timeDifference = Math.abs(currentDate - latestInspectieDate);
                     const dayDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
 
                     // Verifică dacă avertismentul trebuie afișat
@@ -80,12 +88,13 @@ onAuthStateChanged(auth, async (user) => {
                         warningMessage += `Stupul ${stupData.name} nu a fost inspectat de ${dayDifference} zile.\n`;
                         showWarning = true;
                     }
-                });
+                }
             });
 
             await Promise.all(promises);
 
             if (showWarning) {
+                console.log("Avertismente: ", warningMessage); // Afișează mesajele de avertizare în consolă
                 const warningDialogOverlay = document.getElementById("warning-dialog-overlay");
                 const warningMessageElement = document.getElementById("warning-message");
                 warningMessageElement.textContent = warningMessage;
@@ -95,6 +104,8 @@ onAuthStateChanged(auth, async (user) => {
                 closeWarningButton.addEventListener("click", () => {
                     warningDialogOverlay.style.display = "none";
                 });
+            } else {
+                console.log("Nu există avertismente.");
             }
         } catch (error) {
             console.error("Eroare la obținerea stupilor:", error);
