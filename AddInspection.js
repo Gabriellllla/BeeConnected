@@ -34,8 +34,10 @@ document.getElementById("Regină prezentă").addEventListener("change", (event) 
     const queenColorDialogOverlay = document.getElementById("queen-color-dialog-overlay");
 
     if (event.target.checked) {
-        const currentYear = new Date().getFullYear();
-        const lastDigit = currentYear % 10;
+        const dataInspectiei = document.getElementById("Data inspecției").value;
+        const inspectieDate = new Date(dataInspectiei);
+        const inspectieYear = inspectieDate.getFullYear();
+        const lastDigit = inspectieYear % 10;
         let colorMessage = "";
 
         switch (lastDigit) {
